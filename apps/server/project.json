@@ -1,0 +1,14 @@
+{
+  "name": "cafeteria-server",
+  "projectType": "application",
+  "sourceRoot": "apps/server",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "php -S localhost:8000",
+        "cwd": "apps/server"
+      }
+    }
+  }
+}

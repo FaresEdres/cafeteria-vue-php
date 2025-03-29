@@ -1,0 +1,142 @@
+{
+  "apps/client": {
+    "root": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.command": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.cwd": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.command": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.cwd": [
+      "apps/client/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.serve.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.serve.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "apps/server": {
+    "root": [
+      "apps/server/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/server/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/server/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/server/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/server/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/server/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/server/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/server/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.command": [
+      "apps/server/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.cwd": [
+      "apps/server/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.dependsOn": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.serve.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  }
+}

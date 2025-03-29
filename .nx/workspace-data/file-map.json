@@ -1,0 +1,91 @@
+{
+  "version": "6.0",
+  "nxVersion": "20.6.4",
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6147899740314209172"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "3833545590435012078"
+      },
+      {
+        "file": "README.md",
+        "hash": "7771543063366406448"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15494131853977705247"
+      },
+      {
+        "file": "nx.json.bak",
+        "hash": "15494131853977705247"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "16752547497333086568"
+      },
+      {
+        "file": "package.json",
+        "hash": "4584571798587299077"
+      }
+    ],
+    "projectFileMap": {
+      "cafeteria-client": [
+        {
+          "file": "apps/client/index.html",
+          "hash": "17456302502631126697"
+        },
+        {
+          "file": "apps/client/project.json",
+          "hash": "16789602054926663301"
+        },
+        {
+          "file": "apps/client/project.json.bak",
+          "hash": "11246426028925388513"
+        },
+        {
+          "file": "apps/client/src/App.vue",
+          "hash": "12630585383450112057"
+        },
+        {
+          "file": "apps/client/src/main.js",
+          "hash": "5246760033076216554",
+          "deps": [
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "apps/client/vite.config.js",
+          "hash": "7218202666782593485",
+          "deps": [
+            "npm:vite",
+            "npm:@vitejs/plugin-vue"
+          ]
+        }
+      ],
+      "cafeteria-server": [
+        {
+          "file": "apps/server/index.php",
+          "hash": "6508687435135398773"
+        },
+        {
+          "file": "apps/server/project.json",
+          "hash": "4895389289235459782"
+        },
+        {
+          "file": "apps/server/project.json.bak",
+          "hash": "9843490235830516395"
+        }
+      ]
+    }
+  }
+}

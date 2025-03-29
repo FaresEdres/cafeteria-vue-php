@@ -1,0 +1,24 @@
+{
+  "name": "cafeteria-client",
+  "projectType": "application",
+  "sourceRoot": "apps/client/src",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite build",
+        "cwd": "apps/client"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite",
+        "cwd": "apps/client"
+      }
+    }
+  }
+}

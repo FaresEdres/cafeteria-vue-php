@@ -1,0 +1,14 @@
+{
+  "name": "my-php-app",
+  "projectType": "application",
+  "sourceRoot": "apps/my-php-app",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "php -S localhost:8000",
+        "cwd": "apps/my-php-app"
+      }
+    }
+  }
+}
