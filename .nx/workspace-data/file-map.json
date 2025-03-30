@@ -6,36 +6,28 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "6147899740314209172"
-      },
-      {
-        "file": ".vscode/extensions.json",
-        "hash": "3833545590435012078"
-      },
-      {
-        "file": "README.md",
-        "hash": "7771543063366406448"
-      },
-      {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
-      },
-      {
-        "file": "nx.json.bak",
-        "hash": "15494131853977705247"
-      },
-      {
         "file": "package-lock.json",
         "hash": "16752547497333086568"
       },
       {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
         "file": "package.json",
         "hash": "4584571798587299077"
+      },
+      {
+        "file": "README.md",
+        "hash": "13454385417909392150"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15494131853977705247"
       }
     ],
     "projectFileMap": {
@@ -47,10 +39,6 @@
         {
           "file": "apps/client/project.json",
           "hash": "16789602054926663301"
-        },
-        {
-          "file": "apps/client/project.json.bak",
-          "hash": "11246426028925388513"
         },
         {
           "file": "apps/client/src/App.vue",
@@ -74,16 +62,60 @@
       ],
       "cafeteria-server": [
         {
+          "file": "apps/server/composer.json",
+          "hash": "15096888474940291993"
+        },
+        {
+          "file": "apps/server/composer.lock",
+          "hash": "1219986706156695263"
+        },
+        {
+          "file": "apps/server/controller/userModel.php",
+          "hash": "716349523729472406"
+        },
+        {
+          "file": "apps/server/database/connector.php",
+          "hash": "9845880384996385556"
+        },
+        {
+          "file": "apps/server/database/credentials.php",
+          "hash": "2589369250648628704"
+        },
+        {
+          "file": "apps/server/database/operations.php",
+          "hash": "12090958323137189671"
+        },
+        {
           "file": "apps/server/index.php",
-          "hash": "6508687435135398773"
+          "hash": "7825691390532034148"
+        },
+        {
+          "file": "apps/server/model/connector.php",
+          "hash": "9845880384996385556"
+        },
+        {
+          "file": "apps/server/model/credentials.php",
+          "hash": "2589369250648628704"
+        },
+        {
+          "file": "apps/server/model/database/connector.php",
+          "hash": "17946198868202850637"
+        },
+        {
+          "file": "apps/server/model/database/credentials.php",
+          "hash": "1555538875778039980"
+        },
+        {
+          "file": "apps/server/model/userModel.php",
+          "hash": "6947199430470456947"
         },
         {
           "file": "apps/server/project.json",
           "hash": "4895389289235459782"
         },
         {
-          "file": "apps/server/project.json.bak",
-          "hash": "9843490235830516395"
+          "file": "apps/server/utils.php",
+          "hash": "13630939092441511347"
         }
       ]
     }

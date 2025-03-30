@@ -1,12 +1,30 @@
 <?php
-header("Content-Type: application/json");
-header("Access-Control-Allow-Origin: *");
+require_once __DIR__.  "/controller/userModel.php"; 
 
-$response = [
-    "message" => "Welcome to Cafeteria Management System API",
-    "timestamp" => time(),
-    "environment" => "Development"
-];
+require __DIR__ . '/vendor/autoload.php';
 
-echo json_encode($response, JSON_PRETTY_PRINT);
+Dotenv\Dotenv::createImmutable(__DIR__)->load();
 
+/*
+echo getenv('APP_ENV');
+echo $_ENV['APP_NAME'];
+*/
+
+
+$connection = SQLConnector::getInstance();
+if ($connection) {
+    echo "<h2>✅ Database Connection Successful</h2>";
+} else {
+    echo "<h2>❌ Database Connection Failed</h2>";
+}
+
+$users = getAllUsers();
+if ($users) {
+    echo "<h2>✅ Users Retrieved</h2>";
+    echo "<pre>";
+    print_r($users);
+    echo "</pre>";
+} else {
+    echo "<h2>❌ Failed to Retrieve Users</h2>";
+}
+?>
