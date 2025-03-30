@@ -6,32 +6,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "nx.json.bak",
-        "hash": "15494131853977705247"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "6019243428480325542"
-      },
-      {
-        "file": "README.md",
-        "hash": "13454385417909392150"
-      },
-      {
         "file": "package.json",
         "hash": "4584571798587299077"
       },
       {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
       },
       {
         "file": "package-lock.json",
         "hash": "6699771417883854286"
       },
       {
+        "file": "composer.json",
+        "hash": "13839380369736828812"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "14786850127521795525"
+      },
+      {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
+      },
+      {
+        "file": "nx.json.bak",
+        "hash": "15494131853977705247"
+      },
+      {
+        "file": "README.md",
+        "hash": "13454385417909392150"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15494131853977705247"
       }
     ],
     "projectFileMap": {
@@ -78,12 +86,16 @@
           "hash": "1219986706156695263"
         },
         {
+          "file": "apps/server/controller/productModel.php",
+          "hash": "4200311726252630154"
+        },
+        {
           "file": "apps/server/controller/userModel.php",
           "hash": "716349523729472406"
         },
         {
           "file": "apps/server/helper/CRUD.php",
-          "hash": "17574894642609309205"
+          "hash": "1448291330645965625"
         },
         {
           "file": "apps/server/index.php",
@@ -108,6 +120,10 @@
         {
           "file": "apps/server/utils.php",
           "hash": "13630939092441511347"
+        },
+        {
+          "file": "apps/server/validation/productValidation.php",
+          "hash": "7793338568943697084"
         }
       ]
     }
