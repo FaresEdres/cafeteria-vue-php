@@ -8,11 +8,13 @@
     </div>
     <button @click="fetchData">Fetch Data from Server</button>
   </div>
+
+  <AddUserPage/>
 </template>
 
 <script setup>
 import { ref } from "vue";
-
+import AddUserPage from "./components/AddUserPage.vue";
 const data = ref(null);
 
 const fetchData = async () => {
