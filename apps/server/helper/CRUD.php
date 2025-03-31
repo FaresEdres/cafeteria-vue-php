@@ -29,7 +29,6 @@ class CRUD
         ) {
           $constraints[] = $dataType;
         }
-        // Regular columns
         else {
           $columnsDefinition[] = "`$columnName` $dataType";
         }

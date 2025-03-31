@@ -36,6 +36,18 @@ class CategoryModel
   }
   public function deleteCategory($id)
   {
+    try{
     $this->db->delete("categories", ["id" => $id]);
+    } catch (Exception $e) {
+      return ["error"=> $e->getMessage()];
+    }
+  }
+  public function displayAllCatergories(){
+    try{
+      return $this->db->select("categories","*");
+    } catch (Exception $e) {
+      return ["error"=> $e->getMessage()];
+    }
+
   }
 }
