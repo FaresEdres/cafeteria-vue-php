@@ -22,7 +22,7 @@
         "hash": "11349439856196813733"
       },
       {
-        "file": "nx.json",
+        "file": "nx.json.bak",
         "hash": "15494131853977705247"
       },
       {
@@ -50,7 +50,7 @@
         },
         {
           "file": "apps/server/api/productApi.php",
-          "hash": "15701000046688361676"
+          "hash": "1848501890715073772"
         },
         {
           "file": "apps/server/composer.json",
@@ -61,8 +61,16 @@
           "hash": "11349439856196813733"
         },
         {
+          "file": "apps/server/controller/categoryController.php",
+          "hash": "8579250527220626578"
+        },
+        {
           "file": "apps/server/controller/categoryModel.php",
           "hash": "16081504781614802135"
+        },
+        {
+          "file": "apps/server/controller/productController.php",
+          "hash": "4477663902504046135"
         },
         {
           "file": "apps/server/controller/productModel.php",
@@ -74,11 +82,11 @@
         },
         {
           "file": "apps/server/helper/CRUD.php",
-          "hash": "6733720813950201227"
+          "hash": "13512795498224589748"
         },
         {
           "file": "apps/server/helper/createTables.php",
-          "hash": "7699630570363772028"
+          "hash": "14648212296855676554"
         },
         {
           "file": "apps/server/helper/errors.php",
@@ -95,6 +103,14 @@
         {
           "file": "apps/server/model/credentials.php",
           "hash": "2589369250648628704"
+        },
+        {
+          "file": "apps/server/model/productModel.php",
+          "hash": "15312547219342904178"
+        },
+        {
+          "file": "apps/server/model/userModel.php",
+          "hash": "11857774464877054923"
         },
         {
           "file": "apps/server/project.json",
@@ -118,7 +134,7 @@
         },
         {
           "file": "apps/server/validation/categoryValidation.php",
-          "hash": "8389763695859853821"
+          "hash": "6804500118070558049"
         },
         {
           "file": "apps/server/validation/productValidation.php",
