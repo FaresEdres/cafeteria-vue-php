@@ -32,7 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     "category_id" => $inputData["category_id"]
   ];
 
-  $productModel = new ProductModel();
   $result = $productModel->addProduct($productData);
 
   if (isset($result["error"])) {
@@ -40,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   } else {
     echo json_encode(["message" => "Product inserted successfully", "id" => $result["id"]]);
   }
+
 } elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
   $inputData = json_decode(file_get_contents("php://input"), true);
 
@@ -48,7 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
   }
 
-  $productModel = new ProductModel();
   $deleteResult = $productModel->deleteProduct($inputData["id"]);
 
   if (isset($deleteResult["error"])) {
