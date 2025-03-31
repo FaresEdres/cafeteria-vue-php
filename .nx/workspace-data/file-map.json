@@ -6,59 +6,55 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "package.json",
-        "hash": "4584571798587299077"
-      },
-      {
-        "file": "composer.lock",
-        "hash": "11349439856196813733"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "6699771417883854286"
-      },
-      {
-        "file": "composer.json",
-        "hash": "13839380369736828812"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "14786850127521795525"
+        "file": "README.md",
+        "hash": "13454385417909392150"
       },
       {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
       },
       {
-        "file": "nx.json.bak",
-        "hash": "15494131853977705247"
+        "file": "composer.json",
+        "hash": "13839380369736828812"
       },
       {
-        "file": "README.md",
-        "hash": "13454385417909392150"
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
       },
       {
         "file": "nx.json",
         "hash": "15494131853977705247"
+      },
+      {
+        "file": "package.json",
+        "hash": "4584571798587299077"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "6699771417883854286"
       }
     ],
     "projectFileMap": {
       "cafeteria-client": [
         {
           "file": "apps/client/index.html",
-          "hash": "17456302502631126697"
+          "hash": "450350693035263628"
         },
         {
           "file": "apps/client/project.json",
           "hash": "16789602054926663301"
         },
         {
-          "file": "apps/client/project.json.bak",
-          "hash": "11246426028925388513"
+          "file": "apps/client/src/App.vue",
+          "hash": "5136495721404178138"
         },
         {
-          "file": "apps/client/src/App.vue",
-          "hash": "12630585383450112057"
+          "file": "apps/client/src/components/AddUserPage.vue",
+          "hash": "1743333179277553592"
         },
         {
           "file": "apps/client/src/main.js",
@@ -112,10 +108,6 @@
         {
           "file": "apps/server/project.json",
           "hash": "4895389289235459782"
-        },
-        {
-          "file": "apps/server/project.json.bak",
-          "hash": "9843490235830516395"
         },
         {
           "file": "apps/server/utils.php",
