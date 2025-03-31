@@ -3,7 +3,7 @@
 require_once __DIR__ .'/../helper/errors.php';
 header("Content-Type: application/json");
 
-require_once __DIR__ . '/../controller/categoryModel.php';
+require_once __DIR__ . '/../model/categoryModel.php';
 require_once __DIR__ . '/../validation/categoryValidation.php';
 
 $categoryModel = new CategoryModel();

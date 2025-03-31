@@ -2,7 +2,7 @@
 
 require_once __DIR__ .'/../helper/errors.php';
 require_once __DIR__ . "/../utils.php";
-require_once __DIR__ . "/../model/connector.php";
+require_once __DIR__ . "/../db/connector.php";
 require_once __DIR__ . "/../helper/CRUD.php";
 
 class ProductModel {

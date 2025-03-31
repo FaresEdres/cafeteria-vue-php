@@ -2,7 +2,7 @@
 <?php
 
 require_once __DIR__.  "/../utils.php";
-require_once __DIR__.  "/../model/connector.php";
+require_once __DIR__.  "/../db/connector.php";
 
 function createTable(){
     try{
@@ -19,7 +19,7 @@ function createTable(){
 
         $stmt= $conn->prepare($create_query);
         $stmt->execute();
-        
+
     }
     catch(PDOException $e){
         displayError($e->getMessage());
@@ -36,11 +36,11 @@ function insertUser($data) {
             $stmt = $conn->prepare($check_query);
             $stmt->execute([$data['email']]);
             $count = $stmt->fetchColumn();
-          
+
 
             if ($count > 1) {
                 displayError("Email already registered!");
-return false;                
+return false;
             }
 
             $insert_query = "INSERT INTO `users` (name, email, password, room, ext, profilePic)
@@ -49,7 +49,7 @@ return false;
             $success = $stmt->execute([
                 $data['name'],
                 $data['email'],
-                $data['password'], 
+                $data['password'],
                 $data['room'],
                 $data['ext'],
                 $data['profilePic'],
@@ -99,7 +99,7 @@ function getUserById($id) {
     try {
         $stmt = $conn->prepare("SELECT id, name, email, room, ext, profilePic FROM users WHERE id = ?");
         $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC); 
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         error_log("Error fetching user: " . $e->getMessage());
         return false;
