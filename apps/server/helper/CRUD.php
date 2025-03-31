@@ -1,9 +1,8 @@
 <?php
 
-
+require_once __DIR__ .'/../helper/errors.php';
 require_once __DIR__ . "/../utils.php";
 require_once __DIR__ . "/../model/connector.php";
-
 
 // use PDO;
 // use Exception;
@@ -24,8 +23,7 @@ class CRUD
       foreach ($columns as $columnName => $dataType) {
         if ($columnName === '') {
           $constraints[] = $dataType;
-        }
-        elseif (
+        } elseif (
           str_starts_with($columnName, 'CONSTRAINT') ||
           str_starts_with($dataType, 'FOREIGN KEY')
         ) {
@@ -38,7 +36,7 @@ class CRUD
       }
 
       $createQuery = "CREATE TABLE IF NOT EXISTS `$tableName` (" .
-        implode(", ", $columnsDefinition);
+      implode(", ", $columnsDefinition);
 
       if (!empty($constraints)) {
         $createQuery .= ", " . implode(", ", $constraints);
@@ -74,6 +72,7 @@ class CRUD
         if ($res) {
           $inserted_id = $conn->lastInsertId();
           echo ("Inserted successfully, ID: {$inserted_id}");
+          return $inserted_id;
         }
 
         $conn = null;

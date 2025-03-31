@@ -6,32 +6,32 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "package.json",
-        "hash": "4584571798587299077"
-      },
-      {
-        "file": "composer.lock",
-        "hash": "11349439856196813733"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "6699771417883854286"
-      },
-      {
-        "file": "composer.json",
-        "hash": "13839380369736828812"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "14786850127521795525"
-      },
-      {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
       },
       {
         "file": "nx.json.bak",
         "hash": "15494131853977705247"
+      },
+      {
+        "file": "composer.json",
+        "hash": "13839380369736828812"
+      },
+      {
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "6699771417883854286"
+      },
+      {
+        "file": "package.json",
+        "hash": "4584571798587299077"
       },
       {
         "file": "README.md",
@@ -43,6 +43,84 @@
       }
     ],
     "projectFileMap": {
+      "cafeteria-server": [
+        {
+          "file": "apps/server/Api/productApi.php",
+          "hash": "1352000093235559761"
+        },
+        {
+          "file": "apps/server/api/categoryApi.php",
+          "hash": "8577337207618618792"
+        },
+        {
+          "file": "apps/server/api/productApi.php",
+          "hash": "11668830077256380987"
+        },
+        {
+          "file": "apps/server/composer.json",
+          "hash": "13839380369736828812"
+        },
+        {
+          "file": "apps/server/composer.lock",
+          "hash": "11349439856196813733"
+        },
+        {
+          "file": "apps/server/controller/categoryModel.php",
+          "hash": "9541014814159600693"
+        },
+        {
+          "file": "apps/server/controller/productModel.php",
+          "hash": "10639365623368072872"
+        },
+        {
+          "file": "apps/server/controller/userModel.php",
+          "hash": "716349523729472406"
+        },
+        {
+          "file": "apps/server/helper/CRUD.php",
+          "hash": "15475334682588116788"
+        },
+        {
+          "file": "apps/server/helper/createTables.php",
+          "hash": "7699630570363772028"
+        },
+        {
+          "file": "apps/server/helper/errors.php",
+          "hash": "17184596533843372802"
+        },
+        {
+          "file": "apps/server/index.php",
+          "hash": "7825691390532034148"
+        },
+        {
+          "file": "apps/server/model/connector.php",
+          "hash": "9845880384996385556"
+        },
+        {
+          "file": "apps/server/model/credentials.php",
+          "hash": "2589369250648628704"
+        },
+        {
+          "file": "apps/server/project.json",
+          "hash": "4895389289235459782"
+        },
+        {
+          "file": "apps/server/project.json.bak",
+          "hash": "9843490235830516395"
+        },
+        {
+          "file": "apps/server/utils.php",
+          "hash": "13630939092441511347"
+        },
+        {
+          "file": "apps/server/validation/categoryValidation.php",
+          "hash": "8389763695859853821"
+        },
+        {
+          "file": "apps/server/validation/productValidation.php",
+          "hash": "10032416809730739337"
+        }
+      ],
       "cafeteria-client": [
         {
           "file": "apps/client/index.html",
@@ -74,56 +152,6 @@
             "npm:vite",
             "npm:@vitejs/plugin-vue"
           ]
-        }
-      ],
-      "cafeteria-server": [
-        {
-          "file": "apps/server/composer.json",
-          "hash": "15096888474940291993"
-        },
-        {
-          "file": "apps/server/composer.lock",
-          "hash": "1219986706156695263"
-        },
-        {
-          "file": "apps/server/controller/productModel.php",
-          "hash": "4200311726252630154"
-        },
-        {
-          "file": "apps/server/controller/userModel.php",
-          "hash": "716349523729472406"
-        },
-        {
-          "file": "apps/server/helper/CRUD.php",
-          "hash": "1448291330645965625"
-        },
-        {
-          "file": "apps/server/index.php",
-          "hash": "7825691390532034148"
-        },
-        {
-          "file": "apps/server/model/connector.php",
-          "hash": "9845880384996385556"
-        },
-        {
-          "file": "apps/server/model/credentials.php",
-          "hash": "2589369250648628704"
-        },
-        {
-          "file": "apps/server/project.json",
-          "hash": "4895389289235459782"
-        },
-        {
-          "file": "apps/server/project.json.bak",
-          "hash": "9843490235830516395"
-        },
-        {
-          "file": "apps/server/utils.php",
-          "hash": "13630939092441511347"
-        },
-        {
-          "file": "apps/server/validation/productValidation.php",
-          "hash": "7793338568943697084"
         }
       ]
     }
