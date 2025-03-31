@@ -6,32 +6,32 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "nx.json.bak",
+        "file": "nx.json",
         "hash": "15494131853977705247"
       },
       {
-        "file": "package-lock.json",
-        "hash": "6699771417883854286"
-      },
-      {
-        "file": "README.md",
-        "hash": "13454385417909392150"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "6019243428480325542"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
+        "file": "nx.json.bak",
+        "hash": "15494131853977705247"
       },
       {
         "file": "package.json",
         "hash": "4584571798587299077"
       },
       {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
+        "file": "README.md",
+        "hash": "13454385417909392150"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "6699771417883854286"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
       },
       {
         "file": "composer.lock",
@@ -44,10 +44,6 @@
     ],
     "projectFileMap": {
       "cafeteria-server": [
-        {
-          "file": "apps/server/Api/productApi.php",
-          "hash": "1352000093235559761"
-        },
         {
           "file": "apps/server/api/categoryApi.php",
           "hash": "1597111162061418388"
