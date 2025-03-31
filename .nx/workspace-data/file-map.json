@@ -6,40 +6,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "nx.json.bak",
-        "hash": "15494131853977705247"
-      },
-      {
-        "file": "composer.lock",
-        "hash": "11349439856196813733"
-      },
-      {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
-      },
-      {
         "file": ".gitignore",
         "hash": "6019243428480325542"
       },
       {
-        "file": "package.json",
-        "hash": "4584571798587299077"
-      },
-      {
-        "file": "README.md",
-        "hash": "13454385417909392150"
+        "file": "composer.json",
+        "hash": "13839380369736828812"
       },
       {
         "file": "package-lock.json",
         "hash": "6699771417883854286"
       },
       {
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
+      },
+      {
+        "file": "nx.json.bak",
+        "hash": "15494131853977705247"
+      },
+      {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
       },
       {
-        "file": "composer.json",
-        "hash": "13839380369736828812"
+        "file": "README.md",
+        "hash": "13454385417909392150"
+      },
+      {
+        "file": "package.json",
+        "hash": "4584571798587299077"
+      },
+      {
+        "file": "nx.json.bak",
+        "hash": "15494131853977705247"
       }
     ],
     "projectFileMap": {
@@ -94,11 +94,7 @@
         },
         {
           "file": "apps/server/index.php",
-          "hash": "7825691390532034148"
-        },
-        {
-          "file": "apps/server/model/categoryModel.php",
-          "hash": "4208828116792807853"
+          "hash": "10046204757303221312"
         },
         {
           "file": "apps/server/model/connector.php",
@@ -126,7 +122,11 @@
         },
         {
           "file": "apps/server/router.php",
-          "hash": "12622491884832247296"
+          "hash": "5209941045262837509"
+        },
+        {
+          "file": "apps/server/routes.php",
+          "hash": "8051722015152935108"
         },
         {
           "file": "apps/server/utils.php",
