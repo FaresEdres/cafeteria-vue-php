@@ -15,7 +15,6 @@ function validateProductData($data, $isUpdate = false)
         }
     }
 
-    // Only validate image if it's provided (for updates) or required (for creates)
     if (!$isUpdate || isset($data['image'])) {
         try {
             $isValid = v::oneOf(v::url(), v::regex("/\.(jpg|jpeg|png|gif)$/i"))->validate($data['image'] ?? '');
@@ -42,6 +41,8 @@ function validateProductData($data, $isUpdate = false)
             $errors['price'] = "Price must be a valid positive number.";
         }
     }
+
+    //check that category_id exist..
 
     return $errors;
 }
