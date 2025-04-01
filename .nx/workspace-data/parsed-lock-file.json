@@ -1332,6 +1332,15 @@
         "hash": "sha512-3nVv+e2FQwsW8Aw6qTU6f+1rfcJ3hrcnvH/mu9i8YhxO+9sqbOfpL8m6PbET5+xKOlz/VSbp0RoYWYCtIsnmuA=="
       }
     },
+    "npm:@popperjs/core": {
+      "type": "npm",
+      "name": "npm:@popperjs/core",
+      "data": {
+        "version": "2.11.8",
+        "packageName": "@popperjs/core",
+        "hash": "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="
+      }
+    },
     "npm:@rollup/rollup-android-arm-eabi": {
       "type": "npm",
       "name": "npm:@rollup/rollup-android-arm-eabi",
@@ -1933,6 +1942,15 @@
         "version": "4.1.0",
         "packageName": "bl",
         "hash": "sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w=="
+      }
+    },
+    "npm:bootstrap": {
+      "type": "npm",
+      "name": "npm:bootstrap",
+      "data": {
+        "version": "5.3.3",
+        "packageName": "bootstrap",
+        "hash": "sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg=="
       }
     },
     "npm:brace-expansion": {
@@ -6211,6 +6229,11 @@
     {
       "source": "npm:bl",
       "target": "npm:readable-stream",
+      "type": "static"
+    },
+    {
+      "source": "npm:bootstrap",
+      "target": "npm:@popperjs/core",
       "type": "static"
     },
     {
