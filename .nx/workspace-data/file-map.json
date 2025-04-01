@@ -6,28 +6,8 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "composer.json",
-        "hash": "13839380369736828812"
-      },
-      {
         "file": "README.md",
         "hash": "13454385417909392150"
-      },
-      {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
-      },
-      {
-        "file": "composer.lock",
-        "hash": "11349439856196813733"
-      },
-      {
-        "file": "package.json",
-        "hash": "3519930317405392827"
       },
       {
         "file": "package-lock.json",
@@ -38,8 +18,28 @@
         "hash": "6019243428480325542"
       },
       {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
         "file": "nx.json.bak",
         "hash": "15494131853977705247"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15494131853977705247"
+      },
+      {
+        "file": "composer.json",
+        "hash": "13839380369736828812"
+      },
+      {
+        "file": "package.json",
+        "hash": "3519930317405392827"
+      },
+      {
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
       }
     ],
     "projectFileMap": {
@@ -91,6 +91,14 @@
         {
           "file": "apps/client/public/blog_6.jpg",
           "hash": "758916483247265808"
+        },
+        {
+          "file": "apps/client/public/cocktail.jpg",
+          "hash": "4969146337325944112"
+        },
+        {
+          "file": "apps/client/public/cokteil.jpg",
+          "hash": "17331912648627263059"
         },
         {
           "file": "apps/client/public/contact.jpg",
@@ -181,6 +189,10 @@
           "hash": "8563001599872728527"
         },
         {
+          "file": "apps/client/public/sigg.jpg",
+          "hash": "1349638477404090333"
+        },
+        {
           "file": "apps/client/public/starters.jpg",
           "hash": "9325446323443824868"
         },
@@ -210,7 +222,7 @@
         },
         {
           "file": "apps/client/src/components/Body.vue",
-          "hash": "18105896093775853830"
+          "hash": "15795673796172930008"
         },
         {
           "file": "apps/client/src/components/Footer.vue",
