@@ -4,8 +4,6 @@ require_once __DIR__ . '/../helper/errors.php';
 require_once __DIR__ . '/../model/productModel.php';
 require_once __DIR__ . '/../validation/productValidation.php';
 
-$productModel = new ProductModel();
-
 class ProductController {
   private $productModel;
 

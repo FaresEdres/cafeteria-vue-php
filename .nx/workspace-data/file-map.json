@@ -6,20 +6,16 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".gitignore",
-        "hash": "6019243428480325542"
-      },
-      {
-        "file": "composer.json",
-        "hash": "13839380369736828812"
-      },
-      {
         "file": "package-lock.json",
         "hash": "6699771417883854286"
       },
       {
-        "file": "composer.lock",
-        "hash": "11349439856196813733"
+        "file": "package.json",
+        "hash": "4584571798587299077"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15494131853977705247"
       },
       {
         "file": "nx.json.bak",
@@ -34,12 +30,16 @@
         "hash": "13454385417909392150"
       },
       {
-        "file": "package.json",
-        "hash": "4584571798587299077"
+        "file": "composer.json",
+        "hash": "13839380369736828812"
       },
       {
-        "file": "nx.json.bak",
-        "hash": "15494131853977705247"
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
+      },
+      {
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
       }
     ],
     "projectFileMap": {
@@ -62,7 +62,7 @@
         },
         {
           "file": "apps/server/controller/categoryController.php",
-          "hash": "8579250527220626578"
+          "hash": "1208988608884889362"
         },
         {
           "file": "apps/server/controller/categoryModel.php",
@@ -70,7 +70,7 @@
         },
         {
           "file": "apps/server/controller/productController.php",
-          "hash": "4477663902504046135"
+          "hash": "1882994914527668013"
         },
         {
           "file": "apps/server/controller/productModel.php",
@@ -95,6 +95,10 @@
         {
           "file": "apps/server/index.php",
           "hash": "10046204757303221312"
+        },
+        {
+          "file": "apps/server/model/categoryModel.php",
+          "hash": "16139751134784954138"
         },
         {
           "file": "apps/server/model/connector.php",
@@ -122,11 +126,11 @@
         },
         {
           "file": "apps/server/router.php",
-          "hash": "5209941045262837509"
+          "hash": "11118054483813411075"
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "8051722015152935108"
+          "hash": "4837968451330729277"
         },
         {
           "file": "apps/server/utils.php",

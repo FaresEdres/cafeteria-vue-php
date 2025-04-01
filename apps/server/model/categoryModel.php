@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ .'/../helper/errors.php';
+require_once __DIR__ . '/../helper/errors.php';
 require_once __DIR__ . "/../utils.php";
 require_once __DIR__ . "/../db/connector.php";
 require_once __DIR__ . "/../helper/CRUD.php";
@@ -36,17 +36,23 @@ class CategoryModel
   }
   public function deleteCategory($id)
   {
-    try{
-    $this->db->delete("categories", ["id" => $id]);
+    try {
+      $deleted = $this->db->delete("categories", ["id" => $id]);
+      if ($deleted) {
+        return ["message" => "category deleted successfully"];
+      } else {
+        return ["error" => "category not found"];
+      }
     } catch (Exception $e) {
-      return ["error"=> $e->getMessage()];
+      return ["error" => $e->getMessage()];
     }
   }
-  public function displayAllCatergories(){
-    try{
-      return $this->db->select("categories","*");
+  public function displayAllCatergories()
+  {
+    try {
+      return $this->db->select("categories", "*");
     } catch (Exception $e) {
-      return ["error"=> $e->getMessage()];
+      return ["error" => $e->getMessage()];
     }
 
   }
