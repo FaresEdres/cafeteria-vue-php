@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/router.php';
 require_once __DIR__.  "/controller/userModel.php"; 
 
 require __DIR__ . '/vendor/autoload.php';
