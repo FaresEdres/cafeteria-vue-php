@@ -8,7 +8,7 @@
 						<div class="intro_subtitle page_subtitle">Something new</div>
 						<div class="intro_title"><h2>An Extraordinery Experience</h2></div>
 						<div class="intro_text">
-							<p>Welcome to <span class="heart">Armene Café</span> <span class="small-heart">&#10084;</span> , where every moment is an experience of warmth and flavor. Our café is a sanctuary for coffee lovers, food enthusiasts, and anyone seeking a cozy escape. From expertly brewed coffee to handcrafted pastries, every dish is made with passion and care. Whether you're enjoying a morning cup or relaxing in the evening, you'll find that every detail at Armene Café is designed for your comfort and enjoyment. Join us for a truly memorable experience!</p>
+							<p>Welcome to <span class="heart">Armané Café</span> <span class="small-heart">&#10084;</span> , where every moment is an experience of warmth and flavor. Our café is a sanctuary for coffee lovers, food enthusiasts, and anyone seeking a cozy escape. From expertly brewed coffee to handcrafted pastries, every dish is made with passion and care. Whether you're enjoying a morning cup or relaxing in the evening, you'll find that every detail at Armene Café is designed for your comfort and enjoyment. Join us for a truly memorable experience!</p>
 						</div>
 					</div>
 					<div class="row">
@@ -23,6 +23,21 @@
 			</div>
 		</div>
 	</div>
+  <div class="themenu">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="themenu_title_bar_container">
+						<div class="themenu_stars text-center page_subtitle">Armané Café</div>
+						<div class="themenu_rating text-center">
+							<div class="rating_r rating_r_5"><i></i><i></i><i></i><i></i><i></i></div>
+						</div>
+						<div class="themenu_title_bar d-flex flex-column align-items-center justify-content-center">
+							<div class="themenu_title">The Menu</div>
+						</div>
+					</div>
+				</div>
+			</div>
   <div class="sig">
 		<div class="sig_content_container">
 			<div class="container">
@@ -55,6 +70,8 @@
 			</div>
 		</div>
 	</div>
+  </div>
+  </div>
   </div>
 </template>
 
