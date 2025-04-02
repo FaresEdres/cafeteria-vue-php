@@ -6,24 +6,20 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "README.md",
-        "hash": "13454385417909392150"
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
       },
       {
         "file": "package-lock.json",
         "hash": "2257139016088475550"
       },
       {
-        "file": ".gitignore",
-        "hash": "6019243428480325542"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
         "file": "nx.json.bak",
         "hash": "15494131853977705247"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
       },
       {
         "file": "nx.json",
@@ -34,12 +30,16 @@
         "hash": "13839380369736828812"
       },
       {
-        "file": "package.json",
-        "hash": "3519930317405392827"
+        "file": "README.md",
+        "hash": "13454385417909392150"
       },
       {
-        "file": "composer.lock",
-        "hash": "11349439856196813733"
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "package.json",
+        "hash": "3519930317405392827"
       }
     ],
     "projectFileMap": {
@@ -222,7 +222,7 @@
         },
         {
           "file": "apps/client/src/components/Body.vue",
-          "hash": "15795673796172930008"
+          "hash": "16023026544246535196"
         },
         {
           "file": "apps/client/src/components/Footer.vue",
@@ -230,7 +230,7 @@
         },
         {
           "file": "apps/client/src/components/Header.vue",
-          "hash": "3396900487594670495"
+          "hash": "12961087007400153714"
         },
         {
           "file": "apps/client/src/main.js",
