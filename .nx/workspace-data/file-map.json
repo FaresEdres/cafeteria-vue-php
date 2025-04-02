@@ -6,8 +6,12 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "2257139016088475550"
       },
       {
         "file": "nx.json.bak",
@@ -18,8 +22,8 @@
         "hash": "6019243428480325542"
       },
       {
-        "file": "composer.lock",
-        "hash": "11349439856196813733"
+        "file": "nx.json",
+        "hash": "15494131853977705247"
       },
       {
         "file": "composer.json",
@@ -30,16 +34,12 @@
         "hash": "13454385417909392150"
       },
       {
-        "file": "package.json",
-        "hash": "3519930317405392827"
-      },
-      {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
       },
       {
-        "file": "package-lock.json",
-        "hash": "2257139016088475550"
+        "file": "package.json",
+        "hash": "3519930317405392827"
       }
     ],
     "projectFileMap": {
@@ -230,7 +230,7 @@
         },
         {
           "file": "apps/client/src/components/Header.vue",
-          "hash": "3396900487594670495"
+          "hash": "12961087007400153714"
         },
         {
           "file": "apps/client/src/main.js",
