@@ -4,7 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Armané Café</title>
+    <style>
+      @media screen and (min-width: 1200px) {
+        body {
+          font-size: 18px;
+        }
+      }
 
+      /* Laptops & Medium Screens (1024px - 1199px) */
+      @media screen and (max-width: 1199px) {
+        body {
+          font-size: 16px;
+        }
+      }
+
+      /* Tablets (768px - 1023px) */
+      @media screen and (max-width: 1023px) {
+        body {
+          font-size: 14px;
+        }
+        .main_nav ul {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* Mobile Phones (480px - 767px) */
+      @media screen and (max-width: 767px) {
+        body {
+          font-size: 14px;
+        }
+        .header {
+          height: auto;
+          padding: 10px;
+        }
+        .main_nav ul {
+          display: block;
+        }
+        .reservations_phone {
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+
+      /* Small Phones (Up to 479px) */
+      @media screen and (max-width: 479px) {
+        body {
+          font-size: 12px;
+        }
+        .logo a {
+          font-size: 24px;
+        }
+        .main_nav ul li {
+          margin-right: 10px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
