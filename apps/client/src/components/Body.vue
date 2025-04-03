@@ -48,7 +48,7 @@
 							<div class="sig_title"><h1>Our Signature Drink</h1></div>
 							<div class="rating_r sig_rating rating_r_5"><i></i><i></i><i></i><i></i><i></i></div>
 							<div class="sig_name_container d-flex flex-row align-items-start justify-content-start">
-								<div class="sig_name">The Arabian Nights, Exotic gin cocktail with rosewater and cardamom</div>
+								<div class="sig_name" >The Arabian Nights, Exotic gin cocktail with rosewater and cardamom</div>
 								<div class="sig_price ml-auto">$20</div>
 							</div>
 							<div class="button sig_button trans_200"><a href="#">Order Now</a></div>
@@ -72,6 +72,18 @@
 	</div>
   </div>
   </div>
+  <div class="row">
+          <div class="col-xl-4 col-md-6" v-for="product in products" :key="product.id">
+            <div class="product_card">
+              <img :src="product.image" :alt="product.name" class="product_image"/>
+              <div class="product_details">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+                <span class="price">${{ product.price }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
   </div>
 </template>
 
@@ -81,7 +93,22 @@
 <script>
 export default {
   name: "BodyComponent",
-
+  data() {
+    return {
+      products: [],
+    };
+  },
+  async mounted() {
+  const response = await fetch('http://localhost:8000/products');
+  const text = await response.text();
+  console.log(text);
+  try {
+    const data = JSON.parse(text);
+    this.products = data;
+  } catch (error) {
+    console.error("Error parsing JSON:", error);
+  }
+}
 };
 </script>
 

@@ -6,47 +6,47 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "composer.lock",
-        "hash": "11349439856196813733"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "2257139016088475550"
-      },
-      {
-        "file": "nx.json.bak",
-        "hash": "15494131853977705247"
-      },
-      {
         "file": ".gitignore",
         "hash": "6019243428480325542"
-      },
-      {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
-      },
-      {
-        "file": "composer.json",
-        "hash": "13839380369736828812"
-      },
-      {
-        "file": "README.md",
-        "hash": "13454385417909392150"
       },
       {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
       },
       {
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
+      },
+      {
+        "file": "nx.json.bak",
+        "hash": "15494131853977705247"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "3073893483401865230"
+      },
+      {
+        "file": "README.md",
+        "hash": "13454385417909392150"
+      },
+      {
         "file": "package.json",
         "hash": "3519930317405392827"
+      },
+      {
+        "file": "composer.json",
+        "hash": "13839380369736828812"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15494131853977705247"
       }
     ],
     "projectFileMap": {
       "cafeteria-client": [
         {
           "file": "apps/client/index.html",
-          "hash": "1185381457982674784"
+          "hash": "647657462043379494"
         },
         {
           "file": "apps/client/project.json",
@@ -111,6 +111,10 @@
         {
           "file": "apps/client/public/elements.jpg",
           "hash": "1484598032829440790"
+        },
+        {
+          "file": "apps/client/public/espresso.jpg",
+          "hash": "1949848724479928085"
         },
         {
           "file": "apps/client/public/hello.txt",
@@ -198,15 +202,23 @@
         },
         {
           "file": "apps/client/public/style.css",
-          "hash": "3030232271917896982"
+          "hash": "11823545484046888036"
         },
         {
           "file": "apps/client/public/tab.jpg",
           "hash": "18426700846377310966"
         },
         {
+          "file": "apps/client/public/tea.jpg",
+          "hash": "13463372515537669093"
+        },
+        {
           "file": "apps/client/public/testimonials.jpg",
           "hash": "14434334098299047524"
+        },
+        {
+          "file": "apps/client/public/v7.jpg",
+          "hash": "5505969232665015586"
         },
         {
           "file": "apps/client/public/video.jpg",
@@ -222,7 +234,7 @@
         },
         {
           "file": "apps/client/src/components/Body.vue",
-          "hash": "16023026544246535196"
+          "hash": "16191222087377278830"
         },
         {
           "file": "apps/client/src/components/Footer.vue",
@@ -268,7 +280,7 @@
         },
         {
           "file": "apps/server/controller/productController.php",
-          "hash": "1882994914527668013"
+          "hash": "15602204609577031687"
         },
         {
           "file": "apps/server/db/connector.php",
@@ -324,7 +336,7 @@
         },
         {
           "file": "apps/server/utils.php",
-          "hash": "13630939092441511347"
+          "hash": "18267365092204001474"
         },
         {
           "file": "apps/server/validation/categoryValidation.php",

@@ -1,6 +1,11 @@
 <?php
-
 require_once __DIR__ . '/../helper/errors.php';
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Methods: GET, POST, PATCH, DELETE");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Access-Control-Allow-Credentials: true");
+header('Content-Type: application/json');
+
 require_once __DIR__ . '/../model/productModel.php';
 require_once __DIR__ . '/../validation/productValidation.php';
 
@@ -12,7 +17,14 @@ class ProductController {
   }
 
   public function getAllProducts() {
-      return $this->productModel->displayAllProducts();
+    header('Content-Type: application/json');
+    $products = $this->productModel->displayAllProducts();
+    if (isset($products["error"])) {
+        echo json_encode(["error" => $products["error"]]);
+    } else {
+        echo json_encode($products);
+        exit;
+    }
   }
 
   public function getProductById($id) {
