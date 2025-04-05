@@ -6,12 +6,28 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": ".gitignore",
-        "hash": "6019243428480325542"
+        "file": "package-lock.json",
+        "hash": "3073893483401865230"
+      },
+      {
+        "file": "README.md",
+        "hash": "13454385417909392150"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15494131853977705247"
       },
       {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
+      },
+      {
+        "file": "package.json",
+        "hash": "3519930317405392827"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
       },
       {
         "file": "composer.lock",
@@ -22,24 +38,8 @@
         "hash": "15494131853977705247"
       },
       {
-        "file": "package-lock.json",
-        "hash": "3073893483401865230"
-      },
-      {
-        "file": "README.md",
-        "hash": "13454385417909392150"
-      },
-      {
-        "file": "package.json",
-        "hash": "3519930317405392827"
-      },
-      {
         "file": "composer.json",
         "hash": "13839380369736828812"
-      },
-      {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
       }
     ],
     "projectFileMap": {
@@ -55,6 +55,10 @@
         {
           "file": "apps/client/project.json.bak",
           "hash": "11246426028925388513"
+        },
+        {
+          "file": "apps/client/public/Cappuccino.jpg",
+          "hash": "10712570208854246210"
         },
         {
           "file": "apps/client/public/about.jpg",
@@ -97,6 +101,10 @@
           "hash": "4969146337325944112"
         },
         {
+          "file": "apps/client/public/coffe.jpg",
+          "hash": "3918844396195126776"
+        },
+        {
           "file": "apps/client/public/cokteil.jpg",
           "hash": "17331912648627263059"
         },
@@ -114,7 +122,7 @@
         },
         {
           "file": "apps/client/public/espresso.jpg",
-          "hash": "1949848724479928085"
+          "hash": "16870874784610319123"
         },
         {
           "file": "apps/client/public/hello.txt",
@@ -161,8 +169,16 @@
           "hash": "7399598634390039320"
         },
         {
+          "file": "apps/client/public/latte.jpg",
+          "hash": "7705512157260698985"
+        },
+        {
           "file": "apps/client/public/main.jpg",
           "hash": "14214805896665703092"
+        },
+        {
+          "file": "apps/client/public/marco.jpg",
+          "hash": "10876533241606486040"
         },
         {
           "file": "apps/client/public/menu.jpg",
@@ -202,23 +218,15 @@
         },
         {
           "file": "apps/client/public/style.css",
-          "hash": "11823545484046888036"
+          "hash": "13675287910557382647"
         },
         {
           "file": "apps/client/public/tab.jpg",
           "hash": "18426700846377310966"
         },
         {
-          "file": "apps/client/public/tea.jpg",
-          "hash": "13463372515537669093"
-        },
-        {
           "file": "apps/client/public/testimonials.jpg",
           "hash": "14434334098299047524"
-        },
-        {
-          "file": "apps/client/public/v7.jpg",
-          "hash": "5505969232665015586"
         },
         {
           "file": "apps/client/public/video.jpg",
@@ -234,7 +242,7 @@
         },
         {
           "file": "apps/client/src/components/Body.vue",
-          "hash": "16191222087377278830"
+          "hash": "17141123446062808216"
         },
         {
           "file": "apps/client/src/components/Footer.vue",

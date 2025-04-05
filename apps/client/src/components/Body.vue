@@ -38,7 +38,7 @@
 					</div>
 				</div>
 			</div>
-  <div class="sig">
+  <div class="sig"  v-for="product in products" :key="product.id">
 		<div class="sig_content_container">
 			<div class="container">
 				<div class="row">
@@ -47,9 +47,10 @@
 							<div class="sig_subtitle page_subtitle">Something new</div>
 							<div class="sig_title"><h1>Our Signature Drink</h1></div>
 							<div class="rating_r sig_rating rating_r_5"><i></i><i></i><i></i><i></i><i></i></div>
-							<div class="sig_name_container d-flex flex-row align-items-start justify-content-start">
-								<div class="sig_name" >The Arabian Nights, Exotic gin cocktail with rosewater and cardamom</div>
-								<div class="sig_price ml-auto">$20</div>
+							<div class="sig_name_container d-flex flex-column align-items-start">
+								<div class="sig_name" >{{ product.name }}</div>
+                <div class="sig_name" >{{ product.description }}</div>
+								<div class="sig_price ml-auto">${{ product.price }}</div>
 							</div>
 							<div class="button sig_button trans_200"><a href="#">Order Now</a></div>
 						</div>
@@ -62,8 +63,8 @@
 				<div class="row">
 					<div class="col-lg-7 offset-lg-5">
 						<div class="sig_image">
-							<div class="background_image" style="background-image:url(/cocktail.jpg)"></div>
-							<img src="/cocktail.jpg" alt="">
+                <div class="background_image" :style="{ backgroundImage: 'url(' + product.image + ')' }"></div>
+							<img :src="product.image" :alt="product.name">
 						</div>
 					</div>
 				</div>
@@ -72,18 +73,6 @@
 	</div>
   </div>
   </div>
-  <div class="row">
-          <div class="col-xl-4 col-md-6" v-for="product in products" :key="product.id">
-            <div class="product_card">
-              <img :src="product.image" :alt="product.name" class="product_image"/>
-              <div class="product_details">
-                <h3>{{ product.name }}</h3>
-                <p>{{ product.description }}</p>
-                <span class="price">${{ product.price }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
   </div>
 </template>
 
