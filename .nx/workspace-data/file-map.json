@@ -7,18 +7,14 @@
     "nonProjectFiles": [
       {
         "file": "package-lock.json",
-        "hash": "6699771417883854286"
+        "hash": "3073893483401865230"
       },
       {
-        "file": "package.json",
-        "hash": "4584571798587299077"
+        "file": "README.md",
+        "hash": "13454385417909392150"
       },
       {
         "file": "nx.json",
-        "hash": "15494131853977705247"
-      },
-      {
-        "file": "nx.json.bak",
         "hash": "15494131853977705247"
       },
       {
@@ -26,12 +22,8 @@
         "hash": "5443105041930014821"
       },
       {
-        "file": "README.md",
-        "hash": "13454385417909392150"
-      },
-      {
-        "file": "composer.json",
-        "hash": "13839380369736828812"
+        "file": "package.json",
+        "hash": "3519930317405392827"
       },
       {
         "file": ".gitignore",
@@ -40,18 +32,248 @@
       {
         "file": "composer.lock",
         "hash": "11349439856196813733"
+      },
+      {
+        "file": "nx.json.bak",
+        "hash": "15494131853977705247"
+      },
+      {
+        "file": "composer.json",
+        "hash": "13839380369736828812"
       }
     ],
     "projectFileMap": {
+      "cafeteria-client": [
+        {
+          "file": "apps/client/index.html",
+          "hash": "647657462043379494"
+        },
+        {
+          "file": "apps/client/project.json",
+          "hash": "16789602054926663301"
+        },
+        {
+          "file": "apps/client/project.json.bak",
+          "hash": "11246426028925388513"
+        },
+        {
+          "file": "apps/client/public/Cappuccino.jpg",
+          "hash": "10712570208854246210"
+        },
+        {
+          "file": "apps/client/public/about.jpg",
+          "hash": "15214234553681706434"
+        },
+        {
+          "file": "apps/client/public/about_intro.jpg",
+          "hash": "16790597133877715684"
+        },
+        {
+          "file": "apps/client/public/blog.jpg",
+          "hash": "10332537438914876460"
+        },
+        {
+          "file": "apps/client/public/blog_1.jpg",
+          "hash": "2996143359389416551"
+        },
+        {
+          "file": "apps/client/public/blog_2.jpg",
+          "hash": "18430279316149430957"
+        },
+        {
+          "file": "apps/client/public/blog_3.jpg",
+          "hash": "17808076392179233614"
+        },
+        {
+          "file": "apps/client/public/blog_4.jpg",
+          "hash": "5114008981132675318"
+        },
+        {
+          "file": "apps/client/public/blog_5.jpg",
+          "hash": "16563401918278237143"
+        },
+        {
+          "file": "apps/client/public/blog_6.jpg",
+          "hash": "758916483247265808"
+        },
+        {
+          "file": "apps/client/public/cocktail.jpg",
+          "hash": "4969146337325944112"
+        },
+        {
+          "file": "apps/client/public/coffe.jpg",
+          "hash": "3918844396195126776"
+        },
+        {
+          "file": "apps/client/public/cokteil.jpg",
+          "hash": "17331912648627263059"
+        },
+        {
+          "file": "apps/client/public/contact.jpg",
+          "hash": "3796199412441111978"
+        },
+        {
+          "file": "apps/client/public/deserts.jpg",
+          "hash": "8531586968156930665"
+        },
+        {
+          "file": "apps/client/public/elements.jpg",
+          "hash": "1484598032829440790"
+        },
+        {
+          "file": "apps/client/public/espresso.jpg",
+          "hash": "16870874784610319123"
+        },
+        {
+          "file": "apps/client/public/hello.txt",
+          "hash": "12920011745405095536"
+        },
+        {
+          "file": "apps/client/public/home.jpg",
+          "hash": "8172476829162893500"
+        },
+        {
+          "file": "apps/client/public/icon_1.png",
+          "hash": "4582670700167472341"
+        },
+        {
+          "file": "apps/client/public/icon_2.png",
+          "hash": "1879598246937064968"
+        },
+        {
+          "file": "apps/client/public/icon_3.png",
+          "hash": "16097077364440320847"
+        },
+        {
+          "file": "apps/client/public/icon_4.png",
+          "hash": "14605251468062220487"
+        },
+        {
+          "file": "apps/client/public/icon_5.png",
+          "hash": "3102942149340004662"
+        },
+        {
+          "file": "apps/client/public/icon_6.png",
+          "hash": "5516141629454483738"
+        },
+        {
+          "file": "apps/client/public/icon_7.png",
+          "hash": "6400335173281447753"
+        },
+        {
+          "file": "apps/client/public/intro_1.jpg",
+          "hash": "14958449266339831026"
+        },
+        {
+          "file": "apps/client/public/intro_2.jpg",
+          "hash": "7399598634390039320"
+        },
+        {
+          "file": "apps/client/public/latte.jpg",
+          "hash": "7705512157260698985"
+        },
+        {
+          "file": "apps/client/public/main.jpg",
+          "hash": "14214805896665703092"
+        },
+        {
+          "file": "apps/client/public/marco.jpg",
+          "hash": "10876533241606486040"
+        },
+        {
+          "file": "apps/client/public/menu.jpg",
+          "hash": "10138692521471840644"
+        },
+        {
+          "file": "apps/client/public/quote.png",
+          "hash": "11607042677004099418"
+        },
+        {
+          "file": "apps/client/public/reservations.jpg",
+          "hash": "17881491778380767086"
+        },
+        {
+          "file": "apps/client/public/sig.jpg",
+          "hash": "14336465037273505672"
+        },
+        {
+          "file": "apps/client/public/sig_1.jpg",
+          "hash": "11258197811452079056"
+        },
+        {
+          "file": "apps/client/public/sig_2.jpg",
+          "hash": "11850894881318326902"
+        },
+        {
+          "file": "apps/client/public/sig_3.jpg",
+          "hash": "8563001599872728527"
+        },
+        {
+          "file": "apps/client/public/sigg.jpg",
+          "hash": "1349638477404090333"
+        },
+        {
+          "file": "apps/client/public/starters.jpg",
+          "hash": "9325446323443824868"
+        },
+        {
+          "file": "apps/client/public/style.css",
+          "hash": "13675287910557382647"
+        },
+        {
+          "file": "apps/client/public/tab.jpg",
+          "hash": "18426700846377310966"
+        },
+        {
+          "file": "apps/client/public/testimonials.jpg",
+          "hash": "14434334098299047524"
+        },
+        {
+          "file": "apps/client/public/video.jpg",
+          "hash": "6902905096110221658"
+        },
+        {
+          "file": "apps/client/src/App.vue",
+          "hash": "12630585383450112057"
+        },
+        {
+          "file": "apps/client/src/Wrapper.vue",
+          "hash": "17137337162159960731"
+        },
+        {
+          "file": "apps/client/src/components/Body.vue",
+          "hash": "17141123446062808216"
+        },
+        {
+          "file": "apps/client/src/components/Footer.vue",
+          "hash": "4636912107358559993"
+        },
+        {
+          "file": "apps/client/src/components/Header.vue",
+          "hash": "12961087007400153714"
+        },
+        {
+          "file": "apps/client/src/main.js",
+          "hash": "7045552986665593332",
+          "deps": [
+            "npm:bootstrap",
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "apps/client/src/routes/index.js",
+          "hash": "17815208399556809310"
+        },
+        {
+          "file": "apps/client/vite.config.js",
+          "hash": "7218202666782593485",
+          "deps": [
+            "npm:vite",
+            "npm:@vitejs/plugin-vue"
+          ]
+        }
+      ],
       "cafeteria-server": [
-        {
-          "file": "apps/server/api/categoryApi.php",
-          "hash": "1597111162061418388"
-        },
-        {
-          "file": "apps/server/api/productApi.php",
-          "hash": "1848501890715073772"
-        },
         {
           "file": "apps/server/composer.json",
           "hash": "13839380369736828812"
@@ -65,20 +287,16 @@
           "hash": "1208988608884889362"
         },
         {
-          "file": "apps/server/controller/categoryModel.php",
-          "hash": "16081504781614802135"
-        },
-        {
           "file": "apps/server/controller/productController.php",
-          "hash": "1882994914527668013"
+          "hash": "15602204609577031687"
         },
         {
-          "file": "apps/server/controller/productModel.php",
-          "hash": "12472472838614815880"
+          "file": "apps/server/db/connector.php",
+          "hash": "9845880384996385556"
         },
         {
-          "file": "apps/server/controller/userModel.php",
-          "hash": "716349523729472406"
+          "file": "apps/server/db/credentials.php",
+          "hash": "2589369250648628704"
         },
         {
           "file": "apps/server/helper/CRUD.php",
@@ -99,14 +317,6 @@
         {
           "file": "apps/server/model/categoryModel.php",
           "hash": "16139751134784954138"
-        },
-        {
-          "file": "apps/server/model/connector.php",
-          "hash": "9845880384996385556"
-        },
-        {
-          "file": "apps/server/model/credentials.php",
-          "hash": "2589369250648628704"
         },
         {
           "file": "apps/server/model/productModel.php",
@@ -134,7 +344,7 @@
         },
         {
           "file": "apps/server/utils.php",
-          "hash": "13630939092441511347"
+          "hash": "18267365092204001474"
         },
         {
           "file": "apps/server/validation/categoryValidation.php",
@@ -143,39 +353,6 @@
         {
           "file": "apps/server/validation/productValidation.php",
           "hash": "16411904855517832217"
-        }
-      ],
-      "cafeteria-client": [
-        {
-          "file": "apps/client/index.html",
-          "hash": "17456302502631126697"
-        },
-        {
-          "file": "apps/client/project.json",
-          "hash": "16789602054926663301"
-        },
-        {
-          "file": "apps/client/project.json.bak",
-          "hash": "11246426028925388513"
-        },
-        {
-          "file": "apps/client/src/App.vue",
-          "hash": "12630585383450112057"
-        },
-        {
-          "file": "apps/client/src/main.js",
-          "hash": "5246760033076216554",
-          "deps": [
-            "npm:vue"
-          ]
-        },
-        {
-          "file": "apps/client/vite.config.js",
-          "hash": "7218202666782593485",
-          "deps": [
-            "npm:vite",
-            "npm:@vitejs/plugin-vue"
-          ]
         }
       ]
     }
