@@ -3808,6 +3808,11 @@
       },
       {
         "source": "cafeteria-client",
+        "target": "npm:axios",
+        "type": "static"
+      },
+      {
+        "source": "cafeteria-client",
         "target": "npm:vite",
         "type": "static"
       },
@@ -8278,5 +8283,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1743470885722
+  "computedAt": 1744050359361
 }
