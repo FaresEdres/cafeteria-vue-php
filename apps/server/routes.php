@@ -5,7 +5,7 @@ $routes = [
     "GET /products" => "productController@getAllProducts",
     "GET /products/{id}" => "productController@getProductById",
     "POST /products" => "productController@addProduct",
-    "PATCH /products/{id}" => "productController@updateProduct",
+    "POST /products/{id}" => "productController@updateProduct",
     "DELETE /products/{id}" => "productController@deleteProduct",
 
     "POST /category" => "categoryController@addCategory",
