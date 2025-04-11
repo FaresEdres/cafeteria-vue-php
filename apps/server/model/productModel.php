@@ -32,7 +32,7 @@ class ProductModel
         try {
 
             // File upload handling
-            $uploadDir = __DIR__ . '/../../public/uploads/'; // Absolute path
+            $uploadDir = __DIR__ . '/../public/uploads/'; // Absolute path
             $allowedTypes = ['jpg', 'jpeg', 'png'];
             $maxFileSize = 2 * 1024 * 1024; // 2MB
 
@@ -74,7 +74,7 @@ class ProductModel
             }
 
             // Generate a unique filename
-            $newFilename = uniqid() . '.' . $ext;
+            $newFilename = uniqid('product_') . '.' . $ext;
             $targetPath = $uploadDir . $newFilename;
 
             // Move the uploaded file
@@ -88,7 +88,7 @@ class ProductModel
                 'description' => $data['description'],
                 'price' => (float)$data['price'],
                 'category_id' => (int)$data['category_id'],
-                'image' => 'uploads/' . $newFilename // Relative path for DB
+                'image' => $newFilename // Relative path for DB
             ];
 
 
@@ -152,7 +152,7 @@ class ProductModel
 
             // If product is deleted and there is an image, remove it
             if ($deleted && !empty($product[0]['image'])) {
-                $imagePath = __DIR__ . '/../../public/' . $product[0]['image'];
+                $imagePath = __DIR__ . '/../public/' . $product[0]['image'];
 
                 // Debug: Check if the image path exists
                 if (file_exists($imagePath)) {
@@ -251,6 +251,7 @@ class ProductModel
             // If update was successful and we have a new image, delete the old image
             if ($updated && isset($updateData['image']) && !empty($oldProduct[0]['image'])) {
                 $oldImagePath = __DIR__ . '/../public/uploads/' . $oldProduct[0]['image'];
+                echo $oldImagePath;
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }
