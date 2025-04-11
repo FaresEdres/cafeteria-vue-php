@@ -1,110 +1,88 @@
-
 <?php
+require_once __DIR__ .'/../helper/errors.php';
+require_once __DIR__ . "/../utils.php";
+require_once __DIR__ . "/../db/connector.php";
+require_once __DIR__ . "/../helper/CRUD.php";
 
-require_once __DIR__.  "/../utils.php";
-require_once __DIR__.  "/../db/connector.php";
+class UserModel {
+    private $db;
 
-function createTable(){
-    try{
-        $conn= SQLConnector::connectDatabase();
-        $create_query= "CREATE TABLE IF NOT EXISTS `users` (
-            `id` INT AUTO_INCREMENT PRIMARY KEY,
-            `name` VARCHAR(50) NOT NULL,
-            `email` VARCHAR(50) UNIQUE NOT NULL,
-            `password` VARCHAR(255) NOT NULL,
-            `room` VARCHAR(50),
-            `ext` VARCHAR(10),
-            `image` VARCHAR(255)
-        );";
-
-        $stmt= $conn->prepare($create_query);
-        $stmt->execute();
-
+    public function __construct() {
+        $this->db = new CRUD();
     }
-    catch(PDOException $e){
-        displayError($e->getMessage());
+
+    public function createUserTable() {
+        $this->db->createTable('users', [
+            "id" => "INT AUTO_INCREMENT PRIMARY KEY",
+            "firstname" => "VARCHAR(100) NOT NULL",
+            "lastname" => "VARCHAR(100) NOT NULL",
+            "email" => "VARCHAR(255) NOT NULL UNIQUE",
+            "password" => "VARCHAR(255) NOT NULL",
+            "role" => "ENUM('admin','user') DEFAULT 'user'",
+            "phoneNumber" => "VARCHAR(20)",
+            "address" => "TEXT",
+            "image" => "VARCHAR(255)",
+            "gender" => "ENUM('male','female','other')",
+            "created_at" => "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+        ]);
     }
-    finally{
-        $conn = null;
-    }
-}
-function insertUser($data) {
-    try {
-        $conn = SQLConnector::connectDatabase();
-        if ($conn) {
-            $check_query = "SELECT COUNT(*) FROM `users` WHERE `email` = ?";
-            $stmt = $conn->prepare($check_query);
-            $stmt->execute([$data['email']]);
-            $count = $stmt->fetchColumn();
 
-
-            if ($count > 1) {
-                displayError("Email already registered!");
-return false;
-            }
-
-            $insert_query = "INSERT INTO `users` (name, email, password, room, ext, profilePic)
-                             VALUES (?, ?, ?, ?, ?, ?);";
-            $stmt = $conn->prepare($insert_query);
-            $success = $stmt->execute([
-                $data['name'],
-                $data['email'],
-                $data['password'],
-                $data['room'],
-                $data['ext'],
-                $data['profilePic'],
-            ]);
-
-            if ($success) {
-                return true;
-            } else {
-                displayError("Failed to insert user.");
-                return false;
-            }
+    public function addUser($data) {
+        try {
+            $insertedId = $this->db->insert("users", $data);
+            return $insertedId ? ["id" => $insertedId] : ["error" => "Failed to add user"];
+        } catch (Exception $e) {
+            return ["error" => $e->getMessage()];
         }
-    } catch (PDOException $e) {
-        displayError($e->getMessage());
-        return false;
     }
-    finally{
-         $conn = null;
+
+    public function displayAllUsers() {
+        try {
+            return $this->db->select("users", "*");
+        } catch (Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
     }
-}
 
-
-function getAllUsers() {
-    try {
-        $conn = SQLConnector::connectDatabase();
-
-        $query = "SELECT id, name, email, room, ext, profilePic FROM users";
-        $stmt = $conn->prepare($query);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all users as an associative array
-    } catch (PDOException $e) {
-        error_log("Database Error: " . $e->getMessage()); // Log the error
-        return false;
+    public function displayUserById($id) {
+        try {
+            $result = $this->db->select("users", "*", ["id" => $id]);
+            return $result ? $result[0] : ["error" => "User not found"];
+        } catch (Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
     }
-      finally{
-         $conn = null;
-    }
-}
 
-/**
- * Get a single user by ID
- */
-function getUserById($id) {
-    $conn = SQLConnector::connectDatabase();
-    if (!$conn) return false; // Return false if the connection failed
-
-    try {
-        $stmt = $conn->prepare("SELECT id, name, email, room, ext, profilePic FROM users WHERE id = ?");
-        $stmt->execute([$id]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        error_log("Error fetching user: " . $e->getMessage());
-        return false;
+    public function updateUser($id, $data) {
+        try {
+            $result = $this->db->update("users", $data, ["id" => $id]);
+            return $result ? ["message" => "User updated"] : ["error" => "User not found"];
+        } catch (Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
     }
-      finally{
-         $conn = null;
+
+    public function deleteUser($id) {
+        try {
+            $deleted = $this->db->delete("users", ["id" => $id]);
+            return $deleted ? ["message" => "User deleted"] : ["error" => "User not found"];
+        } catch (Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
+    }
+
+    public function authenticateUser($email, $password) {
+        try {
+            $user = $this->db->select("users", "*", ["email" => $email]);
+            if (!$user || !password_verify($password, $user[0]['password'])) {
+                return ["error" => "Invalid credentials"];
+            }
+            
+            // Remove password before returning
+            unset($user[0]['password']);
+            return $user[0];
+        } catch (Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
     }
 }
