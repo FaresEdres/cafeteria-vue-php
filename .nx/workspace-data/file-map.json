@@ -140,7 +140,7 @@
       "cafeteria-client": [
         {
           "file": "apps/client/index.html",
-          "hash": "647657462043379494"
+          "hash": "5205719994635567476"
         },
         {
           "file": "apps/client/project.json",
@@ -155,40 +155,16 @@
           "hash": "10712570208854246210"
         },
         {
-          "file": "apps/client/public/about.jpg",
-          "hash": "15214234553681706434"
-        },
-        {
           "file": "apps/client/public/about_intro.jpg",
           "hash": "16790597133877715684"
         },
         {
-          "file": "apps/client/public/blog.jpg",
-          "hash": "10332537438914876460"
+          "file": "apps/client/public/ahmed.jpg",
+          "hash": "179666621027004870"
         },
         {
-          "file": "apps/client/public/blog_1.jpg",
-          "hash": "2996143359389416551"
-        },
-        {
-          "file": "apps/client/public/blog_2.jpg",
-          "hash": "18430279316149430957"
-        },
-        {
-          "file": "apps/client/public/blog_3.jpg",
-          "hash": "17808076392179233614"
-        },
-        {
-          "file": "apps/client/public/blog_4.jpg",
-          "hash": "5114008981132675318"
-        },
-        {
-          "file": "apps/client/public/blog_5.jpg",
-          "hash": "16563401918278237143"
-        },
-        {
-          "file": "apps/client/public/blog_6.jpg",
-          "hash": "758916483247265808"
+          "file": "apps/client/public/chefs.jpg",
+          "hash": "821798898945922802"
         },
         {
           "file": "apps/client/public/cocktail.jpg",
@@ -203,10 +179,6 @@
           "hash": "17331912648627263059"
         },
         {
-          "file": "apps/client/public/contact.jpg",
-          "hash": "3796199412441111978"
-        },
-        {
           "file": "apps/client/public/deserts.jpg",
           "hash": "8531586968156930665"
         },
@@ -215,12 +187,20 @@
           "hash": "1484598032829440790"
         },
         {
+          "file": "apps/client/public/error404.avif",
+          "hash": "18029385397244351534"
+        },
+        {
           "file": "apps/client/public/espresso.jpg",
           "hash": "16870874784610319123"
         },
         {
-          "file": "apps/client/public/hello.txt",
-          "hash": "12920011745405095536"
+          "file": "apps/client/public/fares.jpg",
+          "hash": "15945459043001517208"
+        },
+        {
+          "file": "apps/client/public/gohar.jpg",
+          "hash": "734185266622205126"
         },
         {
           "file": "apps/client/public/home.jpg",
@@ -267,6 +247,10 @@
           "hash": "7705512157260698985"
         },
         {
+          "file": "apps/client/public/logo.jpg",
+          "hash": "1518896293152529583"
+        },
+        {
           "file": "apps/client/public/main.jpg",
           "hash": "14214805896665703092"
         },
@@ -279,8 +263,20 @@
           "hash": "10138692521471840644"
         },
         {
+          "file": "apps/client/public/mostafa.jpg",
+          "hash": "10580203403392184044"
+        },
+        {
+          "file": "apps/client/public/nouran1.jpg",
+          "hash": "3416199476916330649"
+        },
+        {
           "file": "apps/client/public/quote.png",
           "hash": "11607042677004099418"
+        },
+        {
+          "file": "apps/client/public/rahma.jpg",
+          "hash": "16682367844425355966"
         },
         {
           "file": "apps/client/public/reservations.jpg",
@@ -312,7 +308,7 @@
         },
         {
           "file": "apps/client/public/style.css",
-          "hash": "13675287910557382647"
+          "hash": "3042410903283182418"
         },
         {
           "file": "apps/client/public/tab.jpg",
@@ -325,6 +321,13 @@
         {
           "file": "apps/client/public/video.jpg",
           "hash": "6902905096110221658"
+        },
+        {
+          "file": "apps/client/routes/index.js",
+          "hash": "13766058979773045322",
+          "deps": [
+            "npm:vue-router"
+          ]
         },
         {
           "file": "apps/client/routes/index.js",
@@ -344,7 +347,11 @@
         },
         {
           "file": "apps/client/src/components/Body.vue",
-          "hash": "17141123446062808216"
+          "hash": "6204463263199159141"
+        },
+        {
+          "file": "apps/client/src/components/Contact.vue",
+          "hash": "1168596404323512585"
         },
         {
           "file": "apps/client/src/components/Footer.vue",
@@ -352,13 +359,34 @@
         },
         {
           "file": "apps/client/src/components/Header.vue",
-          "hash": "12961087007400153714"
+          "hash": "948774925378968083"
+        },
+        {
+          "file": "apps/client/src/components/LogIn.vue",
+          "hash": "11567915411962420111"
+        },
+        {
+          "file": "apps/client/src/components/Menu.vue",
+          "hash": "2725343335373319669"
+        },
+        {
+          "file": "apps/client/src/components/NotFound.vue",
+          "hash": "8743273884192383187"
+        },
+        {
+          "file": "apps/client/src/components/OrderForm.vue",
+          "hash": "12447311465632225946"
+        },
+        {
+          "file": "apps/client/src/components/Orders.vue",
+          "hash": "3652344271087270336"
         },
         {
           "file": "apps/client/src/main.js",
           "hash": "1390240693627397052",
           "deps": [
             "npm:bootstrap",
+            "npm:@fortawesome/fontawesome-free",
             "npm:vue"
           ]
         },

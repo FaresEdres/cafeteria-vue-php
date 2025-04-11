@@ -3,9 +3,7 @@
       <Header />
       <div>
         <div>
-          <div>
-            <Body />
-          </div>
+          <router-view />
         </div>
       </div>
       <Footer />
