@@ -36,6 +36,7 @@ const postRequest = async (endpoint, formData) => {
 const deleteRequest = async (endpoint, id) => {
     try {
         const response = await http.delete(`${endpoint}/${id}`);
+        console.log(response);
         return response.data;
     } catch (error) {
         throw error.response?.data || error.message;

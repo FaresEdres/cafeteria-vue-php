@@ -20,16 +20,17 @@ class ProductController
     }
 
 
-  public function getAllProducts() {
-    header('Content-Type: application/json');
-    $products = $this->productModel->displayAllProducts();
-    if (isset($products["error"])) {
-        echo json_encode(["error" => $products["error"]]);
-    } else {
-        echo json_encode($products);
-        exit;
+    public function getAllProducts()
+    {
+        header('Content-Type: application/json');
+        $products = $this->productModel->displayAllProducts();
+        if (isset($products["error"])) {
+            echo json_encode(["error" => $products["error"]]);
+        } else {
+            echo json_encode($products);
+            exit;
+        }
     }
-  }
 
 
     public function getProductById($id)
@@ -81,39 +82,61 @@ class ProductController
         }
     }
 
-    public function updateProduct($postData, $files)
+
+    public function updateProduct()
     {
         try {
+            // Ensure it's a POST request
+            if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+                throw new Exception("Invalid request method.");
+            }
 
+            // Validate that required fields are present in the POST data
+            if (empty($_POST['id']) || empty($_POST['name']) || empty($_POST['price']) || empty($_POST['category_id'])) {
+                throw new Exception("Missing required fields.");
+            }
 
-            // Build data array to pass to model
-            $dataToUpdate = [
-                'id'           => $_POST['id'],
-                'name'         => $_POST['name'],
-                'description'  => $_POST['description'],
-                'price'        => $_POST['price'],
-                'category_id'  => $_POST['category_id']
+            // Collect the product data from the form
+            $data = [
+                'id' => $_POST['id'],
+                'name' => $_POST['name'],
+                'description' => isset($_POST['description']) ? $_POST['description'] : null,
+                'price' => $_POST['price'],
+                'category_id' => $_POST['category_id'],
             ];
 
-            // Include image only if a file was actually uploaded
-            if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-                $dataToUpdate['image'] = $_FILES['image'];
+            // Handle image file upload if provided
+            if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
+                $file = $_FILES['image'];
+
+                // Validate the file type and size in the controller before passing it to the model
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                $maxSize = 2 * 1024 * 1024; // 2MB
+
+                if (!in_array($file['type'], $allowedTypes)) {
+                    throw new Exception("Only JPG, PNG, and GIF images are allowed.");
+                }
+
+                if ($file['size'] > $maxSize) {
+                    throw new Exception("Image size exceeds 2MB limit.");
+                }
+
+                // Add the image to the data array for processing
+                $data['image'] = $file;
             }
 
+            // Call the model to update the product
+            $result = $this->productModel->updateProduct($data);
 
-            // Pass data to model
-            $result = $this->productModel->updateProduct($dataToUpdate);
-
-            if (!$result['success']) {
-                throw new Exception($result['error']);
+            // Return success or failure message based on the result
+            if ($result['success']) {
+                echo json_encode(['status' => 'success', 'message' => $result['message']]);
+            } else {
+                echo json_encode(['status' => 'error', 'error' => $result['error']]);
             }
-
-            return $result;
         } catch (Exception $e) {
-            return [
-                'success' => false,
-                'error'   => $e->getMessage()
-            ];
+            // Handle any exceptions that occur during the update process
+            echo json_encode(['status' => 'error', 'error' => $e->getMessage()]);
         }
     }
 

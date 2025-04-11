@@ -186,6 +186,7 @@ class ProductModel
     public function displayProductById($id)
     {
         try {
+
             $product = $this->db->select("products", "*", ["id" => $id]);
             return $product
                 ? ['success' => true, 'data' => $product[0]]
@@ -211,6 +212,7 @@ class ProductModel
                 $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
                 $maxSize = 2 * 1024 * 1024; // 2MB
 
+                // Validate file type and size
                 if (!in_array($file['type'], $allowedTypes)) {
                     throw new Exception("Only JPG, PNG, and GIF images are allowed");
                 }
@@ -218,7 +220,7 @@ class ProductModel
                     throw new Exception("Image size exceeds 2MB limit");
                 }
 
-                $uploadDir = __DIR__ . '/../../public/uploads/';
+                $uploadDir = __DIR__ . '/../public/uploads/';
                 if (!is_dir($uploadDir)) {
                     mkdir($uploadDir, 0755, true);
                 }
@@ -227,12 +229,13 @@ class ProductModel
                 $newFilename = uniqid('product_') . '.' . $ext;
                 $targetPath = $uploadDir . $newFilename;
 
+                // Move uploaded file
                 if (!move_uploaded_file($file['tmp_name'], $targetPath)) {
                     throw new Exception("Failed to upload image");
                 }
 
-                $updateData['image'] = 'uploads/' . $newFilename;
-                $newImagePath = $targetPath;
+                $updateData['image'] = $newFilename;
+                $newImagePath = $targetPath; // Save path for later deletion if necessary
             }
 
             // Merge other fields
@@ -242,11 +245,12 @@ class ProductModel
                 }
             }
 
+            // Update product in database
             $updated = $this->db->update("products", $updateData, ["id" => $id]);
 
-            // Remove old image after success
+            // If update was successful and we have a new image, delete the old image
             if ($updated && isset($updateData['image']) && !empty($oldProduct[0]['image'])) {
-                $oldImagePath = __DIR__ . '/../../public/uploads/' . $oldProduct[0]['image'];
+                $oldImagePath = __DIR__ . '/../public/uploads/' . $oldProduct[0]['image'];
                 if (file_exists($oldImagePath)) {
                     unlink($oldImagePath);
                 }

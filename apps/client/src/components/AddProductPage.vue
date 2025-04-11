@@ -183,7 +183,6 @@ formData);
        const response = await getRequest('products');
         this.products=response.data
 
-        console.log( this.products);
       } catch (error) {
         alert(error.message || 'Failed to fetch products');
       } finally {

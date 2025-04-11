@@ -1,18 +1,12 @@
 <template>
   <div class="app">
-    <h1>Cafeteria Management System</h1>
-    <div v-if="data">
-      <p>Message from Server: {{ data.message }}</p>
-      <p>Timestamp: {{ data.timestamp }}</p>
-      <p>Environment: {{ data.environment }}</p>
-    </div>
-    <button @click="fetchData">Fetch Data from Server</button>
+  <AddProductPage/>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-
+import AddProductPage from "./components/AddProductPage.vue"
 const data = ref(null);
 
 const fetchData = async () => {
@@ -24,7 +18,6 @@ const fetchData = async () => {
   }
 };
 </script>
-
 <style>
 .app {
   padding: 20px;
