@@ -6,14 +6,6 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "README.md",
-        "hash": "13454385417909392150"
-      },
-      {
-        "file": "package.json",
-        "hash": "3519930317405392827"
-      },
-      {
         "file": "composer.lock",
         "hash": "11349439856196813733"
       },
@@ -26,20 +18,28 @@
         "hash": "5443105041930014821"
       },
       {
-        "file": ".gitignore",
-        "hash": "6019243428480325542"
-      },
-      {
         "file": "nx.json",
         "hash": "15494131853977705247"
       },
       {
-        "file": "package-lock.json",
-        "hash": "3073893483401865230"
+        "file": "package.json",
+        "hash": "9030819163094273741"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
       },
       {
         "file": "composer.json",
         "hash": "13839380369736828812"
+      },
+      {
+        "file": "README.md",
+        "hash": "13454385417909392150"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "18164772051232118994"
       }
     ],
     "projectFileMap": {
@@ -330,16 +330,16 @@
           ]
         },
         {
-          "file": "apps/client/routes/index.js",
-          "hash": "17815208399556809310"
-        },
-        {
           "file": "apps/client/src/App.vue",
           "hash": "6041995010252371031"
         },
         {
           "file": "apps/client/src/Wrapper.vue",
-          "hash": "17137337162159960731"
+          "hash": "11663940570605691060"
+        },
+        {
+          "file": "apps/client/src/components/About.vue",
+          "hash": "6370829397724176208"
         },
         {
           "file": "apps/client/src/components/AddProductPage.vue",
@@ -383,7 +383,7 @@
         },
         {
           "file": "apps/client/src/main.js",
-          "hash": "1390240693627397052",
+          "hash": "4873568652769734873",
           "deps": [
             "npm:bootstrap",
             "npm:@fortawesome/fontawesome-free",
