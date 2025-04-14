@@ -1,5 +1,5 @@
 <?php
-// require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 // Dotenv\Dotenv::createImmutable(__DIR__."/..")->load();
 
@@ -9,6 +9,8 @@
 // define('DB_NAME',$_ENV["DB_NAME"]);
 // define('DB_PORT',$_ENV["DB_PORT
 require __DIR__ . '/../vendor/autoload.php';
+
+// require __DIR__ . '/../../../vendor/autoload.php';
 
 Dotenv\Dotenv::createImmutable(__DIR__."/..")->load();
 

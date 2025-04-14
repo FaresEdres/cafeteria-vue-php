@@ -1,9 +1,12 @@
 <?php
 require_once __DIR__ . '/router.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
-require __DIR__ . '/vendor/autoload.php';
-
-Dotenv\Dotenv::createImmutable(__DIR__)->load();
+try {
+    Dotenv\Dotenv::createImmutable(__DIR__ . '/../../')->load();
+} catch (Exception $e) {
+    echo "Failed to load environment file: " . $e->getMessage();
+}
 
 /*
 echo getenv('APP_ENV');

@@ -6,7 +6,11 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "nx.json.bak",
+        "file": "package-lock.json",
+        "hash": "5879959020019840150"
+      },
+      {
+        "file": "nx.json",
         "hash": "15494131853977705247"
       },
       {
@@ -18,27 +22,19 @@
         "hash": "11349439856196813733"
       },
       {
-        "file": "package.json",
-        "hash": "5220548311547269041"
-      },
-      {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
         "file": ".gitignore",
         "hash": "6019243428480325542"
       },
       {
-        "file": "composer.json",
-        "hash": "13839380369736828812"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "6202122930200675611"
-      },
-      {
         "file": "nx.json",
+        "hash": "15494131853977705247"
+      },
+      {
+        "file": "package.json",
+        "hash": "5220548311547269041"
+      },
+      {
+        "file": "nx.json.bak",
         "hash": "15494131853977705247"
       }
     ],
@@ -54,11 +50,15 @@
         },
         {
           "file": "apps/server/controller/OrdersController.php",
-          "hash": "3836906187676652604"
+          "hash": "16939221459154555796"
+        },
+        {
+          "file": "apps/server/controller/authenticateController.php",
+          "hash": "5537863178522246230"
         },
         {
           "file": "apps/server/controller/categoryController.php",
-          "hash": "1208988608884889362"
+          "hash": "14032991219024265762"
         },
         {
           "file": "apps/server/controller/productController.php",
@@ -66,7 +66,7 @@
         },
         {
           "file": "apps/server/controller/userController.php",
-          "hash": "14231047595430727206"
+          "hash": "18140858954534375568"
         },
         {
           "file": "apps/server/db/connector.php",
@@ -74,11 +74,11 @@
         },
         {
           "file": "apps/server/db/credentials.php",
-          "hash": "99103566344880085"
+          "hash": "18332650075856023867"
         },
         {
           "file": "apps/server/helper/CRUD.php",
-          "hash": "13512795498224589748"
+          "hash": "2694553872529772096"
         },
         {
           "file": "apps/server/helper/createTables.php",
@@ -94,7 +94,7 @@
         },
         {
           "file": "apps/server/index.php",
-          "hash": "8527075398726061070"
+          "hash": "8150978810271101273"
         },
         {
           "file": "apps/server/model/categoryModel.php",
@@ -106,15 +106,15 @@
         },
         {
           "file": "apps/server/model/orderProuductsModel.php",
-          "hash": "14763953989496080086"
+          "hash": "14222761870617040482"
         },
         {
           "file": "apps/server/model/productModel.php",
-          "hash": "9225346249720600912"
+          "hash": "14462703520295536724"
         },
         {
           "file": "apps/server/model/userModel.php",
-          "hash": "9156065457380485422"
+          "hash": "5942705497585051888"
         },
         {
           "file": "apps/server/project.json",
@@ -125,7 +125,7 @@
           "hash": "9843490235830516395"
         },
         {
-          "file": "apps/server/public/uploads/product_67f96c3311146.jpg",
+          "file": "apps/server/public/uploads/latte.jpg",
           "hash": "14835907769940961433"
         },
         {
@@ -134,7 +134,7 @@
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "10972749780594124757"
+          "hash": "5984299763964992436"
         },
         {
           "file": "apps/server/utils.php",
@@ -150,7 +150,7 @@
         },
         {
           "file": "apps/server/validation/userValidation.php",
-          "hash": "3811317773855772027"
+          "hash": "14639790424813239443"
         }
       ],
       "cafeteria-client": [
@@ -340,14 +340,14 @@
         },
         {
           "file": "apps/client/routes/index.js",
-          "hash": "17800590251766228637",
+          "hash": "4156423281516373188",
           "deps": [
             "npm:vue-router"
           ]
         },
         {
           "file": "apps/client/src/App.vue",
-          "hash": "6041995010252371031"
+          "hash": "17114196596018220574"
         },
         {
           "file": "apps/client/src/Wrapper.vue",
@@ -358,8 +358,16 @@
           "hash": "6370829397724176208"
         },
         {
+          "file": "apps/client/src/components/AddCategory.vue",
+          "hash": "8086577268280792049"
+        },
+        {
+          "file": "apps/client/src/components/AddProduct.vue",
+          "hash": "7831084323904009660"
+        },
+        {
           "file": "apps/client/src/components/AddProductPage.vue",
-          "hash": "7280929818935932216"
+          "hash": "164666273719772173"
         },
         {
           "file": "apps/client/src/components/Body.vue",
@@ -368,6 +376,7 @@
         {
           "file": "apps/client/src/components/ChecksPage.vue",
           "hash": "15873262695255587659"
+          "hash": "6959798610809978783"
         },
         {
           "file": "apps/client/src/components/Contact.vue",
@@ -395,15 +404,15 @@
         },
         {
           "file": "apps/client/src/components/OrderForm.vue",
-          "hash": "9604381264884711135"
+          "hash": "6492228796780994595"
         },
         {
           "file": "apps/client/src/components/Orders.vue",
-          "hash": "3652344271087270336"
+          "hash": "9185433938118050927"
         },
         {
           "file": "apps/client/src/main.js",
-          "hash": "13264241358256076654",
+          "hash": "5899206495904472392",
           "deps": [
             "npm:bootstrap",
             "npm:@fortawesome/fontawesome-free",
@@ -413,21 +422,21 @@
         },
         {
           "file": "apps/client/src/services/httpClient.js",
-          "hash": "4933124556086020627",
+          "hash": "17865748651521019030",
           "deps": [
             "npm:axios"
           ]
         },
         {
           "file": "apps/client/src/stores/order.js",
-          "hash": "8892046786291885672",
+          "hash": "16529342537319311095",
           "deps": [
             "npm:pinia"
           ]
         },
         {
           "file": "apps/client/vite.config.js",
-          "hash": "7218202666782593485",
+          "hash": "14429273049037401599",
           "deps": [
             "npm:vite",
             "npm:@vitejs/plugin-vue"

@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const http = axios.create({
-    baseURL: 'http://localhost:8000/',
+    baseURL: '/api',
+    withCredentials: true,
 });
 
 const getRequest = async (endpoint, params = {}) => {
@@ -23,11 +24,12 @@ const postRequest = async (endpoint, formData) => {
     try {
 
         const response = await http.post(endpoint, formData);
-
+        console.log(response)
         return response.data;
     } catch (error) {
 
         throw error.response?.data || error.message;
+
     }
 };
 

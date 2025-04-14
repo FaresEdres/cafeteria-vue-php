@@ -1,12 +1,13 @@
 <template>
   <div class="app">
-  <AddProductPage/>
+  <AddProduct/>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import AddProductPage from "./components/AddProductPage.vue"
+import AddProduct from "./components/AddProduct.vue"
 const data = ref(null);
 
 const fetchData = async () => {
@@ -19,15 +20,5 @@ const fetchData = async () => {
 };
 </script>
 <style>
-.app {
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
 
-button {
-  padding: 10px 20px;
-  margin-top: 20px;
-  cursor: pointer;
-}
 </style>

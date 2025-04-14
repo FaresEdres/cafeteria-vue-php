@@ -62,7 +62,7 @@ class UserController
         }
 
 
-        $validationErrors = validateUserData($inputData, true);
+        $validationErrors = validateUserData($inputData);
         if (!empty($validationErrors)) {
             echo json_encode(["errors" => $validationErrors]);
             return;
@@ -88,15 +88,4 @@ class UserController
         echo json_encode($result);
     }
 
-    public function loginUser()
-    {
-        $inputData = json_decode(file_get_contents("php://input"), true);
-        if (!$inputData || !isset($inputData['email']) || !isset($inputData['password'])) {
-            echo json_encode(["error" => "Email and password are required"]);
-            return;
-        }
-
-        $result = $this->userModel->authenticateUser($inputData['email'], $inputData['password']);
-        echo json_encode($result);
-    }
 }
