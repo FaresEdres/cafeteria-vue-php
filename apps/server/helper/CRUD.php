@@ -71,14 +71,13 @@ class CRUD
         if ($res) {
           $inserted_id = $conn->lastInsertId();
           echo ("Inserted successfully, ID: {$inserted_id}");
-          return $inserted_id;
+          return true;
         }
 
         $conn = null;
       }
       return true;
     } catch (Exception $e) {
-      echo $e->getMessage();
       return false;
     }
   }
