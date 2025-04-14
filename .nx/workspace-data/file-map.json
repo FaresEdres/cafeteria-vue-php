@@ -6,40 +6,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
+        "file": "nx.json.bak",
+        "hash": "15494131853977705247"
+      },
+      {
         "file": ".editorconfig",
         "hash": "5443105041930014821"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "6019243428480325542"
-      },
-      {
-        "file": "README.md",
-        "hash": "13454385417909392150"
-      },
-      {
-        "file": "composer.json",
-        "hash": "13839380369736828812"
-      },
-      {
-        "file": "composer.lock",
-        "hash": "11349439856196813733"
       },
       {
         "file": "nx.json",
         "hash": "15494131853977705247"
       },
       {
-        "file": "nx.json.bak",
-        "hash": "15494131853977705247"
+        "file": "package-lock.json",
+        "hash": "6202122930200675611"
       },
       {
-        "file": "package-lock.json",
-        "hash": "18164772051232118994"
+        "file": "README.md",
+        "hash": "13454385417909392150"
       },
       {
         "file": "package.json",
-        "hash": "9030819163094273741"
+        "hash": "5220548311547269041"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
+      },
+      {
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
+      },
+      {
+        "file": "composer.json",
+        "hash": "13839380369736828812"
       }
     ],
     "projectFileMap": {
@@ -50,7 +50,11 @@
         },
         {
           "file": "apps/server/composer.lock",
-          "hash": "11349439856196813733"
+          "hash": "9674028444457076677"
+        },
+        {
+          "file": "apps/server/controller/OrdersController.php",
+          "hash": "3688038101687848861"
         },
         {
           "file": "apps/server/controller/categoryController.php",
@@ -70,7 +74,7 @@
         },
         {
           "file": "apps/server/db/credentials.php",
-          "hash": "2589369250648628704"
+          "hash": "99103566344880085"
         },
         {
           "file": "apps/server/helper/CRUD.php",
@@ -78,11 +82,15 @@
         },
         {
           "file": "apps/server/helper/createTables.php",
-          "hash": "10281061831817133617"
+          "hash": "14037448889933113357"
         },
         {
           "file": "apps/server/helper/errors.php",
           "hash": "17184596533843372802"
+        },
+        {
+          "file": "apps/server/helper/test.php",
+          "hash": "4018750703237307080"
         },
         {
           "file": "apps/server/index.php",
@@ -91,6 +99,14 @@
         {
           "file": "apps/server/model/categoryModel.php",
           "hash": "16139751134784954138"
+        },
+        {
+          "file": "apps/server/model/orderModel.php",
+          "hash": "13634266613592927010"
+        },
+        {
+          "file": "apps/server/model/orderProuductsModel.php",
+          "hash": "14763953989496080086"
         },
         {
           "file": "apps/server/model/productModel.php",
@@ -118,7 +134,7 @@
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "13208508626926397045"
+          "hash": "8657072111606612416"
         },
         {
           "file": "apps/server/utils.php",
@@ -324,7 +340,7 @@
         },
         {
           "file": "apps/client/routes/index.js",
-          "hash": "13766058979773045322",
+          "hash": "17800590251766228637",
           "deps": [
             "npm:vue-router"
           ]
@@ -347,7 +363,11 @@
         },
         {
           "file": "apps/client/src/components/Body.vue",
-          "hash": "6204463263199159141"
+          "hash": "6959798610809978783"
+        },
+        {
+          "file": "apps/client/src/components/ChecksPage.vue",
+          "hash": "2665291677156506412"
         },
         {
           "file": "apps/client/src/components/Contact.vue",
@@ -375,7 +395,7 @@
         },
         {
           "file": "apps/client/src/components/OrderForm.vue",
-          "hash": "12447311465632225946"
+          "hash": "9604381264884711135"
         },
         {
           "file": "apps/client/src/components/Orders.vue",
@@ -383,11 +403,12 @@
         },
         {
           "file": "apps/client/src/main.js",
-          "hash": "4873568652769734873",
+          "hash": "13264241358256076654",
           "deps": [
             "npm:bootstrap",
             "npm:@fortawesome/fontawesome-free",
-            "npm:vue"
+            "npm:vue",
+            "npm:pinia"
           ]
         },
         {
@@ -395,6 +416,13 @@
           "hash": "4933124556086020627",
           "deps": [
             "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/client/src/stores/order.js",
+          "hash": "8892046786291885672",
+          "deps": [
+            "npm:pinia"
           ]
         },
         {

@@ -8,7 +8,7 @@ import About from '../src/components/About.vue';
 import Contact from '../src/components/Contact.vue';
 import Footer from '../src/components/Footer.vue';
 import NotFound from '../src/components/NotFound.vue';
-
+import ChecksPage from '../src/components/ChecksPage.vue';
 
 const routes=[
     {path:'/',component:Body},
@@ -19,6 +19,7 @@ const routes=[
     { path: '/contact', component: Contact },
     {path:'/header',component:Header},
     {path:'/footer',component:Footer},
+    {path:'/cheks',component:ChecksPage},
     {path:'/:catchAll(.*)',component:NotFound}
 
 ];
