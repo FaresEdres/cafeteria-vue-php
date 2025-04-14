@@ -4,6 +4,7 @@ import { createApp } from "vue";
 import '../public/style.css';
 import Wrapper from "./Wrapper.vue";
 import router from "../routes/index.js"
+import App from "./App.vue"
 
 const app = createApp(Wrapper);
 app.use(router);
