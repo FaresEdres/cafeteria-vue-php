@@ -49,7 +49,7 @@
           <p>Loading leatest product...</p>
         </div>
         <!-- call the leatst order her  -->
-        <div class="sig" >
+        <div class="sig">
           <div class="sig_content_container">
             <div class="container">
               <div class="row">
@@ -65,7 +65,7 @@
                       <div class="sig_name">{{ product.description }}</div>
                       <div class="sig_price ml-auto">${{ product.price }}</div> -->
                     </div>
-                    <div class="button sig_button trans_200"><a href="#">Order Again</a></div>
+                    <div><button @click="addToOrderStore(product.id)" class="button sig_button trans_200">Order Again</button></div>
                   </div>
                 </div>
               </div>
@@ -110,9 +110,9 @@
               <div class="row">
                 <div class="col-lg-7">
                   <div class="sig_content">
-                    <div class="sig_subtitle page_subtitle">Something new</div>
+                    <div class="sig_subtitle page_subtitle">Most Populer</div>
                     <div class="sig_title">
-                      <h1>Our Signature Drink</h1>
+                      <h1>Our Signature Delights</h1>
                     </div>
                     <div class="rating_r sig_rating rating_r_5"><i></i><i></i><i></i><i></i><i></i></div>
                     <div class="sig_name_container d-flex flex-column align-items-start">
@@ -120,10 +120,10 @@
                       <div class="sig_name">{{ product.description }}</div>
                       <div class="sig_price ml-auto">${{ product.price }}</div>
                     </div>
-                      <div v-if="!ifExisting(product.id)" class="button sig_button trans_200">
-                        <button  @click="addToOrderStore(product.id)">Order Now</button>
-                        <!-- <button v-else disabled>Already in Order</button> -->
-                      </div>
+                    <div v-if="!ifExisting(product.id)">
+                      <button @click="addToOrderStore(product.id)" class="button sig_button trans_200">Order Now</button>
+                      <!-- <button v-else disabled>Already in Order</button> -->
+                    </div>
                   </div>
                 </div>
               </div>
@@ -134,8 +134,9 @@
               <div class="row">
                 <div class="col-lg-7 offset-lg-5">
                   <div class="sig_image">
-                    <div class="background_image" :style="{ backgroundImage: 'url(' + product.image + ')' }"></div>
-                    <img :src="product.image" :alt="product.name">
+                    <div class="background_image">
+                      <img :src="'http://localhost:8000/public/uploads/' + product.image" :alt="product.name">
+                    </div>
                   </div>
                 </div>
               </div>
@@ -156,25 +157,33 @@ import { getRequest } from "../services/httpClient.js";
 const orderSore = useOrderStore();
 
 const products = ref([]);
-const isLoading = ref(false); 
+const isLoading = ref(false);
+const fetchProducts = async (categoryId = null) => {
+  try {
+    isLoading.value = true;
 
-  onMounted(async () => {
-    try {
-      isLoading.value = true; 
-      const response = await getRequest('products');
-      products.value = response.data; 
-      console.log(products.value); 
-    } catch (error) {
-      alert(error.message || 'Failed to fetch products');
-    } finally {
-      isLoading.value = false; 
+    let url = 'products';
+    if (categoryId !== null) {
+      url += `?category=${categoryId}`;
     }
-  });
-  const addToOrderStore = (productId)=>{
-    orderSore.addOrderItem(productId,1);
-    // console.log(orderSore.order);
+  console.log(url);
+    const response = await getRequest(url);
+    products.value = response.data;
+    console.log(products.value);
+  } catch (error) {
+    alert(error.message || 'Failed to fetch products');
+  } finally {
+    isLoading.value = false;
   }
-  const ifExisting = (productId) => {
+};
+onMounted(() => {
+  fetchProducts(10);
+});
+const addToOrderStore = (productId) => {
+  orderSore.addOrderItem(productId, 1);
+  // console.log(orderSore.order);
+}
+const ifExisting = (productId) => {
   const existingProduct = orderSore.getOrder().products.find(
     (product) => product["product-id"] === productId
   );

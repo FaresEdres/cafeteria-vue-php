@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/controller/productController.php';
 require_once __DIR__ . '/controller/categoryController.php';
-require_once __DIR__ . '/controller/userController.php'; 
+require_once __DIR__ . '/controller/userController.php';
 
 $routes = [
     "GET /products" => "productController@getAllProducts",
