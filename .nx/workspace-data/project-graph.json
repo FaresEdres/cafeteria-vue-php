@@ -1782,6 +1782,33 @@
         "hash": "sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g=="
       }
     },
+    "npm:@vue/devtools-api@7.7.2": {
+      "type": "npm",
+      "name": "npm:@vue/devtools-api@7.7.2",
+      "data": {
+        "version": "7.7.2",
+        "packageName": "@vue/devtools-api",
+        "hash": "sha512-1syn558KhyN+chO5SjlZIwJ8bV/bQ1nOVTG66t2RbG66ZGekyiYNmRO7X9BJCXQqPsFHlnksqvPhce2qpzxFnA=="
+      }
+    },
+    "npm:@vue/devtools-kit": {
+      "type": "npm",
+      "name": "npm:@vue/devtools-kit",
+      "data": {
+        "version": "7.7.2",
+        "packageName": "@vue/devtools-kit",
+        "hash": "sha512-CY0I1JH3Z8PECbn6k3TqM1Bk9ASWxeMtTCvZr7vb+CHi+X/QwQm5F1/fPagraamKMAHVfuuCbdcnNg1A4CYVWQ=="
+      }
+    },
+    "npm:@vue/devtools-shared": {
+      "type": "npm",
+      "name": "npm:@vue/devtools-shared",
+      "data": {
+        "version": "7.7.2",
+        "packageName": "@vue/devtools-shared",
+        "hash": "sha512-uBFxnp8gwW2vD6FrJB8JZLUzVb6PNRG0B0jBnHsOH8uKyva2qINY8PTF5Te4QlTbMDqU5K6qtJDr6cNsKWhbOA=="
+      }
+    },
     "npm:@vue/reactivity": {
       "type": "npm",
       "name": "npm:@vue/reactivity",
@@ -2025,6 +2052,15 @@
         "hash": "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA=="
       }
     },
+    "npm:birpc": {
+      "type": "npm",
+      "name": "npm:birpc",
+      "data": {
+        "version": "0.2.19",
+        "packageName": "birpc",
+        "hash": "sha512-5WeXXAvTmitV1RqJFppT5QtUiz2p1mRSYU000Jkft5ZUCLJIk4uQriYNO50HknxKwM6jd8utNc66K1qGIwwWBQ=="
+      }
+    },
     "npm:bl": {
       "type": "npm",
       "name": "npm:bl",
@@ -2239,6 +2275,15 @@
         "version": "2.0.0",
         "packageName": "convert-source-map",
         "hash": "sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg=="
+      }
+    },
+    "npm:copy-anything": {
+      "type": "npm",
+      "name": "npm:copy-anything",
+      "data": {
+        "version": "3.0.5",
+        "packageName": "copy-anything",
+        "hash": "sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w=="
       }
     },
     "npm:core-js-compat": {
@@ -2763,6 +2808,15 @@
         "hash": "sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ=="
       }
     },
+    "npm:hookable": {
+      "type": "npm",
+      "name": "npm:hookable",
+      "data": {
+        "version": "5.5.3",
+        "packageName": "hookable",
+        "hash": "sha512-Yc+BQe8SvoXH1643Qez1zqLRmbA5rCL+sSmk6TVos0LWVfNIB7PGncdlId77WzLGSIB5KaWgTaNTs2lNVEI6VQ=="
+      }
+    },
     "npm:hosted-git-info": {
       "type": "npm",
       "name": "npm:hosted-git-info",
@@ -2878,6 +2932,15 @@
         "version": "0.1.0",
         "packageName": "is-unicode-supported",
         "hash": "sha512-knxG2q4UC3u8stRGyAVJCOdxFmv5DZiRcdlIaAQXAbSfJya+OhopNotLQrstBhququ4ZpuKbDc/8S6mgXgPFPw=="
+      }
+    },
+    "npm:is-what": {
+      "type": "npm",
+      "name": "npm:is-what",
+      "data": {
+        "version": "4.1.16",
+        "packageName": "is-what",
+        "hash": "sha512-ZhMwEosbFJkA0YhFnNDgTM4ZxDRsS6HqTo7qsZM08fehyRYIYa0yHu5R6mgo1n/8MgaPBXiPimPD77baVFYg+A=="
       }
     },
     "npm:is-wsl": {
@@ -3078,6 +3141,15 @@
         "hash": "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA=="
       }
     },
+    "npm:mitt": {
+      "type": "npm",
+      "name": "npm:mitt",
+      "data": {
+        "version": "3.0.1",
+        "packageName": "mitt",
+        "hash": "sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw=="
+      }
+    },
     "npm:ms": {
       "type": "npm",
       "name": "npm:ms",
@@ -3240,6 +3312,15 @@
         "hash": "sha512-vE7JKRyES09KiunauX7nd2Q9/L7lhok4smP9RZTDeD4MVs72Dp2qNFVz39Nz5a0FVEW0BJR6C0DYrq6unoziZA=="
       }
     },
+    "npm:perfect-debounce": {
+      "type": "npm",
+      "name": "npm:perfect-debounce",
+      "data": {
+        "version": "1.0.0",
+        "packageName": "perfect-debounce",
+        "hash": "sha512-xCy9V055GLEqoFaHoC1SoLIaLmWctgCUaBaWxDZ7/Zx4CTyX7cJQLJOok/orfjZAh9kEYpjJa4d0KcJmCbctZA=="
+      }
+    },
     "npm:picocolors": {
       "type": "npm",
       "name": "npm:picocolors",
@@ -3256,6 +3337,15 @@
         "version": "4.0.2",
         "packageName": "picomatch",
         "hash": "sha512-M7BAV6Rlcy5u+m6oPhAPFgJTzAioX/6B0DxyvDlo9l8+T3nLKbrczg2WLUyzd45L8RqfUMyGPzekbMvX2Ldkwg=="
+      }
+    },
+    "npm:pinia": {
+      "type": "npm",
+      "name": "npm:pinia",
+      "data": {
+        "version": "3.0.2",
+        "packageName": "pinia",
+        "hash": "sha512-sH2JK3wNY809JOeiiURUR0wehJ9/gd9qFN2Y828jCbxEzKEmEt0pzCXwqiSTfuRsK9vQsOflSdnbdBOGrhtn+g=="
       }
     },
     "npm:postcss": {
@@ -3420,6 +3510,15 @@
         "hash": "sha512-l+sSefzHpj5qimhFSE5a8nufZYAM3sBSVMAPtYkmC+4EH2anSGaEMXSD0izRQbu9nfyQ9y5JrVmp7E8oZrUjvA=="
       }
     },
+    "npm:rfdc": {
+      "type": "npm",
+      "name": "npm:rfdc",
+      "data": {
+        "version": "1.4.1",
+        "packageName": "rfdc",
+        "hash": "sha512-q1b3N5QkRUWUl7iyylaaj3kOpIT0N2i9MqIEQXP73GVsN9cw3fdx8X63cEmWhJGi2PPCF23Ijp7ktmd39rawIA=="
+      }
+    },
     "npm:rollup": {
       "type": "npm",
       "name": "npm:rollup",
@@ -3483,6 +3582,15 @@
         "hash": "sha512-Wonm7zOCIJzBGQdB+thsPar0kYuCIzYvxZwlBa87yi/Mdjv7Tip2cyVbLj5o0cFPN4EVkuTwb3GDDyUx2DGnGw=="
       }
     },
+    "npm:speakingurl": {
+      "type": "npm",
+      "name": "npm:speakingurl",
+      "data": {
+        "version": "14.0.1",
+        "packageName": "speakingurl",
+        "hash": "sha512-1POYv7uv2gXoyGFpBCmpDVSNV74IfsWlDW216UPjbWufNf+bSU6GdbDsxdcxtfwb4xlI3yxzOTKClUosxARYrQ=="
+      }
+    },
     "npm:sprintf-js": {
       "type": "npm",
       "name": "npm:sprintf-js",
@@ -3544,6 +3652,15 @@
         "version": "3.0.0",
         "packageName": "strip-bom",
         "hash": "sha512-vavAMRXOgBVNF6nyEEmL3DBK19iRpDcoIwW+swQ+CbGiu7lju6t+JklA1MHweoWtadgt4ISVUsXLyDq34ddcwA=="
+      }
+    },
+    "npm:superjson": {
+      "type": "npm",
+      "name": "npm:superjson",
+      "data": {
+        "version": "2.2.2",
+        "packageName": "superjson",
+        "hash": "sha512-5JRxVqC8I8NuOUjzBbvVJAKNM8qoVuH0O77h4WInc/qC2q5IreqKxYwgkga3PfA22OayK2ikceb/B26dztPl+Q=="
       }
     },
     "npm:supports-color": {
@@ -3864,6 +3981,11 @@
       {
         "source": "cafeteria-client",
         "target": "npm:vue",
+        "type": "static"
+      },
+      {
+        "source": "cafeteria-client",
+        "target": "npm:pinia",
         "type": "static"
       },
       {
@@ -6417,6 +6539,50 @@
         "type": "static"
       }
     ],
+    "npm:@vue/devtools-kit": [
+      {
+        "source": "npm:@vue/devtools-kit",
+        "target": "npm:@vue/devtools-shared",
+        "type": "static"
+      },
+      {
+        "source": "npm:@vue/devtools-kit",
+        "target": "npm:birpc",
+        "type": "static"
+      },
+      {
+        "source": "npm:@vue/devtools-kit",
+        "target": "npm:hookable",
+        "type": "static"
+      },
+      {
+        "source": "npm:@vue/devtools-kit",
+        "target": "npm:mitt",
+        "type": "static"
+      },
+      {
+        "source": "npm:@vue/devtools-kit",
+        "target": "npm:perfect-debounce",
+        "type": "static"
+      },
+      {
+        "source": "npm:@vue/devtools-kit",
+        "target": "npm:speakingurl",
+        "type": "static"
+      },
+      {
+        "source": "npm:@vue/devtools-kit",
+        "target": "npm:superjson",
+        "type": "static"
+      }
+    ],
+    "npm:@vue/devtools-shared": [
+      {
+        "source": "npm:@vue/devtools-shared",
+        "target": "npm:rfdc",
+        "type": "static"
+      }
+    ],
     "npm:@vue/reactivity": [
       {
         "source": "npm:@vue/reactivity",
@@ -6778,6 +6944,13 @@
       {
         "source": "npm:combined-stream",
         "target": "npm:delayed-stream",
+        "type": "static"
+      }
+    ],
+    "npm:copy-anything": [
+      {
+        "source": "npm:copy-anything",
+        "target": "npm:is-what",
         "type": "static"
       }
     ],
@@ -7706,6 +7879,30 @@
         "type": "static"
       }
     ],
+    "npm:pinia": [
+      {
+        "source": "npm:pinia",
+        "target": "npm:typescript",
+        "type": "static"
+      },
+      {
+        "source": "npm:pinia",
+        "target": "npm:vue",
+        "type": "static"
+      },
+      {
+        "source": "npm:pinia",
+        "target": "npm:@vue/devtools-api@7.7.2",
+        "type": "static"
+      }
+    ],
+    "npm:@vue/devtools-api@7.7.2": [
+      {
+        "source": "npm:@vue/devtools-api@7.7.2",
+        "target": "npm:@vue/devtools-kit",
+        "type": "static"
+      }
+    ],
     "npm:postcss": [
       {
         "source": "npm:postcss",
@@ -7991,6 +8188,13 @@
       {
         "source": "npm:strip-ansi",
         "target": "npm:ansi-regex",
+        "type": "static"
+      }
+    ],
+    "npm:superjson": [
+      {
+        "source": "npm:superjson",
+        "target": "npm:copy-anything",
         "type": "static"
       }
     ],
@@ -8362,5 +8566,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1744621819680
+  "computedAt": 1744659580277
 }

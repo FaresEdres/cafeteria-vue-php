@@ -18,11 +18,10 @@ class UserModel {
             "lastname" => "VARCHAR(100) NOT NULL",
             "email" => "VARCHAR(255) NOT NULL UNIQUE",
             "password" => "VARCHAR(255) NOT NULL",
-            "role" => "ENUM('admin','user') DEFAULT 'user'",
-            "phoneNumber" => "VARCHAR(20)",
-            "address" => "TEXT",
-            "image" => "VARCHAR(255)",
-            "gender" => "ENUM('male','female','other')",
+            "role" => "ENUM('admin','user') NOT NULL DEFAULT 'user'",
+            "room" => "VARCHAR(100) NOT NULL",
+            "ext" => "VARCHAR(10) NOT NULL",
+            "image" => "VARCHAR(255) NOT NULL",
             "created_at" => "TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
         ]);
     }
@@ -66,21 +65,6 @@ class UserModel {
         try {
             $deleted = $this->db->delete("users", ["id" => $id]);
             return $deleted ? ["message" => "User deleted"] : ["error" => "User not found"];
-        } catch (Exception $e) {
-            return ["error" => $e->getMessage()];
-        }
-    }
-
-    public function authenticateUser($email, $password) {
-        try {
-            $user = $this->db->select("users", "*", ["email" => $email]);
-            if (!$user || !password_verify($password, $user[0]['password'])) {
-                return ["error" => "Invalid credentials"];
-            }
-            
-            // Remove password before returning
-            unset($user[0]['password']);
-            return $user[0];
         } catch (Exception $e) {
             return ["error" => $e->getMessage()];
         }
