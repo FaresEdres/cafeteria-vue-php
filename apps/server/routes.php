@@ -32,6 +32,8 @@ $routes = [
     "POST /orders" => "OrdersController@addOrder" ,
     "GET /orders/{id}" => "OrdersController@getAllOrders",
     "PATCH /orders/{id}" => "OrdersController@editOrder",
+    "GET /orders" => "OrdersController@getAllOrdersForAdmin"
+
 ];
 
 return $routes;

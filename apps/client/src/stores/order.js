@@ -21,6 +21,22 @@ export const useOrderStore = defineStore('order', {
           "product-id": productID,
           "quantity": quantity,
         });
-      }
+      },
+      increaseQuantity(productId){
+        const product = this.order.products.find(item => item['product-id'] === productId);
+        if (product) {
+          product.quantity++;
+        }
+      },
+      decreaseQuantity(productId){
+        const product = this.order.products.find(item => item['product-id'] === productId);
+        if (product && product.quantity > 1) {
+          product.quantity--;
+        }
+        if (product.quantity ==0){
+          this.removeOrderItem(productId);
+        }
+      },
+
     },
   })
