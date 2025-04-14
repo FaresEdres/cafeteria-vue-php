@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/controller/productController.php';
 require_once __DIR__ . '/controller/categoryController.php';
-require_once __DIR__ . '/controller/userController.php'; 
+require_once __DIR__ . '/controller/userController.php';
 
 $routes = [
     "GET /products" => "productController@getAllProducts",
@@ -22,9 +22,10 @@ $routes = [
     "DELETE /users/{id}" => "userController@deleteUser",
     "POST /users/login" => "userController@loginUser",
 
-    "POST /orders" => "OrdersController@addOrder" ,
+    "POST /orders" => "OrdersController@addOrder",
     "GET /orders/{id}" => "OrdersController@getAllOrders",
     "PATCH /orders/{id}" => "OrdersController@editOrder",
+
 ];
 
 return $routes;

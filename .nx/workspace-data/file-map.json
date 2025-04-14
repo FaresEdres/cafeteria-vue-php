@@ -10,36 +10,36 @@
         "hash": "15494131853977705247"
       },
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "6202122930200675611"
-      },
-      {
         "file": "README.md",
         "hash": "13454385417909392150"
-      },
-      {
-        "file": "package.json",
-        "hash": "5220548311547269041"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "6019243428480325542"
       },
       {
         "file": "composer.lock",
         "hash": "11349439856196813733"
       },
       {
+        "file": "package.json",
+        "hash": "5220548311547269041"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
+      },
+      {
         "file": "composer.json",
         "hash": "13839380369736828812"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "6202122930200675611"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15494131853977705247"
       }
     ],
     "projectFileMap": {
@@ -54,7 +54,7 @@
         },
         {
           "file": "apps/server/controller/OrdersController.php",
-          "hash": "3688038101687848861"
+          "hash": "3836906187676652604"
         },
         {
           "file": "apps/server/controller/categoryController.php",
@@ -134,7 +134,7 @@
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "8657072111606612416"
+          "hash": "10972749780594124757"
         },
         {
           "file": "apps/server/utils.php",
@@ -367,7 +367,7 @@
         },
         {
           "file": "apps/client/src/components/ChecksPage.vue",
-          "hash": "2665291677156506412"
+          "hash": "15873262695255587659"
         },
         {
           "file": "apps/client/src/components/Contact.vue",
