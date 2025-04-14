@@ -23,11 +23,12 @@ const postRequest = async (endpoint, formData) => {
     try {
 
         const response = await http.post(endpoint, formData);
-
+        console.log(response)
         return response.data;
     } catch (error) {
 
         throw error.response?.data || error.message;
+
     }
 };
 
