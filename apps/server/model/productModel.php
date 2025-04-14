@@ -142,6 +142,8 @@ class ProductModel
             // First, get product to delete its image
             $product = $this->db->select("products", ["image"], ["id" => $id]);
 
+
+
             // Check if product was found
             if (empty($product)) {
                 return ['success' => false, 'error' => 'Product not found'];
@@ -152,7 +154,7 @@ class ProductModel
 
             // If product is deleted and there is an image, remove it
             if ($deleted && !empty($product[0]['image'])) {
-                $imagePath = __DIR__ . '/../public/' . $product[0]['image'];
+                $imagePath = __DIR__ . '/../public/uploads/' . $product[0]['image'];
 
                 // Debug: Check if the image path exists
                 if (file_exists($imagePath)) {
