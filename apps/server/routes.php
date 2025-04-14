@@ -21,6 +21,10 @@ $routes = [
     "PATCH /users/{id}" => "userController@updateUser",
     "DELETE /users/{id}" => "userController@deleteUser",
     "POST /users/login" => "userController@loginUser",
+
+    "POST /orders" => "OrdersController@addOrder" ,
+    "GET /orders/{id}" => "OrdersController@getAllOrders",
+    "PATCH /orders/{id}" => "OrdersController@editOrder",
 ];
 
 return $routes;

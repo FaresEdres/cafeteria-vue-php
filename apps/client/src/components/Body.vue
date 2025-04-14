@@ -120,7 +120,10 @@
                       <div class="sig_name">{{ product.description }}</div>
                       <div class="sig_price ml-auto">${{ product.price }}</div>
                     </div>
-                    <div class="button sig_button trans_200"><a href="#">Order Now</a></div>
+                      <div v-if="!ifExisting(product.id)" class="button sig_button trans_200">
+                        <button  @click="addToOrderStore(product.id)">Order Now</button>
+                        <!-- <button v-else disabled>Already in Order</button> -->
+                      </div>
                   </div>
                 </div>
               </div>
@@ -146,35 +149,39 @@
 
 
 
-<script>
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useOrderStore } from '../stores/order.js';
 import { getRequest } from "../services/httpClient.js";
+const orderSore = useOrderStore();
 
-export default {
-  data() {
-    return {
-      products: [],
-      isLoading: false
-    };
-  },
-  methods: {
-    async fetchProducts() {
-      try {
-        this.isLoading = true;
-       const response = await getRequest('products');
-        this.products=response.data
+const products = ref([]);
+const isLoading = ref(false); 
 
-        console.log( this.products);
-      } catch (error) {
-        alert(error.message || 'Failed to fetch products');
-      } finally {
-        this.isLoading = false;
-      }
+  onMounted(async () => {
+    try {
+      isLoading.value = true; 
+      const response = await getRequest('products');
+      products.value = response.data; 
+      console.log(products.value); 
+    } catch (error) {
+      alert(error.message || 'Failed to fetch products');
+    } finally {
+      isLoading.value = false; 
     }
-  },
-  mounted() {
-    this.fetchProducts();
+  });
+  const addToOrderStore = (productId)=>{
+    orderSore.addOrderItem(productId,1);
+    // console.log(orderSore.order);
   }
+  const ifExisting = (productId) => {
+  const existingProduct = orderSore.getOrder().products.find(
+    (product) => product["product-id"] === productId
+  );
+  console.log(existingProduct);
+  return !!existingProduct; // Return true if the product exists, otherwise false
 };
+
 </script>
 
 
