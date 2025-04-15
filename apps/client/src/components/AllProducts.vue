@@ -1,12 +1,10 @@
-use my http client to make delete work
-
 <template>
   <section id="product-management" style="padding: 60px 0; background-color: #f9f5f2;">
     <div class="super_container" style="max-width: 800px; margin: auto;">
-      
+
       <!-- Add Product Button (opens modal) -->
 <div style="text-align: right; margin-bottom: 20px;">
-  <router-link 
+  <router-link
     to="/add-product"
     class="btn btn-primary"
     style="background-color: #c4ab9f; color: white; padding: 10px 20px; border: none; border-radius: 4px; text-decoration: none;"
@@ -39,8 +37,8 @@ use my http client to make delete work
             <tr v-for="product in paginatedProducts" :key="product.id">
               <td>{{ product.id }}</td>
               <td>
-               
-                <img 
+
+                <img
                  v-if="product.image"
                  width="50px"
                 :src="`http://localhost:8000/public/uploads/` + product.image" :alt="product.name">
@@ -84,7 +82,7 @@ use my http client to make delete work
         <p style="color: #666;">No products found</p>
       </div>
 
-    
+
 
       <!-- Edit Product Modal -->
       <div v-if="showEditModal" class="modal-overlay">
@@ -109,10 +107,10 @@ use my http client to make delete work
               <input v-model="editProductData.price" type="number"  />
             </div>
             <div class="form-group">
-    <select 
-      v-model="productData.category_id" 
-      id="category_id" 
-      class="form-control" 
+    <select
+      v-model="productData.category_id"
+      id="category_id"
+      class="form-control"
       style="flex: 1; padding:10px; border: 1px solid #c4ab9f;"
     >
       <option disabled value="">Please select a category</option>
@@ -120,8 +118,8 @@ use my http client to make delete work
         {{ category.name }}
       </option>
     </select>
-     <button 
-      @click="$router.push('/add-category')" 
+     <button
+      @click="$router.push('/add-category')"
       type="button"
       title="Add Category"
       style="padding: 10px 14px; background-color: #c4ab9f; border: none; border-radius: 4px; color: white; font-size: 18px; cursor: pointer;"
@@ -163,15 +161,15 @@ export default {
   data() {
     return {
       isLoading: false,
-      products: [],          
+      products: [],
       currentPage: 1,
       itemsPerPage: 5,
       totalPages: 1,
-      
+
       // Modal states
       showEditModal: false,
       showDeleteModal: false,
-      
+
       // Form data
       productData: {
         name: '',
@@ -194,7 +192,7 @@ export default {
   },
   computed: {
     paginatedProducts() {
-        
+
       return this.products;
     }
   },
@@ -216,9 +214,9 @@ export default {
         this.isLoading = false;
       }
     },
-    
+
     // Modal handlers
-    
+
     openEditModal(product) {
       this.showEditModal = true;
       this.editProductData = {
@@ -230,37 +228,37 @@ export default {
         imageFile: null
       };
     },
-    
+
     closeEditModal() {
       this.showEditModal = false;
     },
-    
+
     confirmDelete(id) {
       this.showDeleteModal = true;
       this.deleteProductId = id;
     },
-    
+
     closeDeleteModal() {
       this.showDeleteModal = false;
       this.deleteProductId = null;
     },
-    
+
     // File handlers
     onFileChange(event) {
       this.productData.imageFile = event.target.files[0];
     },
-    
+
     onEditFileChange(event) {
       this.editProductData.imageFile = event.target.files[0];
     },
-    
+
     // CRUD operations
-   
-    
+
+
     async handleUpdateProduct() {
       try {
         this.isLoading = true;
-        
+
         const formData = new FormData();
         formData.append('id',this.editProductData.id)
         formData.append('name', this.editProductData.name);
@@ -270,14 +268,14 @@ export default {
         if (this.editProductData.imageFile) {
           formData.append('image', this.editProductData.imageFile);
         }
-        
+
          const response = await patchRequest(
-      `products/${this.editProductData.id}`, 
+      `products/${this.editProductData.id}`,
 formData);
 console.log(response)
           this.closeEditModal();
           this.fetchProducts(); // Refresh the list
-             
+
         return response;
       } catch (error) {
         alert(error.message || 'Failed to update product');
@@ -285,15 +283,15 @@ console.log(response)
         this.isLoading = false;
       }
     },
-    
+
     async handleDeleteProduct() {
       try {
         this.isLoading = true;
        await deleteRequest('products', this.deleteProductId);
 
-       
+
         this.products = this.products.filter(p => p.id !== this.deleteProductId); // update UI
-    
+
     this.closeDeleteModal();
       } catch (error) {
         alert(error.message || 'Failed to delete product');
@@ -301,7 +299,7 @@ console.log(response)
         this.isLoading = false;
       }
     },
-    
+
     goToPage(page) {
       if (page >= 1 && page <= this.totalPages) {
         this.currentPage = page;
@@ -309,9 +307,9 @@ console.log(response)
       }
     }
   },
-  
- 
-  
+
+
+
   mounted() {
     this.fetchProducts();
   }
