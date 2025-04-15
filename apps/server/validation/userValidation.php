@@ -76,10 +76,6 @@ function validateUserData($data){
                     $errors['password'] = "8 Character or more";
                     break;
                 }
-                else if ($key === 'role') {
-                    $errors['role'] = "Role can't be imported from the client";
-                    break;
-                }
                 else if ($key === 'firstname' or $key === 'lastname') {
                     if (!preg_match("/^[a-zA-Z]+$/", $value)) {
                         $errors[$key] = "{$key} must contain only letters";
@@ -100,8 +96,8 @@ function validateUserData($data){
 
 function validIMG($fileInfo,&$formErrors){
 
-    $imageName = $fileInfo['image']['name'];
-    $imageTmp = $fileInfo['image']['tmp_name'];
+    $imageName = $fileInfo['name'];
+    $imageTmp = $fileInfo['tmp_name'];
     
     if(empty($imageName) and empty($imageTmp)) {
 
@@ -124,7 +120,7 @@ function validIMG($fileInfo,&$formErrors){
         }
         else {
             $newName = uniqid() . "." . $ext;
-            move_uploaded_file($imageTmp, "../uploads/{$newName}");
+            move_uploaded_file($imageTmp, __DIR__ . "/../public/uploads/users/{$newName}");
         }
     }
     return $newName;

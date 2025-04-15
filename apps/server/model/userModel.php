@@ -29,9 +29,12 @@ class UserModel {
     public function addUser($data) {
         try {
             $insertedId = $this->db->insert("users", $data);
-            return $insertedId ? ["id" => $insertedId] : ["error" => "Failed to add user"];
+            if ($insertedId) {
+                return ["id" => $insertedId]; // Return the inserted ID
+            }
+            return ["error" => "Failed to add user"]; // Return an error if the insert failed
         } catch (Exception $e) {
-            return ["error" => $e->getMessage()];
+            return ["error" => $e->getMessage()]; // Return the exception message on error
         }
     }
 

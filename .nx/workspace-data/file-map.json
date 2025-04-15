@@ -16,11 +16,11 @@
         },
         {
           "file": "apps/server/controller/OrdersController.php",
-          "hash": "1484734423628697701"
+          "hash": "15688036729207552098"
         },
         {
           "file": "apps/server/controller/authenticateController.php",
-          "hash": "5537863178522246230"
+          "hash": "10714921503148230158"
         },
         {
           "file": "apps/server/controller/categoryController.php",
@@ -32,7 +32,7 @@
         },
         {
           "file": "apps/server/controller/userController.php",
-          "hash": "12392114430733231338"
+          "hash": "10084777104538396712"
         },
         {
           "file": "apps/server/db/connector.php",
@@ -44,7 +44,7 @@
         },
         {
           "file": "apps/server/helper/CRUD.php",
-          "hash": "11387062152047510172"
+          "hash": "9336884247532277319"
         },
         {
           "file": "apps/server/helper/createTables.php",
@@ -72,7 +72,7 @@
         },
         {
           "file": "apps/server/model/orderProuductsModel.php",
-          "hash": "14222761870617040482"
+          "hash": "3797518411465021545"
         },
         {
           "file": "apps/server/model/productModel.php",
@@ -80,7 +80,7 @@
         },
         {
           "file": "apps/server/model/userModel.php",
-          "hash": "5942705497585051888"
+          "hash": "3474493524827554451"
         },
         {
           "file": "apps/server/project.json",
@@ -228,7 +228,7 @@
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "15972004003677508604"
+          "hash": "10958918567592560247"
         },
         {
           "file": "apps/server/utils.php",
@@ -244,7 +244,7 @@
         },
         {
           "file": "apps/server/validation/userValidation.php",
-          "hash": "14639790424813239443"
+          "hash": "15688269226650591287"
         }
       ],
       "cafeteria-client": [
@@ -342,7 +342,7 @@
         },
         {
           "file": "apps/client/public/style.css",
-          "hash": "1421821998969978534"
+          "hash": "9469636161613714883"
         },
         {
           "file": "apps/client/public/testimonials.jpg",
@@ -385,7 +385,7 @@
         },
         {
           "file": "apps/client/src/components/Body.vue",
-          "hash": "13313606366928155042"
+          "hash": "6193704849714902653"
         },
         {
           "file": "apps/client/src/components/ChecksPage.vue",
@@ -408,8 +408,16 @@
           "hash": "17669745062835815518"
         },
         {
+          "file": "apps/client/src/components/Login.vue",
+          "hash": "4256818356237559891"
+        },
+        {
           "file": "apps/client/src/components/Menu.vue",
           "hash": "5576502399642422516"
+        },
+        {
+          "file": "apps/client/src/components/NavBar.vue",
+          "hash": "11572285686358629807"
         },
         {
           "file": "apps/client/src/components/NotFound.vue",
@@ -421,15 +429,15 @@
         },
         {
           "file": "apps/client/src/components/OrderForm.vue",
-          "hash": "7065537181696005233"
+          "hash": "12254411173469240879"
         },
         {
           "file": "apps/client/src/components/Orders.vue",
-          "hash": "13289416261419573726"
+          "hash": "15410861733026040984"
         },
         {
           "file": "apps/client/src/composables/useCategoryProducts.js",
-          "hash": "13273989099912245260",
+          "hash": "9753885895006820769",
           "deps": [
             "npm:vue"
           ]

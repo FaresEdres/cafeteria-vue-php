@@ -56,28 +56,26 @@ class CRUD
   public function insert($tableName, $data)
   {
     try {
-      $conn = SQLConnector::connectDatabase();
-      if ($conn) {
-        $columns = array_keys($data);
-        $placeholders = array_fill(0, count($columns), '?');
+        $conn = SQLConnector::connectDatabase();
+        if ($conn) {
+            $columns = array_keys($data);
+            $placeholders = array_fill(0, count($columns), '?');
 
-        $insert_query = "INSERT INTO `$tableName` (" . implode(", ", $columns) . ")
-                             VALUES (" . implode(", ", $placeholders) . ");";
+            $insert_query = "INSERT INTO `$tableName` (" . implode(", ", $columns) . ")
+                           VALUES (" . implode(", ", $placeholders) . ");";
 
-        $stmt = $conn->prepare($insert_query);
-        $res = $stmt->execute(array_values($data));
+            $stmt = $conn->prepare($insert_query);
+            $res = $stmt->execute(array_values($data));
 
         if ($res) {
           $inserted_id = $conn->lastInsertId();
           echo ("Inserted successfully, ID: {$inserted_id}");
           return $inserted_id;
         }
-
-        $conn = null;
+        return false; // Return false if the connection failed
       }
-      return true;
     } catch (Exception $e) {
-      return false;
+        return false; // Return false on exception
     }
   }
 
