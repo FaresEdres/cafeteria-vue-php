@@ -74,7 +74,7 @@ class AuthenticateController {
         if (!$user) {
             return ["message" => "null"];
         }
-        return ["message" => $user];
+        return $user;
     } catch (Exception $e) {
         return ["message" => "null"];
     }

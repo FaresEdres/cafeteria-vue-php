@@ -28,7 +28,7 @@ $routes = [
     "GET /users" => "userController@getAllUsers",
     "GET /users/{id}" => "userController@getUserById",
     "POST /users" => "userController@addUser",
-    "PATCH /users/{id}" => "userController@updateUser",
+    "POST /users/{id}" => "userController@updateUser",
     "DELETE /users/{id}" => "userController@deleteUser",
     "POST /users/login" => "userController@loginUser",
 
