@@ -6,7 +6,7 @@ import Orders from '../src/components/Orders.vue';
 import OrderForm from '../src/components/OrderForm.vue';
 import About from '../src/components/About.vue';
 import Contact from '../src/components/Contact.vue';
-import Login from '../src/components/LogIn.vue';
+import Login from '../src/components/Login.vue';
 import Footer from '../src/components/Footer.vue';
 import NotFound from '../src/components/NotFound.vue';
 import AddProduct from '../src/components/AddProduct.vue';
@@ -26,6 +26,7 @@ const routes = [
     { path: '/add-category', component: AddCategory },
     { path: '/checks', component: ChecksPage },
     { path: '/all-products', component: AllProducts },
+    { path: '/login', component: Login },
     { path: '/:catchAll(.*)', component: NotFound }
 
 ];

@@ -211,7 +211,11 @@
         },
         {
           "file": "apps/client/src/components/LogIn.vue",
-          "hash": "11567915411962420111"
+          "hash": "17669745062835815518"
+        },
+        {
+          "file": "apps/client/src/components/Login.vue",
+          "hash": "4256818356237559891"
         },
         {
           "file": "apps/client/src/components/Login.vue",
@@ -220,6 +224,10 @@
         {
           "file": "apps/client/src/components/Menu.vue",
           "hash": "2725343335373319669"
+        },
+        {
+          "file": "apps/client/src/components/NavBar.vue",
+          "hash": "11572285686358629807"
         },
         {
           "file": "apps/client/src/components/NotFound.vue",
