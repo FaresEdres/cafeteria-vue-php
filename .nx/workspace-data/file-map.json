@@ -44,7 +44,7 @@
         },
         {
           "file": "apps/server/helper/CRUD.php",
-          "hash": "1095408844635780027"
+          "hash": "11387062152047510172"
         },
         {
           "file": "apps/server/helper/createTables.php",
@@ -60,7 +60,7 @@
         },
         {
           "file": "apps/server/index.php",
-          "hash": "11372325056275216584"
+          "hash": "13855059011815150981"
         },
         {
           "file": "apps/server/model/categoryModel.php",
@@ -76,7 +76,7 @@
         },
         {
           "file": "apps/server/model/productModel.php",
-          "hash": "10302450932161535903"
+          "hash": "13937201783205658046"
         },
         {
           "file": "apps/server/model/userModel.php",
@@ -216,7 +216,7 @@
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "12724660355218439744"
+          "hash": "8807735708530382798"
         },
         {
           "file": "apps/server/utils.php",
@@ -338,7 +338,7 @@
         },
         {
           "file": "apps/client/routes/index.js",
-          "hash": "8255826813297038567",
+          "hash": "9306733044515966932",
           "deps": [
             "npm:vue-router"
           ]
@@ -357,11 +357,11 @@
         },
         {
           "file": "apps/client/src/components/AddCategory.vue",
-          "hash": "11490316934228468925"
+          "hash": "17346407128503666722"
         },
         {
           "file": "apps/client/src/components/AddProduct.vue",
-          "hash": "17279810112461938288"
+          "hash": "1807668938402874856"
         },
         {
           "file": "apps/client/src/components/AddProductPage.vue",
@@ -369,7 +369,7 @@
         },
         {
           "file": "apps/client/src/components/AllProducts.vue",
-          "hash": "6011995229252897334"
+          "hash": "7981278636943196550"
         },
         {
           "file": "apps/client/src/components/Body.vue",
@@ -430,7 +430,7 @@
         },
         {
           "file": "apps/client/src/services/httpClient.js",
-          "hash": "12350667483260224781",
+          "hash": "2221889668659837220",
           "deps": [
             "npm:axios"
           ]
@@ -483,11 +483,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "6202122930200675611"
+        "hash": "15588971228598127153"
       },
       {
         "file": "package.json",
-        "hash": "5220548311547269041"
+        "hash": "10450147080176489101"
       }
     ]
   }

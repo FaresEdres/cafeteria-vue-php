@@ -20,17 +20,18 @@ class ProductController
     }
 
 
-    public function getAllProducts()
-    {
-        header('Content-Type: application/json');
-        $products = $this->productModel->displayAllProducts();
-        if (isset($products["error"])) {
-            echo json_encode(["error" => $products["error"]]);
-        } else {
-            echo json_encode($products);
-            exit;
-        }
-    }
+  //  public function getAllProducts($categoryId = null)
+  //   {
+  //       header('Content-Type: application/json');
+  //       $categoryId = isset($_GET['category']) ? $_GET['category'] : null;
+  //       $products = $this->productModel->displayAllProducts($categoryId);
+  //       if (isset($products["error"])) {
+  //           echo json_encode(["error" => $products["error"]]);
+  //       } else {
+  //           echo json_encode($products);
+  //           exit;
+  //       }
+  //   }
 
 
     public function getProductById($id)
@@ -176,17 +177,28 @@ class ProductController
     }
 
     public function getProducts()
-    {
-        // Get the 'page' and 'limit' query parameters from the URL
-        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Default to page 1 if not set
-        $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10; // Default to 10 items per page if not set
+{
+    header('Content-Type: application/json');
 
-        // If both 'page' and 'limit' are provided, use the pagination method
-        if ($page > 0 && $limit > 0) {
-            return $this->productModel->displayPaginateProducts($page, $limit);
-        }
+    // Get query parameters
+    $categoryId = isset($_GET['category']) ? $_GET['category'] : null;
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : null;
+    $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
 
-        // If no pagination parameters are provided, return all products
-        return $this->productModel->displayAllProducts();
+    // If pagination is requested
+    if ($page && $limit) {
+        $products = $this->productModel->displayPaginateProducts($page);
+    } else {
+        // No pagination, just return all (filtered by category if given)
+        $products = $this->productModel->displayAllProducts($categoryId);
     }
+
+    if (isset($products["error"])) {
+        echo json_encode(["error" => $products["error"]]);
+    } else {
+        echo json_encode($products);
+    }
+
+    exit;
+  }
 }

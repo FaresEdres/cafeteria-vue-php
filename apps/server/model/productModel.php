@@ -175,15 +175,19 @@ class ProductModel
     }
 
 
-    public function displayAllProducts()
-    {
-        try {
-            $products = $this->db->select("products", "*");
-            return ['success' => true, 'data' => $products];
-        } catch (Exception $e) {
-            return ['success' => false, 'error' => $e->getMessage()];
-        }
+    public function displayAllProducts($categoryId)
+  {
+    try {
+      if ($categoryId !== null) {
+        $products = $this->db->select("products", "*", ["category_id" => $categoryId]);
+    } else {
+        $products = $this->db->select("products", "*");
     }
+        return ['success' => true, 'data' => $products];
+    } catch (Exception $e) {
+      return ['success' => false, 'error' => $e->getMessage()];
+    }
+  }
     public function displayPaginateProducts($page)
     {
         $limit = 5;

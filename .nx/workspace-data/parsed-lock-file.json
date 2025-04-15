@@ -3816,6 +3816,15 @@
         "hash": "sha512-HDuk+PuH5monfNuY+ct49mNmkCRK4xJAV9Ts4z9UFc4rzdDnxQLyCMGGc8pKhZhHTVzfanpNwB/lwqevcBwI4w=="
       }
     },
+    "npm:vue-toast-notification": {
+      "type": "npm",
+      "name": "npm:vue-toast-notification",
+      "data": {
+        "version": "3.1.3",
+        "packageName": "vue-toast-notification",
+        "hash": "sha512-XNyWqwLIGBFfX5G9sK+clq3N3IPlhDjzNdbZaXkEElcotPlWs0wWZailk1vqhdtLYT/93Y4FHAVuzyatLmPZRA=="
+      }
+    },
     "npm:wcwidth": {
       "type": "npm",
       "name": "npm:wcwidth",
@@ -7923,6 +7932,11 @@
     {
       "source": "npm:vue-router",
       "target": "npm:@vue/devtools-api",
+      "type": "static"
+    },
+    {
+      "source": "npm:vue-toast-notification",
+      "target": "npm:vue",
       "type": "static"
     },
     {
