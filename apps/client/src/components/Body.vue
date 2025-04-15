@@ -120,11 +120,13 @@
                       <div class="sig_name">{{ product.description }}</div>
                       <div class="sig_price ml-auto">${{ product.price }}</div>
                     </div>
-                      <div v-if="!ifExisting(product.id)" class="button sig_button trans_200">
-                        <button  @click="addToOrderStore(product.id)">Order Now</button>
-                        <!-- <button v-else disabled>Already in Order</button> -->
-                      </div>
-                  </div>
+                    <div v-if="!ifExisting(product.id)">
+                      <button @click="addToOrderStore(product.id)" class="button sig_button trans_200">Order Now</button>
+                    </div>
+                    <div v-else>
+                        <button disabled class="button sig_button trans_200">Already in Order</button>
+                    </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -150,38 +152,42 @@
 
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useOrderStore } from '../stores/order.js';
 import { getRequest } from "../services/httpClient.js";
-const orderSore = useOrderStore();
+const orderStore = useOrderStore();
 
 const products = ref([]);
 const isLoading = ref(false); 
 
-  onMounted(async () => {
-    try {
-      isLoading.value = true; 
-      const response = await getRequest('products');
-      products.value = response.data; 
-      console.log(products.value); 
-    } catch (error) {
-      alert(error.message || 'Failed to fetch products');
-    } finally {
-      isLoading.value = false; 
-    }
-  });
-  const addToOrderStore = (productId)=>{
-    orderSore.addOrderItem(productId,1);
-    // console.log(orderSore.order);
+onMounted(async () => {
+  try {
+    isLoading.value = true; 
+    const response = await getRequest('products');
+    products.value = response.data; 
+  } catch (error) {
+    alert(error.message || 'Failed to fetch products');
+  } finally {
+    isLoading.value = false; 
   }
-  const ifExisting = (productId) => {
-  const existingProduct = orderSore.getOrder().products.find(
-    (product) => product["product-id"] === productId
-  );
-  console.log(existingProduct);
-  return !!existingProduct; // Return true if the product exists, otherwise false
+});
+
+const addToOrderStore = (productId) => {
+  orderStore.addOrderItem(productId, 1);
 };
 
+const ifExisting = (productId) => {
+  const existingProduct = orderStore.getOrder().products.find(
+    (product) => product["product-id"] === productId
+  );
+  return !!existingProduct;
+};
+
+// Watch for changes in the order store
+watch(() => orderStore.getOrder().products, () => {
+  // This will automatically update the UI when products are removed
+  // or when the cart is cleared
+}, { deep: true });
 </script>
 
 
