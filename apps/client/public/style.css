@@ -847,7 +847,7 @@ About intro
 }
 .sig_image img
 {
-	display: none;
+	/* display: none; */
 	max-width: 100%;
 }
 .sig_content_container
@@ -1243,6 +1243,7 @@ About intro
 	background: #232323;
 	padding-top: 70px;
 	padding-bottom: 60px;
+  margin-top: 2px;
 }
 .footer_logo_title
 {

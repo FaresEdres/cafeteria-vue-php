@@ -16,9 +16,10 @@ class UserController
     {
         $users = $this->userModel->displayAllUsers();
         if (isset($users["error"])) {
-            echo json_encode(["error" => $users["error"]]);
+            // return json_encode(["error" => $users["error"]]);
+            return json_encode(["error" => $users["error"]]);
         } else {
-            echo json_encode($users);
+            return ($users);
         }
     }
 
@@ -87,5 +88,4 @@ class UserController
         $result = $this->userModel->deleteUser($id);
         echo json_encode($result);
     }
-
 }

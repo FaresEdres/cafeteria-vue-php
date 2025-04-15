@@ -25,19 +25,22 @@ class orderProductsModel
     }
 
     public function addOrderProduct($data)
-    {
-        try {
-            $result = $this->db->insert("order_products", $data);
-            var_dump($result);
-            if ($result) {
-                return ["message" => "Order product inserted successfully"];
-            } else {
-                return ["error" => "Failed to insert order product"];
-            }
-        } catch (Exception $e) {
-            return ["error" => $e->getMessage()];
+{
+    try {
+        error_log("Inserting order product: " . print_r($data, true)); // Log the data being inserted
+        $result = $this->db->insert("order_products", $data);
+        error_log("Insert result: " . print_r($result, true)); // Log the result of the insert operation
+
+        if ($result) {
+            return ["message" => "Order product inserted successfully"];
+        } else {
+            return ["error" => "Failed to insert order product"];
         }
+    } catch (Exception $e) {
+        error_log("Error inserting order product: " . $e->getMessage());
+        return ["error" => $e->getMessage()];
     }
+}
     public function editOrderProduct($id, $data)
     {
         try {

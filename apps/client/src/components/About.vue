@@ -74,6 +74,17 @@
             </div>
           </div>
 
+          <div class="col-xl-4 col-md-6 chef_col d-flex flex-column align-items-center justify-content-end">
+            <div class="chef">
+              <div class="chef_image"><img src="/nouran.jpg" alt=""></div>
+              <div class="chef_content text-center">
+                <div class="chef_name">Nouran Mohammed</div>
+                <div class="chef_subtitle">Sauce Chef</div>
+                <div class="chef_button ml-auto mr-auto trans_400"><a href="#">see more</a></div>
+              </div>
+            </div>
+          </div>
+
           <!-- Chef -->
           <div class="col-xl-4 col-md-6 chef_col d-flex flex-column align-items-center justify-content-end">
             <div class="chef">
@@ -81,17 +92,6 @@
               <div class="chef_content text-center">
                 <div class="chef_name">Fares Edres</div>
                 <div class="chef_subtitle">Sushi Chef</div>
-                <div class="chef_button ml-auto mr-auto trans_400"><a href="#">see more</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-4 col-md-6 chef_col d-flex flex-column align-items-center justify-content-end">
-            <div class="chef">
-              <div class="chef_image"><img src="/nouran1.jpg" alt=""></div>
-              <div class="chef_content text-center">
-                <div class="chef_name">Nouran Mohammed</div>
-                <div class="chef_subtitle">Sauce Chef</div>
                 <div class="chef_button ml-auto mr-auto trans_400"><a href="#">see more</a></div>
               </div>
             </div>
@@ -108,7 +108,16 @@
               </div>
             </div>
           </div>
-
+          <div class="col-xl-4 col-md-6 chef_col d-flex flex-column align-items-center justify-content-end">
+            <div class="chef">
+              <div class="chef_image"><img src="/mostafa.jpg" alt=""></div>
+              <div class="chef_content text-center">
+                <div class="chef_name">Mostafa Loatfy</div>
+                <div class="chef_subtitle">Bread Chef</div>
+                <div class="chef_button ml-auto mr-auto trans_400"><a href="#">see more</a></div>
+              </div>
+            </div>
+          </div>
           <!-- Chef -->
           <div class="col-xl-4 col-md-6 chef_col d-flex flex-column align-items-center justify-content-end">
             <div class="chef">
@@ -121,16 +130,6 @@
             </div>
           </div>
 
-          <div class="col-xl-4 col-md-6 chef_col d-flex flex-column align-items-center justify-content-end">
-            <div class="chef">
-              <div class="chef_image"><img src="/mostafa.jpg" alt=""></div>
-              <div class="chef_content text-center">
-                <div class="chef_name">Mostafa Loatfy</div>
-                <div class="chef_subtitle">Bread Chef</div>
-                <div class="chef_button ml-auto mr-auto trans_400"><a href="#">see more</a></div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

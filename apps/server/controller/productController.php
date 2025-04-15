@@ -20,17 +20,18 @@ class ProductController
     }
 
 
-    public function getAllProducts()
-    {
-        header('Content-Type: application/json');
-        $products = $this->productModel->displayAllProducts();
-        if (isset($products["error"])) {
-            echo json_encode(["error" => $products["error"]]);
-        } else {
-            echo json_encode($products);
-            exit;
-        }
-    }
+  //  public function getAllProducts($categoryId = null)
+  //   {
+  //       header('Content-Type: application/json');
+  //       $categoryId = isset($_GET['category']) ? $_GET['category'] : null;
+  //       $products = $this->productModel->displayAllProducts($categoryId);
+  //       if (isset($products["error"])) {
+  //           echo json_encode(["error" => $products["error"]]);
+  //       } else {
+  //           echo json_encode($products);
+  //           exit;
+  //       }
+  //   }
 
 
     public function getProductById($id)
@@ -91,10 +92,8 @@ class ProductController
                 throw new Exception("Invalid request method.");
             }
 
-            // Validate that required fields are present in the POST data
-            if (empty($_POST['id']) || empty($_POST['name']) || empty($_POST['price']) || empty($_POST['category_id'])) {
-                throw new Exception("Missing required fields.");
-            }
+
+
 
             // Collect the product data from the form
             $data = [
@@ -104,6 +103,7 @@ class ProductController
                 'price' => $_POST['price'],
                 'category_id' => $_POST['category_id'],
             ];
+
 
             // Handle image file upload if provided
             if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
@@ -175,4 +175,30 @@ class ProductController
     {
         return $this->productModel->deleteProduct($id);
     }
+
+    public function getProducts()
+{
+    header('Content-Type: application/json');
+
+    // Get query parameters
+    $categoryId = isset($_GET['category']) ? $_GET['category'] : null;
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : null;
+    $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
+
+    // If pagination is requested
+    if ($page && $limit) {
+        $products = $this->productModel->displayPaginateProducts($page);
+    } else {
+        // No pagination, just return all (filtered by category if given)
+        $products = $this->productModel->displayAllProducts($categoryId);
+    }
+
+    if (isset($products["error"])) {
+        echo json_encode(["error" => $products["error"]]);
+    } else {
+        echo json_encode($products);
+    }
+
+    exit;
+  }
 }

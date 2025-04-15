@@ -2002,9 +2002,9 @@
       "type": "npm",
       "name": "npm:bootstrap",
       "data": {
-        "version": "5.3.3",
+        "version": "5.3.5",
         "packageName": "bootstrap",
-        "hash": "sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg=="
+        "hash": "sha512-ct1CHKtiobRimyGzmsSldEtM03E8fcEX4Tb3dGXz1V8faRwM50+vfHwTzOxB3IlKO7m+9vTH3s/3C6T2EAPeTA=="
       }
     },
     "npm:brace-expansion": {
@@ -3814,6 +3814,15 @@
         "version": "4.5.0",
         "packageName": "vue-router",
         "hash": "sha512-HDuk+PuH5monfNuY+ct49mNmkCRK4xJAV9Ts4z9UFc4rzdDnxQLyCMGGc8pKhZhHTVzfanpNwB/lwqevcBwI4w=="
+      }
+    },
+    "npm:vue-toast-notification": {
+      "type": "npm",
+      "name": "npm:vue-toast-notification",
+      "data": {
+        "version": "3.1.3",
+        "packageName": "vue-toast-notification",
+        "hash": "sha512-XNyWqwLIGBFfX5G9sK+clq3N3IPlhDjzNdbZaXkEElcotPlWs0wWZailk1vqhdtLYT/93Y4FHAVuzyatLmPZRA=="
       }
     },
     "npm:wcwidth": {
@@ -7923,6 +7932,11 @@
     {
       "source": "npm:vue-router",
       "target": "npm:@vue/devtools-api",
+      "type": "static"
+    },
+    {
+      "source": "npm:vue-toast-notification",
+      "target": "npm:vue",
       "type": "static"
     },
     {

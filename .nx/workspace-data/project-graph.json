@@ -2074,9 +2074,9 @@
       "type": "npm",
       "name": "npm:bootstrap",
       "data": {
-        "version": "5.3.3",
+        "version": "5.3.5",
         "packageName": "bootstrap",
-        "hash": "sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg=="
+        "hash": "sha512-ct1CHKtiobRimyGzmsSldEtM03E8fcEX4Tb3dGXz1V8faRwM50+vfHwTzOxB3IlKO7m+9vTH3s/3C6T2EAPeTA=="
       }
     },
     "npm:brace-expansion": {
@@ -3888,6 +3888,15 @@
         "hash": "sha512-HDuk+PuH5monfNuY+ct49mNmkCRK4xJAV9Ts4z9UFc4rzdDnxQLyCMGGc8pKhZhHTVzfanpNwB/lwqevcBwI4w=="
       }
     },
+    "npm:vue-toast-notification": {
+      "type": "npm",
+      "name": "npm:vue-toast-notification",
+      "data": {
+        "version": "3.1.3",
+        "packageName": "vue-toast-notification",
+        "hash": "sha512-XNyWqwLIGBFfX5G9sK+clq3N3IPlhDjzNdbZaXkEElcotPlWs0wWZailk1vqhdtLYT/93Y4FHAVuzyatLmPZRA=="
+      }
+    },
     "npm:wcwidth": {
       "type": "npm",
       "name": "npm:wcwidth",
@@ -3970,17 +3979,17 @@
       },
       {
         "source": "cafeteria-client",
+        "target": "npm:vue",
+        "type": "static"
+      },
+      {
+        "source": "cafeteria-client",
         "target": "npm:bootstrap",
         "type": "static"
       },
       {
         "source": "cafeteria-client",
         "target": "npm:@fortawesome/fontawesome-free",
-        "type": "static"
-      },
-      {
-        "source": "cafeteria-client",
-        "target": "npm:vue",
         "type": "static"
       },
       {
@@ -8490,6 +8499,13 @@
         "type": "static"
       }
     ],
+    "npm:vue-toast-notification": [
+      {
+        "source": "npm:vue-toast-notification",
+        "target": "npm:vue",
+        "type": "static"
+      }
+    ],
     "npm:wcwidth": [
       {
         "source": "npm:wcwidth",
@@ -8566,5 +8582,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1744662207795
+  "computedAt": 1744740739689
 }
