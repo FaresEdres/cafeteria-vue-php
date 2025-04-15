@@ -22,11 +22,6 @@ export function useCategoryProducts() {
 
       const response = await getRequest(url);
       targetRef.value = response.data;
-      console.log('[[[[[[[[[[[[[[[[[[[[[[[[[[[[');
-      console.log('desert',desserts);
-      console.log('food',food);
-      console.log('main',main);
-      console.log('drinks',drinks);
       console.log(response.data);
     } catch (error) {
       alert(error.message || 'Failed to fetch products');
