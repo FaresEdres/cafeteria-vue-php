@@ -6,8 +6,12 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
+        "file": "composer.json",
+        "hash": "13839380369736828812"
+      },
+      {
+        "file": "README.md",
+        "hash": "13454385417909392150"
       },
       {
         "file": ".editorconfig",
@@ -18,24 +22,16 @@
         "hash": "10987782184546290918"
       },
       {
-        "file": ".gitignore",
-        "hash": "6019243428480325542"
-      },
-      {
-        "file": "README.md",
-        "hash": "13454385417909392150"
-      },
-      {
-        "file": "composer.json",
-        "hash": "13839380369736828812"
-      },
-      {
         "file": "composer.lock",
         "hash": "11349439856196813733"
       },
       {
-        "file": "nx.json.bak",
+        "file": "nx.json",
         "hash": "15494131853977705247"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
       },
       {
         "file": "package-lock.json",
@@ -51,10 +47,6 @@
         {
           "file": "apps/client/project.json",
           "hash": "16789602054926663301"
-        },
-        {
-          "file": "apps/client/project.json.bak",
-          "hash": "11246426028925388513"
         },
         {
           "file": "apps/client/public/Cappuccino.jpg",
@@ -146,7 +138,7 @@
         },
         {
           "file": "apps/client/routes/index.js",
-          "hash": "11657419359452169698",
+          "hash": "10579866164084489209",
           "deps": [
             "npm:vue-router"
           ]
@@ -165,15 +157,19 @@
         },
         {
           "file": "apps/client/src/components/AddCategory.vue",
-          "hash": "8086577268280792049"
+          "hash": "11490316934228468925"
         },
         {
           "file": "apps/client/src/components/AddProduct.vue",
-          "hash": "7831084323904009660"
+          "hash": "17279810112461938288"
         },
         {
           "file": "apps/client/src/components/AddProductPage.vue",
           "hash": "164666273719772173"
+        },
+        {
+          "file": "apps/client/src/components/AllProducts.vue",
+          "hash": "6011995229252897334"
         },
         {
           "file": "apps/client/src/components/Body.vue",
@@ -230,7 +226,7 @@
         },
         {
           "file": "apps/client/src/services/httpClient.js",
-          "hash": "17865748651521019030",
+          "hash": "17909530048362811348",
           "deps": [
             "npm:axios"
           ]
@@ -274,7 +270,7 @@
         },
         {
           "file": "apps/server/controller/productController.php",
-          "hash": "17349941450616395282"
+          "hash": "7719067453103907673"
         },
         {
           "file": "apps/server/controller/userController.php",
@@ -286,11 +282,11 @@
         },
         {
           "file": "apps/server/db/credentials.php",
-          "hash": "14404060523582738201"
+          "hash": "10091013297047610234"
         },
         {
           "file": "apps/server/helper/CRUD.php",
-          "hash": "2694553872529772096"
+          "hash": "13037391755313388706"
         },
         {
           "file": "apps/server/helper/createTables.php",
@@ -306,7 +302,7 @@
         },
         {
           "file": "apps/server/index.php",
-          "hash": "8150978810271101273"
+          "hash": "6762198952812530958"
         },
         {
           "file": "apps/server/model/categoryModel.php",
@@ -322,7 +318,7 @@
         },
         {
           "file": "apps/server/model/productModel.php",
-          "hash": "2532378748254667204"
+          "hash": "10302450932161535903"
         },
         {
           "file": "apps/server/model/userModel.php",
@@ -331,10 +327,6 @@
         {
           "file": "apps/server/project.json",
           "hash": "4895389289235459782"
-        },
-        {
-          "file": "apps/server/project.json.bak",
-          "hash": "9843490235830516395"
         },
         {
           "file": "apps/server/public/uploads/latte.jpg",
@@ -462,7 +454,7 @@
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "7199082334214725483"
+          "hash": "3396948419722603804"
         },
         {
           "file": "apps/server/utils.php",
