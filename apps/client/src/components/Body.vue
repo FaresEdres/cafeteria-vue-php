@@ -77,7 +77,7 @@
                 <div class="col-lg-7 offset-lg-5">
                   <div class="sig_image">
                     <!-- <div class="background_image" :style="{ backgroundImage: 'url(' + product.image + ')' }"></div>
-                    <img :src="product.image" :alt="product.name"> -->
+                     <img :src="'http://localhost:8000/public/uploads/' + product.image" :alt="product.name"> -->
                   </div>
                 </div>
               </div>
@@ -104,7 +104,7 @@
         <div v-if="isLoading" class="text-center my-4">
           <p>Loading products...</p>
         </div>
-        <div class="sig" v-for="product in products" :key="product.id">
+        <div class="sig" v-for="product in main" :key="product.id">
           <div class="sig_content_container">
             <div class="container">
               <div class="row">
@@ -137,7 +137,7 @@
                 <div class="col-lg-7 offset-lg-5">
                   <div class="sig_image">
                     <div class="background_image" :style="{ backgroundImage: 'url(' + product.image + ')' }"></div>
-                    <img :src="product.image" :alt="product.name">
+                    <img :src="'http://localhost:8000/public/uploads/' + product.image" :alt="product.name">
                   </div>
                 </div>
               </div>
@@ -149,28 +149,35 @@
   </div>
 </template>
 
-
-
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 import { useOrderStore } from '../stores/order.js';
 import { getRequest } from "../services/httpClient.js";
 const orderStore = useOrderStore();
 
-const products = ref([]);
-const isLoading = ref(false); 
+const main = ref([]);
+  const isLoading = ref(false);
 
-onMounted(async () => {
-  try {
-    isLoading.value = true; 
-    const response = await getRequest('products');
-    products.value = response.data; 
-  } catch (error) {
-    alert(error.message || 'Failed to fetch products');
-  } finally {
-    isLoading.value = false; 
-  }
-});
+  const fetchCategoryProducts = async (categoryId, targetRef) => {
+    try {
+      isLoading.value = true;
+      let url = 'products';
+      if (categoryId !== null) {
+        url += `?category=${categoryId}`;
+      }
+
+      const response = await getRequest(url);
+      targetRef.value = response.data;
+    } catch (error) {
+      alert(error.message || 'Failed to fetch products');
+    } finally {
+      isLoading.value = false;
+    }
+  };
+  onMounted(() => {
+    fetchCategoryProducts(10, main);
+  });
+
 
 const addToOrderStore = (productId) => {
   orderStore.addOrderItem(productId, 1);
@@ -189,8 +196,6 @@ watch(() => orderStore.getOrder().products, () => {
   // or when the cart is cleared
 }, { deep: true });
 </script>
-
-
 
 <style scoped>
 .small-heart {
