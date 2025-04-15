@@ -26,47 +26,51 @@ class OrdersController
     }
 
     public function addOrder()
-    {
-        $inputData = json_decode(file_get_contents("php://input"), true);
-        if (!$inputData) {
-            echo json_encode(["error" => "Invalid JSON input"]);
-            return;
-        }
+{
+    $inputData = json_decode(file_get_contents("php://input"), true);
+    if (!$inputData) {
+        echo json_encode(["error" => "Invalid JSON input"]);
+        return;
+    }
 
-        $orderData = [
-            "user_id" => $inputData['user_id'],
-            "comment" => $inputData['comment']
+    $orderData = [
+        "user_id" => $inputData['user_id'],
+        "comment" => $inputData['comment']
+    ];
+
+    $result = $this->ordersModel->addOrder($orderData);
+
+    if (isset($result["error"])) {
+        echo json_encode($result);
+        return;
+    }
+
+    $orderId = $result["id"];
+    $errors = [];
+
+    foreach ($inputData['products'] as $product) {
+        $orderProductData = [
+            "order_id" => $orderId,
+            "product_id" => $product['id'],
+            "quantity" => $product['quantity']
         ];
 
-        $result = $this->ordersModel->addOrder($orderData);
+        error_log("Order Product Data: " . print_r($orderProductData, true)); // Log the data
 
-        if (isset($result["error"])) {
-            echo json_encode($result);
-            return;
+        $orderProductResult = $this->orderProductsModel->addOrderProduct($orderProductData);
+
+        if (isset($orderProductResult["error"])) {
+            $errors[] = $orderProductResult["error"];
         }
-
-        $orderId = $result["id"];
-        $errors = [];
-
-        foreach ($inputData['products'] as $product) {
-            $orderProductResult = $this->orderProductsModel->addOrderProduct([
-                "order_id" => $orderId,
-                "product_id" => $product['id'],
-                "quantity" => $product['quantity']
-            ]);
-
-            if (isset($orderProductResult["error"])) {
-                $errors[] = $orderProductResult["error"];
-            }
-        }
-
-        if (!empty($errors)) {
-            echo json_encode(["errors" => $errors]);
-            return;
-        }
-
-        echo json_encode(["success" => true, "order_id" => $orderId]);
     }
+
+    if (!empty($errors)) {
+        echo json_encode(["errors" => $errors]);
+        return;
+    }
+
+    echo json_encode(["success" => true, "order_id" => $orderId]);
+}
 
     public function editOrder($id)
     {
@@ -158,16 +162,16 @@ class OrdersController
             $orderId = $row['order_id'];
             $productId = $row['product_id'];
 
-            if (!isset($orders[$orderId])) {
-                $orders[$orderId] = [
-                    'user_name' => $row['user_name'],
-                    'order_id' => $orderId,
-                    'total_price' => $row['total_price'],
-                    'status' => $row['status'],
-                    'created_at' => $row['created_at'],
-                    'products' => []
-                ];
-            }
+        if (!isset($orders[$orderId])) {
+            $orders[$orderId] = [
+                'user_name' => $row['user_name'],
+                'user_id' => $row['user_id'],
+                'status' => $row['status'],
+                'order_id' => $orderId,
+                'total_price' => $row['total_price'],
+                'products' => []
+            ];
+        }
 
             $productExists = false;
 
@@ -215,8 +219,6 @@ class OrdersController
                     'user_name' => $row['user_name'],
                     'order_id' => $orderId,
                     'total_price' => $row['total_price'],
-                    'status' => $row['status'],
-                    'created_at' => $row['created_at'],
                     'products' => []
                 ];
             }

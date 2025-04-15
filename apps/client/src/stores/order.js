@@ -10,33 +10,54 @@ export const useOrderStore = defineStore('order', {
       },
     }),
     actions: {
-      getOrder(){
-           return this.order;
-        },
+      getOrder() {
+        return this.order;
+      },
       addOrder(order) {
-        this.order = order;
+        // console.log(order);
+        this.order.comment = order.comment;
+        this.order['user-id'] = order['user-id'];
+        this.order.status = order.status;
+        this.order.products = order.products.map(item => ({
+          "product-id": item['product_id'],
+          "quantity": item.quantity          ,
+        }));
+        // this.order = order;
       },
       addOrderItem(productID, quantity) {
-        this.order.products.push({
-          "product-id": productID,
-          "quantity": quantity,
-        });
+        const existingProduct = this.order.products.find(
+          item => item['product-id'] === productID
+        );
+        
+        if (existingProduct) {
+          existingProduct.quantity += quantity;
+        } else {
+          this.order.products.push({
+            "product-id": productID,
+            "quantity": quantity,
+          });
+        }
       },
-      increaseQuantity(productId){
+      increaseQuantity(productId) {
         const product = this.order.products.find(item => item['product-id'] === productId);
         if (product) {
           product.quantity++;
         }
       },
-      decreaseQuantity(productId){
+      decreaseQuantity(productId) {
         const product = this.order.products.find(item => item['product-id'] === productId);
         if (product && product.quantity > 1) {
           product.quantity--;
         }
-        if (product.quantity ==0){
+        if (product && product.quantity === 0) {
           this.removeOrderItem(productId);
         }
       },
-
+      deleteOrderProducts() {
+        this.order.products = [];
+      },
+      removeOrderItem(productId) {
+        this.order.products = this.order.products.filter(item => item['product-id'] !== productId);
+      },
     },
-  })
+})

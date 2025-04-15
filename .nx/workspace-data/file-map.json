@@ -16,7 +16,7 @@
         },
         {
           "file": "apps/server/controller/OrdersController.php",
-          "hash": "17701918825190191211"
+          "hash": "1484734423628697701"
         },
         {
           "file": "apps/server/controller/authenticateController.php",
@@ -28,7 +28,7 @@
         },
         {
           "file": "apps/server/controller/productController.php",
-          "hash": "7719067453103907673"
+          "hash": "16965279601550432317"
         },
         {
           "file": "apps/server/controller/userController.php",
@@ -68,7 +68,7 @@
         },
         {
           "file": "apps/server/model/orderModel.php",
-          "hash": "13634266613592927010"
+          "hash": "4373718435425222687"
         },
         {
           "file": "apps/server/model/orderProuductsModel.php",
@@ -76,7 +76,7 @@
         },
         {
           "file": "apps/server/model/productModel.php",
-          "hash": "13937201783205658046"
+          "hash": "14713017826910958936"
         },
         {
           "file": "apps/server/model/userModel.php",
@@ -199,6 +199,10 @@
           "hash": "1603663370871350492"
         },
         {
+          "file": "apps/server/public/uploads/product_67fd8c1621b78.png",
+          "hash": "11350284906141236142"
+        },
+        {
           "file": "apps/server/public/uploads/product_67fdea0961fe1.png",
           "hash": "3100030529426347277"
         },
@@ -211,12 +215,20 @@
           "hash": "3677838186307673320"
         },
         {
+          "file": "apps/server/public/uploads/product_67fe5ac6990ba.png",
+          "hash": "12654911200419828747"
+        },
+        {
+          "file": "apps/server/public/uploads/product_67fe7bf3b6f44.png",
+          "hash": "15675725522233241046"
+        },
+        {
           "file": "apps/server/router.php",
           "hash": "1089252809010127037"
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "8807735708530382798"
+          "hash": "15972004003677508604"
         },
         {
           "file": "apps/server/utils.php",
@@ -373,7 +385,7 @@
         },
         {
           "file": "apps/client/src/components/Body.vue",
-          "hash": "5720557487674009845"
+          "hash": "13313606366928155042"
         },
         {
           "file": "apps/client/src/components/ChecksPage.vue",
@@ -389,11 +401,11 @@
         },
         {
           "file": "apps/client/src/components/Header.vue",
-          "hash": "948774925378968083"
+          "hash": "12353467686337962218"
         },
         {
           "file": "apps/client/src/components/LogIn.vue",
-          "hash": "11567915411962420111"
+          "hash": "17669745062835815518"
         },
         {
           "file": "apps/client/src/components/Menu.vue",
@@ -404,16 +416,20 @@
           "hash": "8743273884192383187"
         },
         {
+          "file": "apps/client/src/components/OrderEditModal.vue",
+          "hash": "16941048852865907381"
+        },
+        {
           "file": "apps/client/src/components/OrderForm.vue",
-          "hash": "11635711166540247229"
+          "hash": "7065537181696005233"
         },
         {
           "file": "apps/client/src/components/Orders.vue",
-          "hash": "802432325791262608"
+          "hash": "13289416261419573726"
         },
         {
           "file": "apps/client/src/composables/useCategoryProducts.js",
-          "hash": "9753885895006820769",
+          "hash": "13273989099912245260",
           "deps": [
             "npm:vue"
           ]
@@ -437,7 +453,7 @@
         },
         {
           "file": "apps/client/src/stores/order.js",
-          "hash": "16529342537319311095",
+          "hash": "11402614832864304830",
           "deps": [
             "npm:pinia"
           ]

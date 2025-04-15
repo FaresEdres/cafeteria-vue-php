@@ -49,7 +49,7 @@
           <p>Loading leatest product...</p>
         </div>
         <!-- call the leatst order her  -->
-        <div class="sig">
+        <div class="sig" >
           <div class="sig_content_container">
             <div class="container">
               <div class="row">
@@ -65,7 +65,7 @@
                       <div class="sig_name">{{ product.description }}</div>
                       <div class="sig_price ml-auto">${{ product.price }}</div> -->
                     </div>
-                    <div><button @click="addToOrderStore(product.id)" class="button sig_button trans_200">Order Again</button></div>
+                    <div class="button sig_button trans_200"><a href="#">Order Again</a></div>
                   </div>
                 </div>
               </div>
@@ -91,7 +91,7 @@
         <div class="row">
           <div class="col">
             <div class="themenu_title_bar_container">
-              <div class="themenu_stars text-center page_subtitle">The Armané Café</div>
+              <div class="themenu_stars text-center page_subtitle">Armané Café</div>
               <div class="themenu_rating text-center">
                 <div class="rating_r rating_r_5"><i></i><i></i><i></i><i></i><i></i></div>
               </div>
@@ -104,15 +104,15 @@
         <div v-if="isLoading" class="text-center my-4">
           <p>Loading products...</p>
         </div>
-        <div class="sig" v-for="product in main" :key="product.id">
+        <div class="sig" v-for="product in products" :key="product.id">
           <div class="sig_content_container">
             <div class="container">
               <div class="row">
                 <div class="col-lg-7">
                   <div class="sig_content">
-                    <div class="sig_subtitle page_subtitle">Most Populer</div>
+                    <div class="sig_subtitle page_subtitle">Something new</div>
                     <div class="sig_title">
-                      <h1>Our Signature Delights</h1>
+                      <h1>Our Signature Drink</h1>
                     </div>
                     <div class="rating_r sig_rating rating_r_5"><i></i><i></i><i></i><i></i><i></i></div>
                     <div class="sig_name_container d-flex flex-column align-items-start">
@@ -122,9 +122,11 @@
                     </div>
                     <div v-if="!ifExisting(product.id)">
                       <button @click="addToOrderStore(product.id)" class="button sig_button trans_200">Order Now</button>
-                      <!-- <button v-else disabled>Already in Order</button> -->
                     </div>
-                  </div>
+                    <div v-else>
+                        <button disabled class="button sig_button trans_200">Already in Order</button>
+                    </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -134,9 +136,8 @@
               <div class="row">
                 <div class="col-lg-7 offset-lg-5">
                   <div class="sig_image">
-                    <div class="background_image">
-                      <img :src="'http://localhost:8000/public/uploads/' + product.image" :alt="product.name">
-                    </div>
+                    <div class="background_image" :style="{ backgroundImage: 'url(' + product.image + ')' }"></div>
+                    <img :src="product.image" :alt="product.name">
                   </div>
                 </div>
               </div>
@@ -148,16 +149,45 @@
   </div>
 </template>
 
+
+
 <script setup>
-import { useCategoryProducts } from '../composables/useCategoryProducts.js';
+import { ref, onMounted, watch } from 'vue';
+import { useOrderStore } from '../stores/order.js';
+import { getRequest } from "../services/httpClient.js";
+const orderStore = useOrderStore();
 
-const {
-  main,
-  isLoading,
-  addToOrderStore,
-  ifExisting
-} = useCategoryProducts();
+const products = ref([]);
+const isLoading = ref(false); 
 
+onMounted(async () => {
+  try {
+    isLoading.value = true; 
+    const response = await getRequest('products');
+    products.value = response.data; 
+  } catch (error) {
+    alert(error.message || 'Failed to fetch products');
+  } finally {
+    isLoading.value = false; 
+  }
+});
+
+const addToOrderStore = (productId) => {
+  orderStore.addOrderItem(productId, 1);
+};
+
+const ifExisting = (productId) => {
+  const existingProduct = orderStore.getOrder().products.find(
+    (product) => product["product-id"] === productId
+  );
+  return !!existingProduct;
+};
+
+// Watch for changes in the order store
+watch(() => orderStore.getOrder().products, () => {
+  // This will automatically update the UI when products are removed
+  // or when the cart is cleared
+}, { deep: true });
 </script>
 
 
