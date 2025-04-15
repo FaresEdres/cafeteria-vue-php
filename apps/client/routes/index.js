@@ -6,6 +6,7 @@ import Orders from '../src/components/Orders.vue';
 import OrderForm from '../src/components/OrderForm.vue';
 import About from '../src/components/About.vue';
 import Contact from '../src/components/Contact.vue';
+import Login from '../src/components/LogIn.vue';
 import Footer from '../src/components/Footer.vue';
 import NotFound from '../src/components/NotFound.vue';
 import AddProduct from '../src/components/AddProduct.vue';
