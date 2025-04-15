@@ -6,24 +6,20 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "package-lock.json",
-        "hash": "5879959020019840150"
-      },
-      {
-        "file": "nx.json",
-        "hash": "15494131853977705247"
-      },
-      {
         "file": "README.md",
         "hash": "13454385417909392150"
       },
       {
-        "file": "composer.lock",
-        "hash": "11349439856196813733"
+        "file": "nx.json.bak",
+        "hash": "15494131853977705247"
       },
       {
         "file": ".gitignore",
         "hash": "6019243428480325542"
+      },
+      {
+        "file": "composer.json",
+        "hash": "13839380369736828812"
       },
       {
         "file": "nx.json",
@@ -34,8 +30,16 @@
         "hash": "5220548311547269041"
       },
       {
-        "file": "nx.json.bak",
-        "hash": "15494131853977705247"
+        "file": "package-lock.json",
+        "hash": "6202122930200675611"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "composer.lock",
+        "hash": "11349439856196813733"
       }
     ],
     "projectFileMap": {
@@ -50,7 +54,7 @@
         },
         {
           "file": "apps/server/controller/OrdersController.php",
-          "hash": "16939221459154555796"
+          "hash": "17701918825190191211"
         },
         {
           "file": "apps/server/controller/authenticateController.php",
@@ -66,7 +70,7 @@
         },
         {
           "file": "apps/server/controller/userController.php",
-          "hash": "18140858954534375568"
+          "hash": "12392114430733231338"
         },
         {
           "file": "apps/server/db/connector.php",
@@ -74,11 +78,11 @@
         },
         {
           "file": "apps/server/db/credentials.php",
-          "hash": "18332650075856023867"
+          "hash": "3725625378224223628"
         },
         {
           "file": "apps/server/helper/CRUD.php",
-          "hash": "2694553872529772096"
+          "hash": "10780334765807222058"
         },
         {
           "file": "apps/server/helper/createTables.php",
@@ -94,7 +98,7 @@
         },
         {
           "file": "apps/server/index.php",
-          "hash": "8150978810271101273"
+          "hash": "13855059011815150981"
         },
         {
           "file": "apps/server/model/categoryModel.php",
@@ -130,11 +134,11 @@
         },
         {
           "file": "apps/server/router.php",
-          "hash": "474390575200112873"
+          "hash": "1089252809010127037"
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "5984299763964992436"
+          "hash": "7026217400436306319"
         },
         {
           "file": "apps/server/utils.php",
@@ -340,7 +344,7 @@
         },
         {
           "file": "apps/client/routes/index.js",
-          "hash": "4156423281516373188",
+          "hash": "3861093394560637919",
           "deps": [
             "npm:vue-router"
           ]
@@ -375,8 +379,7 @@
         },
         {
           "file": "apps/client/src/components/ChecksPage.vue",
-          "hash": "15873262695255587659"
-          "hash": "6959798610809978783"
+          "hash": "1671952273062374199"
         },
         {
           "file": "apps/client/src/components/Contact.vue",
@@ -404,11 +407,11 @@
         },
         {
           "file": "apps/client/src/components/OrderForm.vue",
-          "hash": "6492228796780994595"
+          "hash": "11635711166540247229"
         },
         {
           "file": "apps/client/src/components/Orders.vue",
-          "hash": "9185433938118050927"
+          "hash": "802432325791262608"
         },
         {
           "file": "apps/client/src/main.js",
@@ -422,7 +425,7 @@
         },
         {
           "file": "apps/client/src/services/httpClient.js",
-          "hash": "17865748651521019030",
+          "hash": "4976039840704180664",
           "deps": [
             "npm:axios"
           ]

@@ -50,6 +50,7 @@ const patchRequest = async (endpoint, formData) => {
             console.log(key, value);
         }
         const response = await http.patch(endpoint, formData);
+        console.log("log of Patch request ", response);
         return response.data;
     } catch (error) {
         const errorDetails = {
@@ -65,5 +66,36 @@ const patchRequest = async (endpoint, formData) => {
 };
 
 
+const patchOrderRequest = async (endpoint, payload) => {
+    try {
+        let headers = {};
+        let dataToSend = payload;
 
-export { getRequest, postRequest, deleteRequest, patchRequest };
+        // Detect if payload is FormData
+        if (payload instanceof FormData) {
+            for (let [key, value] of payload.entries()) {
+                console.log(key, value);
+            }
+        } else {
+            headers['Content-Type'] = 'application/json';
+            dataToSend = JSON.stringify(payload);
+        }
+
+        const response = await http.patch(endpoint, dataToSend, { headers });
+        console.log("log of Patch request ", response);
+        return response.data;
+    } catch (error) {
+        const errorDetails = {
+            message: error.message,
+            url: error.config?.url,
+            status: error.response?.status,
+            data: error.response?.data,
+        };
+        console.error('API Error:', errorDetails);
+        throw error.response?.data || errorDetails.message;
+    }
+};
+
+
+
+export { getRequest, postRequest, deleteRequest, patchRequest, patchOrderRequest };

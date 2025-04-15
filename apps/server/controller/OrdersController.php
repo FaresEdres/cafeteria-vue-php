@@ -12,10 +12,11 @@ require_once __DIR__ . '/../model/orderProuductsModel.php';
 require_once __DIR__ . '/../validation/productValidation.php';
 require_once __DIR__ . '/../helper/CRUD.php';
 
-class OrdersController {
-  private $ordersModel;
-  private $orderProductsModel;
-  private $db;
+class OrdersController
+{
+    private $ordersModel;
+    private $orderProductsModel;
+    private $db;
 
     public function __construct()
     {
@@ -64,16 +65,17 @@ class OrdersController {
             return;
         }
 
-      echo json_encode(["success" => true, "order_id" => $orderId]);
-  }
-
-public function editOrder($id) {
-    $inputData = json_decode(file_get_contents("php://input"), true);
-    if (!$inputData) {
-        header('Content-Type: application/json');
-        echo json_encode(["error" => "Invalid JSON input"]);
-        return;
+        echo json_encode(["success" => true, "order_id" => $orderId]);
     }
+
+    public function editOrder($id)
+    {
+        $inputData = json_decode(file_get_contents("php://input"), true);
+        if (!$inputData) {
+            header('Content-Type: application/json');
+            echo json_encode(["error" => "Invalid JSON input"]);
+            return;
+        }
 
         // Only update comment if it's provided
         if (isset($inputData['comment'])) {
@@ -96,19 +98,19 @@ public function editOrder($id) {
 
             $result = $this->ordersModel->editOrder($orderData, $id);
 
-        if (isset($result["error"])) {
-            header('Content-Type: application/json');
-            echo json_encode($result);
-            return;
+            if (isset($result["error"])) {
+                header('Content-Type: application/json');
+                echo json_encode($result);
+                return;
+            }
         }
-    }
-    if (isset($inputData['products']) && is_array($inputData['products'])) {
-        $result = $this->orderProductsModel->deleteOrderProducts($id);
-        if (isset($result["error"])) {
-            header('Content-Type: application/json');
-            echo json_encode($result);
-            return;
-        }
+        if (isset($inputData['products']) && is_array($inputData['products'])) {
+            $result = $this->orderProductsModel->deleteOrderProducts($id);
+            if (isset($result["error"])) {
+                header('Content-Type: application/json');
+                echo json_encode($result);
+                return;
+            }
 
             $errors = [];
             foreach ($inputData['products'] as $product) {
@@ -161,6 +163,8 @@ public function editOrder($id) {
                     'user_name' => $row['user_name'],
                     'order_id' => $orderId,
                     'total_price' => $row['total_price'],
+                    'status' => $row['status'],
+                    'created_at' => $row['created_at'],
                     'products' => []
                 ];
             }
@@ -190,32 +194,35 @@ public function editOrder($id) {
         echo json_encode(array_values($orders), JSON_PRETTY_PRINT);
         exit;
     }
-    public function getAllOrdersForAdmin() {
+    public function getAllOrdersForAdmin()
+    {
         $result = $this->db->select("order_details_view");
-    
+
         if (!$result || !is_array($result)) {
             header('Content-Type: application/json');
             echo json_encode(["error" => "Query failed or invalid result"]);
             exit;
         }
-    
+
         $orders = [];
-    
+
         foreach ($result as $row) {
             $orderId = $row['order_id'];
             $productId = $row['product_id'];
-    
+
             if (!isset($orders[$orderId])) {
                 $orders[$orderId] = [
                     'user_name' => $row['user_name'],
                     'order_id' => $orderId,
                     'total_price' => $row['total_price'],
+                    'status' => $row['status'],
+                    'created_at' => $row['created_at'],
                     'products' => []
                 ];
             }
-    
+
             $productExists = false;
-    
+
             foreach ($orders[$orderId]['products'] as &$product) {
                 if ($product['product_id'] === $productId) {
                     $product['quantity'] += $row['quantity']; // Sum quantity
@@ -223,7 +230,7 @@ public function editOrder($id) {
                     break;
                 }
             }
-    
+
             if (!$productExists) {
                 $orders[$orderId]['products'][] = [
                     'product_id' => $productId,
@@ -235,9 +242,8 @@ public function editOrder($id) {
                 ];
             }
         }
-    
+
         echo json_encode(array_values($orders), JSON_PRETTY_PRINT);
         exit;
-        }
-
+    }
 }

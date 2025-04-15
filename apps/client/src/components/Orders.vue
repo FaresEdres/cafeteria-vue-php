@@ -42,7 +42,7 @@
       const fetchOrders = async () => {
         try {
           isLoading.value = true;
-          const userId = 1; // Replace with the actual user ID
+          const userId = 3; // Replace with the actual user ID
           const response = await axios.get(`http://localhost:8000/orders/${userId}`);
           orders.value = response.data;
           console.log('Fetched orders:', orders.value);
