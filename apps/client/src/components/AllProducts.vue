@@ -120,6 +120,14 @@ use my http client to make delete work
         {{ category.name }}
       </option>
     </select>
+     <button 
+      @click="$router.push('/add-category')" 
+      type="button"
+      title="Add Category"
+      style="padding: 10px 14px; background-color: #c4ab9f; border: none; border-radius: 4px; color: white; font-size: 18px; cursor: pointer;"
+    >
+      +
+    </button>
     </div>
             <div class="modal-actions">
               <button type="button" @click="closeEditModal" class="btn btn-secondary">Cancel</button>
@@ -194,8 +202,8 @@ export default {
     async fetchProducts() {
       try {
         this.isLoading = true;
-        const response = await getRequest(`/products?page=${this.currentPage}&limit=${this.itemsPerPage}`);
-          const categories = await getRequest('category');
+        const response = await getRequest(`/products?page=${this.currentPage}`);
+          const categories = await getRequest('categories');
         this.categories = categories;
         if (response.success) {
           this.products = response.data;

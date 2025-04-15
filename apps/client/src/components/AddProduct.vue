@@ -172,7 +172,7 @@ export default {
     async fetchCategories() {
       try {
         this.isLoading = true;
-        const response = await getRequest('category');
+        const response = await getRequest('categories');
         this.categories = response;
       } catch (error) {
         alert(error.message || 'Failed to fetch categories');

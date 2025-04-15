@@ -184,8 +184,9 @@ class ProductModel
             return ['success' => false, 'error' => $e->getMessage()];
         }
     }
-    public function displayPaginateProducts($page, $limit)
+    public function displayPaginateProducts($page)
     {
+        $limit = 5;
         $offset = ($page - 1) * $limit;
 
         try {

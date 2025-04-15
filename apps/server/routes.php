@@ -19,9 +19,9 @@ $routes = [
     "POST /login" => "authenticateController@login",
     "POST /authenticated" => "authenticateController@authenticated",
 
-    "POST /category" => "categoryController@addCategory",
-    "GET /category" => "categoryController@getAllCategories",
-    "DELETE /category/{id}" => "categoryController@deleteCategory",
+    "POST /categories" => "categoryController@addCategory",
+    "GET /categories" => "categoryController@getAllCategories",
+    "DELETE /categories/{id}" => "categoryController@deleteCategory",
 
 
     // User routes

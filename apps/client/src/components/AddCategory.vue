@@ -64,7 +64,7 @@ export default {
         const formData = new FormData();
         formData.append('name', this.categoryData.name);
         
-         await postRequest('category', formData);
+         await postRequest('categories', formData);
 
         this.successMessage = 'Category added successfully!';
         this.categoryData.name = '';
