@@ -9,25 +9,27 @@ import Contact from '../src/components/Contact.vue';
 import Login from '../src/components/LogIn.vue';
 import Footer from '../src/components/Footer.vue';
 import NotFound from '../src/components/NotFound.vue';
+import AddProduct from '../src/components/AddProduct.vue';
+import AddCategory from '../src/components/AddCategory.vue';
 
-
-const routes=[
-    {path:'/',component:Body},
-    {path:'/menu',component:Menu},
-    {path:'/login',component:Login},
+const routes = [
+    { path: '/', component: Body },
+    { path: '/menu', component: Menu },
     { path: '/orders', component: Orders },
     { path: '/orderform', component: OrderForm },
     { path: '/about', component: About },
     { path: '/contact', component: Contact },
-    {path:'/header',component:Header},
-    {path:'/footer',component:Footer},
-    {path:'/:catchAll(.*)',component:NotFound}
+    { path: '/header', component: Header },
+    { path: '/footer', component: Footer },
+    { path: '/addproduct', component: AddProduct },
+    { path: '/add-category', component: AddCategory },
+    { path: '/:catchAll(.*)', component: NotFound }
 
 ];
 
-const router=createRouter({
+const router = createRouter({
     routes,
-    history:createWebHistory()
+    history: createWebHistory()
 })
 export default router;
 

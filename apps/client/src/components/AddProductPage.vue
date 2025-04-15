@@ -1,93 +1,239 @@
 <template>
-  <div>
-    <!-- Add Product Form -->
-    <h2>Add Product</h2>
-    <form @submit.prevent="handleAddProduct">
-      <div>
-        <label for="name">Product Name</label>
-        <input v-model="productData.name" type="text" id="name" required />
-      </div>
-      <div>
-        <label for="image">Image File</label>
-        <input type="file" id="image" @change="onFileChange" required />
-      </div>
-      <div>
-        <label for="description">Description</label>
-        <textarea v-model="productData.description" id="description"></textarea>
-      </div>
-      <div>
-        <label for="price">Price</label>
-        <input v-model="productData.price" type="number" id="price" required />
-      </div>
-      <div>
-        <label for="category_id">Category ID</label>
-        <input v-model="productData.category_id" type="number" id="category_id" required />
-      </div>
-      <button type="submit">Add Product</button>
-    </form>
+  <section id="product-management" style="padding: 60px 0; background-color: #f9f5f2;">
+    <div class="super_container" style="max-width: 800px; margin: auto;">
 
-    <!-- Update Product Form -->
-    <h2>Update Product</h2>
-    <form @submit.prevent="handleUpdateProduct">
-      <div>
-        <label for="updateId">Product ID</label>
-        <input v-model="updateProductData.id" type="number" id="updateId" required />
+      <!-- Add Product Form -->
+      <div style="margin-bottom: 40px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <h2 class="page_subtitle" style="text-align: center; font-size: 36px; margin-bottom: 20px;">Add Product</h2>
+        
+        <form @submit.prevent="handleAddProduct">
+          <div style="margin-bottom: 20px;">
+            <label for="name" style="display:block; margin-bottom: 5px; color: #232323;">Product Name</label>
+            <input 
+              v-model="productData.name" 
+              type="text" 
+              id="name" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              required 
+            />
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <label for="image" style="display:block; margin-bottom: 5px; color: #232323;">Image File</label>
+            <input 
+              type="file" 
+              id="image" 
+              @change="onFileChange" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              required 
+            />
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <label for="description" style="display:block; margin-bottom: 5px; color: #232323;">Description</label>
+            <textarea 
+              v-model="productData.description" 
+              id="description" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              rows="5"
+            ></textarea>
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <label for="price" style="display:block; margin-bottom: 5px; color: #232323;">Price</label>
+            <input 
+              v-model="productData.price" 
+              type="number" 
+              id="price" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              required 
+            />
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <label for="category_id" style="display:block; margin-bottom: 5px; color: #232323;">Category ID</label>
+            <input 
+              v-model="productData.category_id" 
+              type="number" 
+              id="category_id" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              required 
+            />
+          </div>
+          
+          <div style="margin-top: 30px; text-align: center;">
+            <button 
+              type="submit" 
+              style="background-color: #c4ab9f; color: white; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;"
+              :disabled="isLoading"
+            >
+              {{ isLoading ? "Adding..." : "Add Product" }}
+            </button>
+          </div>
+        </form>
       </div>
-      <div>
-        <label for="updateName">Product Name</label>
-        <input v-model="updateProductData.name" type="text" id="updateName" required />
-      </div>
-      <div>
-        <label for="updateImage">Image File</label>
-        <input type="file" id="updateImage" @change="onUpdateFileChange" />
-      </div>
-      <div>
-        <label for="updateDescription">Description</label>
-        <textarea v-model="updateProductData.description" id="updateDescription"></textarea>
-      </div>
-      <div>
-        <label for="updatePrice">Price</label>
-        <input v-model="updateProductData.price" type="number" id="updatePrice" required />
-      </div>
-      <div>
-        <label for="updateCategory">Category ID</label>
-        <input v-model="updateProductData.category_id" type="number" id="updateCategory" required />
-      </div>
-      <button type="submit">Update Product</button>
-    </form>
 
-    <!-- Delete Product -->
-    <h2>Delete Product</h2>
-    <form @submit.prevent="handleDeleteProduct">
-      <div>
-        <label for="deleteId">Product ID</label>
-        <input v-model="deleteProductData.id" type="number" id="deleteId" required />
+      <!-- Update Product Form -->
+      <div style="margin-bottom: 40px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <h2 class="page_subtitle" style="text-align: center; font-size: 36px; margin-bottom: 20px;">Update Product</h2>
+        
+        <form @submit.prevent="handleUpdateProduct">
+          <div style="margin-bottom: 20px;">
+            <label for="updateId" style="display:block; margin-bottom: 5px; color: #232323;">Product ID</label>
+            <input 
+              v-model="updateProductData.id" 
+              type="number" 
+              id="updateId" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              required 
+            />
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <label for="updateName" style="display:block; margin-bottom: 5px; color: #232323;">Product Name</label>
+            <input 
+              v-model="updateProductData.name" 
+              type="text" 
+              id="updateName" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              required 
+            />
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <label for="updateImage" style="display:block; margin-bottom: 5px; color: #232323;">Image File</label>
+            <input 
+              type="file" 
+              id="updateImage" 
+              @change="onUpdateFileChange" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+            />
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <label for="updateDescription" style="display:block; margin-bottom: 5px; color: #232323;">Description</label>
+            <textarea 
+              v-model="updateProductData.description" 
+              id="updateDescription" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              rows="5"
+            ></textarea>
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <label for="updatePrice" style="display:block; margin-bottom: 5px; color: #232323;">Price</label>
+            <input 
+              v-model="updateProductData.price" 
+              type="number" 
+              id="updatePrice" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              required 
+            />
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <label for="updateCategory" style="display:block; margin-bottom: 5px; color: #232323;">Category ID</label>
+            <input 
+              v-model="updateProductData.category_id" 
+              type="number" 
+              id="updateCategory" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              required 
+            />
+          </div>
+          
+          <div style="margin-top: 30px; text-align: center;">
+            <button 
+              type="submit" 
+              style="background-color: #c4ab9f; color: white; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;"
+              :disabled="isLoading"
+            >
+              {{ isLoading ? "Updating..." : "Update Product" }}
+            </button>
+          </div>
+        </form>
       </div>
-      <button type="submit">Delete Product</button>
-    </form>
-<!-- Display All Products -->
-<h2>All Products</h2>
-<div v-if="products.length">
-  <ul>
-    <li v-for="product in products" :key="product.id">
-      <strong>{{ product.name }}</strong> (ID: {{ product.id }})<br />
-      Price: ${{ product.price }}<br />
-      Category ID: {{ product.category_id }}<br />
-      Description: {{ product.description }}<br />
-      <img v-if="product.image_url" :src="product.image_url" alt="Product Image" style="max-width: 150px; margin-top: 5px;" />
-      <hr />
-    </li>
-  </ul>
-</div>
-<div v-else>
-  No products found.
-</div>
+
+      <!-- Delete Product Form -->
+      <div style="margin-bottom: 40px; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <h2 class="page_subtitle" style="text-align: center; font-size: 36px; margin-bottom: 20px;">Delete Product</h2>
+        
+        <form @submit.prevent="handleDeleteProduct">
+          <div style="margin-bottom: 20px;">
+            <label for="deleteId" style="display:block; margin-bottom: 5px; color: #232323;">Product ID</label>
+            <input 
+              v-model="deleteProductData.id" 
+              type="number" 
+              id="deleteId" 
+              class="form-control" 
+              style="width:100%; padding:10px; border: 1px solid #c4ab9f;"
+              required 
+            />
+          </div>
+          
+          <div style="margin-top: 30px; text-align: center;">
+            <button 
+              type="submit" 
+              style="background-color: #e74c3c; color: white; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;"
+              :disabled="isLoading"
+            >
+              {{ isLoading ? "Deleting..." : "Delete Product" }}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Products List Section -->
+      <div v-if="isLoading" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center;">
+        <p style="color: #666;">Loading products...</p>
+      </div>
+
+      <div v-else-if="products && products.length > 0" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <h2 class="page_subtitle" style="text-align: center; font-size: 36px; margin-bottom: 20px;">All Products</h2>
+        
+        <div class="product-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+          <div v-for="product in products" :key="product.id" style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 15px; background: #fff;">
+            <div style="height: 200px; overflow: hidden; margin-bottom: 15px;">
+              <img 
+                v-if="product.image_url" 
+                :src="product.image_url" 
+                :alt="product.name" 
+                style="width: 100%; height: 100%; object-fit: cover;"
+              />
+              <div v-else style="width: 100%; height: 100%; background: #f5f5f5; display: flex; align-items: center; justify-content: center;">
+                <span>No Image</span>
+              </div>
+            </div>
+            <h3 style="font-size: 18px; margin-bottom: 5px; color: #232323;">{{ product.name }}</h3>
+            <p style="font-size: 14px; color: #666; margin-bottom: 5px;">ID: {{ product.id }}</p>
+            <p style="font-size: 16px; color: #c4ab9f; font-weight: bold; margin-bottom: 10px;">${{ product.price }}</p>
+            <p style="font-size: 14px; color: #666; margin-bottom: 5px;">Category ID: {{ product.category_id }}</p>
+            <p style="font-size: 14px; color: #666; margin-bottom: 15px;">{{ product.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div v-else style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center;">
+        <p style="color: #666;">No products found</p>
+      </div>
 
     </div>
+  </section>
 </template>
+
 <script>
-import { ref } from 'vue';
-import { getRequest, postRequest, deleteRequest, patchRequest } from "../services/httpClient.js";
+import { getRequest, postRequest, deleteRequest } from "../services/httpClient.js";
 
 export default {
   data() {
@@ -110,20 +256,23 @@ export default {
       deleteProductData: {
         id: ''
       },
-      products: [],
-      isLoading: false
+      products: [], // Initialize as empty array
+      isLoading: false,
+      error: null
     };
   },
   methods: {
     onFileChange(event) {
       this.productData.imageFile = event.target.files[0];
-
     },
     onUpdateFileChange(event) {
       this.updateProductData.imageFile = event.target.files[0];
     },
     async handleAddProduct() {
       try {
+        this.isLoading = true;
+        this.error = null;
+        
         const formData = new FormData();
         formData.append('name', this.productData.name);
         formData.append('description', this.productData.description);
@@ -132,16 +281,23 @@ export default {
         formData.append('image', this.productData.imageFile);
 
         await postRequest('products', formData);
-    
-      } catch (error) {
-        // alert(error.message || 'Failed to add product');
-      }
-    },// Frontend: handleUpdateProduct method
+        
+       
+     
 
-// In your component
-async handleUpdateProduct() {
-  try {
-    const formData = new FormData();
+      } catch (error) {
+        this.error = error.message || 'Failed to add product';
+        console.error('Error adding product:', error);
+      } finally {
+        this.isLoading = false;
+      }
+    },
+    async handleUpdateProduct() {
+      try {
+        this.isLoading = true;
+        this.error = null;
+        
+      const formData = new FormData();
        formData.append('id', this.updateProductData.id);
 
    formData.append('name', this.updateProductData.name);
@@ -160,64 +316,82 @@ async handleUpdateProduct() {
       `products/${this.updateProductData.id}`, 
 formData);
 
-    return response;
-  } catch (error) {
-    alert(error.message || 'Failed to update product');
-    throw error;
-  }
-}
-
-,
-    async handleDeleteProduct() {
-      try {
-        await deleteRequest('products',this.deleteProductData.id);
-        alert('Product deleted successfully');
-        this.fetchProducts();
+        // Reset form after successful update
+        this.updateProductData = {
+          id: '',
+          name: '',
+          description: '',
+          price: '',
+          category_id: '',
+          imageFile: null
+        };
+        return response;
       } catch (error) {
-        alert(error.message || 'Failed to delete product');
-      }
-    },
-    async fetchProducts() {
-      try {
-        this.isLoading = true;
-       const response = await getRequest('products');
-        this.products=response.data
-
-      } catch (error) {
-        alert(error.message || 'Failed to fetch products');
+        this.error = error.message || 'Failed to update product';
+        console.error('Error updating product:', error);
       } finally {
         this.isLoading = false;
       }
-    }
-  },
-  mounted() {
-    this.fetchProducts();
+    },
+    async handleDeleteProduct() {
+      try {
+        this.isLoading = true;
+        this.error = null;
+        
+         await deleteRequest('products',this.deleteProductData.id);
+        
+        // Reset form after successful deletion
+        this.deleteProductData = { id: '' };
+      } catch (error) {
+        this.error = error.message || 'Failed to delete product';
+        console.error('Error deleting product:', error);
+      } finally {
+        this.isLoading = false;
+      }
+    },
+   
+    
   }
 };
 </script>
 
-
-
 <style scoped>
-form {
-  margin-bottom: 20px;
+.form-control {
+  transition: border-color 0.3s ease;
 }
 
-input, textarea {
-  margin: 5px;
-  padding: 10px;
-  width: 100%;
+.form-control:focus {
+  outline: none;
+  border-color: #b08d7a;
+  box-shadow: 0 0 0 2px rgba(192, 152, 127, 0.2);
 }
 
 button {
-  padding: 10px 15px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  cursor: pointer;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  opacity: 0.9;
+}
+
+button:disabled {
+  background-color: #cccccc !important;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.product-list > div {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-list > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.error-message {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 10px;
 }
 </style>

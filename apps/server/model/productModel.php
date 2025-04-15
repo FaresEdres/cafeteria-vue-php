@@ -121,10 +121,13 @@ class ProductModel
     }
   }
 
-  public function deleteProduct($id)
-  {
-    try {
-      $product = $this->db->select("products", ["image"], ["id" => $id]);
+    public function deleteProduct($id)
+    {
+        try {
+            // First, get product to delete its image
+            $product = $this->db->select("products", ["image"], ["id" => $id]);
+
+
 
       if (empty($product)) {
         return ['success' => false, 'error' => 'Product not found'];
@@ -132,8 +135,9 @@ class ProductModel
 
       $deleted = $this->db->delete("products", ["id" => $id]);
 
-      if ($deleted && !empty($product[0]['image'])) {
-        $imagePath = __DIR__ . '/../public/' . $product[0]['image'];
+            // If product is deleted and there is an image, remove it
+            if ($deleted && !empty($product[0]['image'])) {
+                $imagePath = __DIR__ . '/../public/uploads/' . $product[0]['image'];
 
         if (file_exists($imagePath)) {
           unlink($imagePath);
