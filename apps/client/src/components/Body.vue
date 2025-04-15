@@ -104,7 +104,7 @@
         <div v-if="isLoading" class="text-center my-4">
           <p>Loading products...</p>
         </div>
-        <div class="sig" v-for="product in products" :key="product.id">
+        <div class="sig" v-for="product in main" :key="product.id">
           <div class="sig_content_container">
             <div class="container">
               <div class="row">
@@ -148,48 +148,15 @@
   </div>
 </template>
 
-
-
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useOrderStore } from '../stores/order.js';
-import { getRequest } from "../services/httpClient.js";
-const orderSore = useOrderStore();
+import { useCategoryProducts } from '../composables/useCategoryProducts.js';
 
-const products = ref([]);
-const isLoading = ref(false);
-const fetchProducts = async (categoryId = null) => {
-  try {
-    isLoading.value = true;
-
-    let url = 'products';
-    if (categoryId !== null) {
-      url += `?category=${categoryId}`;
-    }
-  console.log(url);
-    const response = await getRequest(url);
-    products.value = response.data;
-    console.log(products.value);
-  } catch (error) {
-    alert(error.message || 'Failed to fetch products');
-  } finally {
-    isLoading.value = false;
-  }
-};
-onMounted(() => {
-  fetchProducts(10);
-});
-const addToOrderStore = (productId) => {
-  orderSore.addOrderItem(productId, 1);
-  // console.log(orderSore.order);
-}
-const ifExisting = (productId) => {
-  const existingProduct = orderSore.getOrder().products.find(
-    (product) => product["product-id"] === productId
-  );
-  console.log(existingProduct);
-  return !!existingProduct; // Return true if the product exists, otherwise false
-};
+const {
+  main,
+  isLoading,
+  addToOrderStore,
+  ifExisting
+} = useCategoryProducts();
 
 </script>
 

@@ -125,52 +125,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useOrderStore } from '../stores/order.js';
-import { getRequest } from "../services/httpClient.js";
-const orderSore = useOrderStore();
+import { useCategoryProducts } from '../composables/useCategoryProducts.js';
 
-const drinks = ref([]);
-const food = ref([]);
-const desserts = ref([]);
-const isLoading = ref(false);
-
-const fetchCategoryProducts = async (categoryId, targetRef) => {
-  try {
-    isLoading.value = true;
-    let url = 'products';
-    if (categoryId !== null) {
-      url += `?category=${categoryId}`;
-    }
-    console.log(url);
-
-    const response = await getRequest(url);
-    targetRef.value = response.data;
-   //console.log(response.data);
-    console.log(desserts);
-  } catch (error) {
-    alert(error.message || 'Failed to fetch products');
-  } finally {
-    isLoading.value = false;
-  }
-};
-
-onMounted(() => {
-  fetchCategoryProducts(1, drinks);
-  fetchCategoryProducts(11, food);
-  fetchCategoryProducts(12, desserts);
-});
-const addToOrderStore = (productId) => {
-  orderSore.addOrderItem(productId, 1);
-  // console.log(orderSore.order);
-}
-const ifExisting = (productId) => {
-  const existingProduct = orderSore.getOrder().products.find(
-    (product) => product["product-id"] === productId
-  );
-  console.log(existingProduct);
-  return !!existingProduct; // Return true if the product exists, otherwise false
-};
+const {
+  drinks,
+  food,
+  desserts,
+  isLoading,
+  addToOrderStore,
+  ifExisting
+} = useCategoryProducts();
 
 </script>
 
