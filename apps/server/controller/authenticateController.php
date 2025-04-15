@@ -74,13 +74,17 @@ class AuthenticateController {
         if (!$user) {
             return ["message" => "null"];
         }
-        return ["message" => $user];
+        return $user;
     } catch (Exception $e) {
         return ["message" => "null"];
     }
 }
 
   public function logout() {
+    if(! $_COOKIE['token']){
+        return ["error" => "No token found"];
+    }
+
     setcookie(
         "token", 
         "", 
@@ -91,6 +95,8 @@ class AuthenticateController {
             "httponly" => true,            
             "samesite" => "Strict"         
         ]
-    );    unset($_COOKIE['token']);
+    );    
+    unset($_COOKIE['token']);
+    return ["message" => "Logged Out Successfully"];
   }
 }
