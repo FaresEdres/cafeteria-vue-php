@@ -44,7 +44,7 @@
         },
         {
           "file": "apps/server/helper/CRUD.php",
-          "hash": "1095408844635780027"
+          "hash": "11387062152047510172"
         },
         {
           "file": "apps/server/helper/createTables.php",
@@ -60,7 +60,7 @@
         },
         {
           "file": "apps/server/index.php",
-          "hash": "11372325056275216584"
+          "hash": "13855059011815150981"
         },
         {
           "file": "apps/server/model/categoryModel.php",
@@ -338,7 +338,7 @@
         },
         {
           "file": "apps/client/routes/index.js",
-          "hash": "8255826813297038567",
+          "hash": "14904028640625712112",
           "deps": [
             "npm:vue-router"
           ]
@@ -377,7 +377,7 @@
         },
         {
           "file": "apps/client/src/components/ChecksPage.vue",
-          "hash": "1671952273062374199"
+          "hash": "5593994961848363243"
         },
         {
           "file": "apps/client/src/components/Contact.vue",
@@ -412,6 +412,10 @@
           "hash": "802432325791262608"
         },
         {
+          "file": "apps/client/src/components/OrdersDashboard.vue",
+          "hash": "17686517576144019080"
+        },
+        {
           "file": "apps/client/src/composables/useCategoryProducts.js",
           "hash": "9753885895006820769",
           "deps": [
@@ -430,7 +434,7 @@
         },
         {
           "file": "apps/client/src/services/httpClient.js",
-          "hash": "12350667483260224781",
+          "hash": "2221889668659837220",
           "deps": [
             "npm:axios"
           ]

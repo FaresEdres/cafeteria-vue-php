@@ -133,7 +133,6 @@ const fetchUsers = async () => {
 const fetchOrders = async () => {
   try {
     isLoading.value = true;
-
     // Determine the endpoint based on user selection
     const endpoint = selectedUserId.value
       ? `orders/${selectedUserId.value}`  // Specific user's orders
@@ -144,16 +143,9 @@ const fetchOrders = async () => {
     if (dateFrom.value) params.dateFrom = dateFrom.value;
     if (dateTo.value) params.dateTo = dateTo.value;
 
-    // Make the API request
-    // const response = await getRequest(endpoint, params);
 
-    // // Handle the response
-    // orders.value = response.data || response;
-    // console.log("Orders data:", orders.value);
-
-    //====================================================
-            // Don't send date filters to backend since it doesn't support them
-           const response = await getRequest(endpoint);
+      // Don't send date filters to backend since it doesn't support them
+       const response = await getRequest(endpoint);
 
         // Get raw orders list
         const rawOrders = response.data || response;
@@ -170,10 +162,7 @@ const fetchOrders = async () => {
 
           return true; // Show this order
    });
-
     //======================================================
-
-
   } catch (error) {
     console.error('Error fetching orders:', error);
     alert(error.message || 'Failed to fetch orders');
@@ -253,7 +242,6 @@ const formatDate = (dateString) => {
 };
 
 onMounted(async () => {
-  console.log('Component mounted');
   fetchUsers();
   fetchOrders();
 });
