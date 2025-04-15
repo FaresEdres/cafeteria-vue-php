@@ -15,6 +15,8 @@ import ChecksPage from '../src/components/ChecksPage.vue';
 import AllProducts from '../src/components/AllProducts.vue';
 import AddUser from '../src/components/AddUser.vue';
 
+import OrdersDashboard from '../src/components/OrdersDashboard.vue'
+
 const routes = [
     { path: '/', component: Body },
     { path: '/menu', component: Menu },
@@ -30,6 +32,7 @@ const routes = [
     { path: '/all-products', component: AllProducts },
     { path: '/adduser', component: AddUser },
     { path: '/login', component: Login },
+    { path: '/orderdashboard', component: OrdersDashboard },
     { path: '/:catchAll(.*)', component: NotFound }
 
 ];
