@@ -6,36 +6,36 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "package-lock.json",
-        "hash": "5879959020019840150"
-      },
-      {
-        "file": "nx.json",
+        "file": "nx.json.bak",
         "hash": "15494131853977705247"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "6019243428480325542"
       },
       {
         "file": "composer.json",
         "hash": "13839380369736828812"
       },
       {
-        "file": ".editorconfig",
-        "hash": "5443105041930014821"
-      },
-      {
         "file": "package.json",
         "hash": "10987782184546290918"
+      },
+      {
+        "file": "nx.json",
+        "hash": "15494131853977705247"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "5879959020019840150"
       },
       {
         "file": "composer.lock",
         "hash": "11349439856196813733"
       },
       {
-        "file": "nx.json.bak",
-        "hash": "15494131853977705247"
+        "file": ".gitignore",
+        "hash": "6019243428480325542"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "5443105041930014821"
       },
       {
         "file": "README.md",
@@ -58,11 +58,11 @@
         },
         {
           "file": "apps/server/controller/authenticateController.php",
-          "hash": "5537863178522246230"
+          "hash": "11152230843789533366"
         },
         {
           "file": "apps/server/controller/categoryController.php",
-          "hash": "1208988608884889362"
+          "hash": "14032991219024265762"
         },
         {
           "file": "apps/server/controller/productController.php",
@@ -70,7 +70,7 @@
         },
         {
           "file": "apps/server/controller/userController.php",
-          "hash": "18140858954534375568"
+          "hash": "11301462692747452934"
         },
         {
           "file": "apps/server/db/connector.php",
@@ -82,7 +82,7 @@
         },
         {
           "file": "apps/server/helper/CRUD.php",
-          "hash": "2694553872529772096"
+          "hash": "569479307936362405"
         },
         {
           "file": "apps/server/helper/createTables.php",
@@ -98,7 +98,7 @@
         },
         {
           "file": "apps/server/index.php",
-          "hash": "8150978810271101273"
+          "hash": "18326850882535657817"
         },
         {
           "file": "apps/server/model/categoryModel.php",
@@ -114,11 +114,11 @@
         },
         {
           "file": "apps/server/model/productModel.php",
-          "hash": "9225346249720600912"
+          "hash": "14462703520295536724"
         },
         {
           "file": "apps/server/model/userModel.php",
-          "hash": "5942705497585051888"
+          "hash": "3474493524827554451"
         },
         {
           "file": "apps/server/project.json",
@@ -138,7 +138,7 @@
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "5984299763964992436"
+          "hash": "1017708302111368576"
         },
         {
           "file": "apps/server/utils.php",
@@ -154,7 +154,7 @@
         },
         {
           "file": "apps/server/validation/userValidation.php",
-          "hash": "14639790424813239443"
+          "hash": "15688269226650591287"
         }
       ],
       "cafeteria-client": [
@@ -344,14 +344,14 @@
         },
         {
           "file": "apps/client/routes/index.js",
-          "hash": "13766058979773045322",
+          "hash": "4156423281516373188",
           "deps": [
             "npm:vue-router"
           ]
         },
         {
           "file": "apps/client/src/App.vue",
-          "hash": "6041995010252371031"
+          "hash": "17114196596018220574"
         },
         {
           "file": "apps/client/src/Wrapper.vue",
@@ -362,8 +362,16 @@
           "hash": "6370829397724176208"
         },
         {
+          "file": "apps/client/src/components/AddCategory.vue",
+          "hash": "8086577268280792049"
+        },
+        {
+          "file": "apps/client/src/components/AddProduct.vue",
+          "hash": "7831084323904009660"
+        },
+        {
           "file": "apps/client/src/components/AddProductPage.vue",
-          "hash": "7280929818935932216"
+          "hash": "164666273719772173"
         },
         {
           "file": "apps/client/src/components/Body.vue",
@@ -386,6 +394,10 @@
           "hash": "11567915411962420111"
         },
         {
+          "file": "apps/client/src/components/Login.vue",
+          "hash": "4256818356237559891"
+        },
+        {
           "file": "apps/client/src/components/Menu.vue",
           "hash": "2725343335373319669"
         },
@@ -403,7 +415,7 @@
         },
         {
           "file": "apps/client/src/main.js",
-          "hash": "13264241358256076654",
+          "hash": "5899206495904472392",
           "deps": [
             "npm:bootstrap",
             "npm:@fortawesome/fontawesome-free",
@@ -413,7 +425,7 @@
         },
         {
           "file": "apps/client/src/services/httpClient.js",
-          "hash": "7946633944833279070",
+          "hash": "17865748651521019030",
           "deps": [
             "npm:axios"
           ]

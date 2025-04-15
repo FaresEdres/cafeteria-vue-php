@@ -34,23 +34,33 @@ class UserController
 
     public function addUser()
     {
-        $inputData = json_decode(file_get_contents("php://input"), true);
-        if (!$inputData) {
-            echo json_encode(["error" => "Invalid JSON input"]);
-            return;
+        if ($_POST['password'] != $_POST['confirm_password']){
+            return ["error" => "Passwords not matched"];
         }
 
-        $validationErrors = validateUserData($inputData);
+        $data = [
+            "firstname" => $_POST['firstname'],
+            "lastname" => $_POST['lastname'],
+            "email" => $_POST['email'],
+            "password" => $_POST['password'],
+            "room" => $_POST['room'],
+            "ext" => $_POST['ext'],
+        ];
+
+        
+        $validationErrors = validateUserData($data);
+        $img = validIMG($_FILES['image'], $validationErrors);
+        if(emailExistence($data['email'])) $validationErrors['email'] = "Email already exists";
+        
         if (!empty($validationErrors)) {
-            echo json_encode(["errors" => $validationErrors]);
-            return;
+            return ["errors" => $validationErrors];
         }
 
-        // Hash password before storing
-        $inputData['password'] = password_hash($inputData['password'], PASSWORD_DEFAULT);
-
-        $result = $this->userModel->addUser($inputData);
-        echo json_encode($result);
+        $data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+        $data['image'] = $img;
+        $result = $this->userModel->addUser($data);
+        return ["message" => "User added successfully"
+            , "user" => $result];
     }
 
     public function updateUser($id)
