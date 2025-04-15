@@ -161,6 +161,7 @@ export default {
           imageFile: null
         };
         this.errors = {};
+         this.$router.push('/all-products');
       } catch (error) {
         this.error = error.message || 'Failed to add product';
         console.error('Error adding product:', error);

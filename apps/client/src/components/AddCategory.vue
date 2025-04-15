@@ -68,6 +68,7 @@ export default {
 
         this.successMessage = 'Category added successfully!';
         this.categoryData.name = '';
+         this.$router.push('/add-product');
       } catch (err) {
         this.errorMessage = err.response?.data?.message || 'Failed to add category';
       } finally {

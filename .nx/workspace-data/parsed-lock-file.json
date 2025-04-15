@@ -2002,9 +2002,9 @@
       "type": "npm",
       "name": "npm:bootstrap",
       "data": {
-        "version": "5.3.3",
+        "version": "5.3.5",
         "packageName": "bootstrap",
-        "hash": "sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg=="
+        "hash": "sha512-ct1CHKtiobRimyGzmsSldEtM03E8fcEX4Tb3dGXz1V8faRwM50+vfHwTzOxB3IlKO7m+9vTH3s/3C6T2EAPeTA=="
       }
     },
     "npm:brace-expansion": {

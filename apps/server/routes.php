@@ -8,10 +8,10 @@ require_once __DIR__ . '/controller/authenticateController.php';
 
 
 $routes = [
-    "GET /products" => "productController@getAllProducts",
+    "GET /products" => "productController@getProducts",
     "GET /products/{id}" => "productController@getProductById",
-    "POST /products" => "productController@addProduct",
     "POST /products/{id}" => "productController@updateProduct",
+    "POST /products" => "productController@addProduct",
     "DELETE /products/{id}" => "productController@deleteProduct",
 
 
@@ -19,9 +19,9 @@ $routes = [
     "POST /login" => "authenticateController@login",
     "POST /authenticated" => "authenticateController@authenticated",
 
-    "POST /category" => "categoryController@addCategory",
-    "GET /category" => "categoryController@getAllCategories",
-    "DELETE /category/{id}" => "categoryController@deleteCategory",
+    "POST /categories" => "categoryController@addCategory",
+    "GET /categories" => "categoryController@getAllCategories",
+    "DELETE /categories/{id}" => "categoryController@deleteCategory",
 
 
     // User routes
@@ -32,7 +32,7 @@ $routes = [
     "DELETE /users/{id}" => "userController@deleteUser",
     "POST /users/login" => "userController@loginUser",
 
-    "POST /orders" => "OrdersController@addOrder" ,
+    "POST /orders" => "OrdersController@addOrder",
     "GET /orders/{id}" => "OrdersController@getAllOrders",
     "PATCH /orders/{id}" => "OrdersController@editOrder",
     "GET /orders" => "OrdersController@getAllOrdersForAdmin"
