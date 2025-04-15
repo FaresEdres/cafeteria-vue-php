@@ -42,7 +42,5 @@ function validateProductData($data, $isUpdate = false)
         }
     }
 
-    //check that category_id exist..
-
     return $errors;
 }
