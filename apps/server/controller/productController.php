@@ -91,10 +91,8 @@ class ProductController
                 throw new Exception("Invalid request method.");
             }
 
-            // Validate that required fields are present in the POST data
-            if (empty($_POST['id']) || empty($_POST['name']) || empty($_POST['price']) || empty($_POST['category_id'])) {
-                throw new Exception("Missing required fields.");
-            }
+
+
 
             // Collect the product data from the form
             $data = [
@@ -104,6 +102,7 @@ class ProductController
                 'price' => $_POST['price'],
                 'category_id' => $_POST['category_id'],
             ];
+
 
             // Handle image file upload if provided
             if (isset($_FILES['image']) && !empty($_FILES['image']['tmp_name'])) {
@@ -174,5 +173,20 @@ class ProductController
     public function deleteProduct($id)
     {
         return $this->productModel->deleteProduct($id);
+    }
+
+    public function getProducts()
+    {
+        // Get the 'page' and 'limit' query parameters from the URL
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Default to page 1 if not set
+        $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10; // Default to 10 items per page if not set
+
+        // If both 'page' and 'limit' are provided, use the pagination method
+        if ($page > 0 && $limit > 0) {
+            return $this->productModel->displayPaginateProducts($page, $limit);
+        }
+
+        // If no pagination parameters are provided, return all products
+        return $this->productModel->displayAllProducts();
     }
 }

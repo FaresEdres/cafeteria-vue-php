@@ -161,6 +161,7 @@ export default {
           imageFile: null
         };
         this.errors = {};
+         this.$router.push('/all-products');
       } catch (error) {
         this.error = error.message || 'Failed to add product';
         console.error('Error adding product:', error);
@@ -171,7 +172,7 @@ export default {
     async fetchCategories() {
       try {
         this.isLoading = true;
-        const response = await getRequest('categories');
+        const response = await getRequest('category');
         this.categories = response;
       } catch (error) {
         alert(error.message || 'Failed to fetch categories');

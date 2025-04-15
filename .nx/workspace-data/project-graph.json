@@ -3970,17 +3970,17 @@
       },
       {
         "source": "cafeteria-client",
+        "target": "npm:vue",
+        "type": "static"
+      },
+      {
+        "source": "cafeteria-client",
         "target": "npm:bootstrap",
         "type": "static"
       },
       {
         "source": "cafeteria-client",
         "target": "npm:@fortawesome/fontawesome-free",
-        "type": "static"
-      },
-      {
-        "source": "cafeteria-client",
-        "target": "npm:vue",
         "type": "static"
       },
       {
@@ -8566,5 +8566,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1744730051585
+  "computedAt": 1744725208118
 }

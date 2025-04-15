@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ .'/../helper/errors.php';
+require_once __DIR__ . '/../helper/errors.php';
 require_once __DIR__ . "/../utils.php";
 require_once __DIR__ . "/../db/connector.php";
 
@@ -28,14 +28,13 @@ class CRUD
           str_starts_with($dataType, 'FOREIGN KEY')
         ) {
           $constraints[] = $dataType;
-        }
-        else {
+        } else {
           $columnsDefinition[] = "`$columnName` $dataType";
         }
       }
 
       $createQuery = "CREATE TABLE IF NOT EXISTS `$tableName` (" .
-      implode(", ", $columnsDefinition);
+        implode(", ", $columnsDefinition);
 
       if (!empty($constraints)) {
         $createQuery .= ", " . implode(", ", $constraints);
@@ -190,6 +189,33 @@ class CRUD
           $stmt->bindValue(":where_$column", $value);
         }
       }
+
+      $stmt->execute();
+
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+      $conn = null;
+
+      return $results;
+    } catch (Exception $e) {
+      error_log($e->getMessage());
+      return false;
+    }
+  }
+
+  function countAll($tableName)
+  {
+    try {
+      $conn = SQLConnector::connectDatabase();
+      if (!$conn) {
+        throw new Exception("Failed to connect to the database.");
+      }
+
+      // Prepare the query string, not the PDOStatement
+      $count_query = "SELECT COUNT(*) as total FROM `$tableName`";
+
+      // Only call prepare on the query string
+      $stmt = $conn->prepare($count_query);
 
       $stmt->execute();
 

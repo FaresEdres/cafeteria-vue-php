@@ -6,12 +6,13 @@ import Orders from '../src/components/Orders.vue';
 import OrderForm from '../src/components/OrderForm.vue';
 import About from '../src/components/About.vue';
 import Contact from '../src/components/Contact.vue';
+import Login from '../src/components/LogIn.vue';
 import Footer from '../src/components/Footer.vue';
 import NotFound from '../src/components/NotFound.vue';
 import AddProduct from '../src/components/AddProduct.vue';
 import AddCategory from '../src/components/AddCategory.vue';
 import ChecksPage from '../src/components/ChecksPage.vue';
-
+import AllProducts from '../src/components/AllProducts.vue';
 const routes = [
     { path: '/', component: Body },
     { path: '/menu', component: Menu },
@@ -21,9 +22,10 @@ const routes = [
     { path: '/contact', component: Contact },
     { path: '/header', component: Header },
     { path: '/footer', component: Footer },
-    { path: '/addproduct', component: AddProduct },
+    { path: '/add-product', component: AddProduct },
     { path: '/add-category', component: AddCategory },
     { path: '/checks', component: ChecksPage },
+    { path: '/all-products', component: AllProducts },
     { path: '/:catchAll(.*)', component: NotFound }
 
 ];
