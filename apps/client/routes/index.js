@@ -14,6 +14,7 @@ import AddCategory from '../src/components/AddCategory.vue';
 import ChecksPage from '../src/components/ChecksPage.vue';
 import AllProducts from '../src/components/AllProducts.vue';
 import AddUser from '../src/components/AddUser.vue';
+import Users from '../src/components/Users.vue';
 
 const routes = [
     { path: '/', component: Body },
@@ -28,6 +29,7 @@ const routes = [
     { path: '/add-category', component: AddCategory },
     { path: '/checks', component: ChecksPage },
     { path: '/all-products', component: AllProducts },
+    { path: '/users', component: Users },
     { path: '/adduser', component: AddUser },
     { path: '/login', component: Login },
     { path: '/:catchAll(.*)', component: NotFound }

@@ -24,8 +24,7 @@ class UserController
 
         $users = $this->userModel->displayAllUsers();
         if (isset($users["error"])) {
-            // return json_encode(["error" => $users["error"]]);
-            return json_encode(["error" => $users["error"]]);
+            return ["error" => $users["error"]];
         } else {
             return ($users);
         }
