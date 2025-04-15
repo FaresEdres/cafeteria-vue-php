@@ -167,6 +167,39 @@ class ProductModel
     } catch (Exception $e) {
       return ['success' => false, 'error' => $e->getMessage()];
     }
+
+    public function displayPaginateProducts($page, $limit)
+    {
+        $offset = ($page - 1) * $limit;
+
+        try {
+            // Fetch paginated products
+            $products = $this->db->select("products", "*", [], "", $limit, $offset);
+
+            // Get total count of products
+            $totalCount = $this->db->countAll("products");
+            $totalCount = $totalCount[0]['total'];
+            // Calculate total pages
+            $totalPages = ceil($totalCount / $limit);
+
+            return [
+                'success' => true,
+                'data' => $products,
+                'pagination' => [
+                    'currentPage' => $page,
+                    'limit' => $limit,
+                    'totalItems' => $totalCount,
+                    'totalPages' => $totalPages
+                ]
+            ];
+        } catch (Exception $e) {
+            return ['success' => false, 'error' => $e->getMessage()];
+        }
+    }
+
+
+
+
   }
 
   public function displayProductById($id)
@@ -181,6 +214,7 @@ class ProductModel
       return ['success' => false, 'error' => $e->getMessage()];
     }
   }
+
 
   public function updateProduct($data)
   {

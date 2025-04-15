@@ -64,10 +64,11 @@ export default {
         const formData = new FormData();
         formData.append('name', this.categoryData.name);
         
-         await postRequest('categories', formData);
+         await postRequest('category', formData);
 
         this.successMessage = 'Category added successfully!';
         this.categoryData.name = '';
+         this.$router.push('/add-product');
       } catch (err) {
         this.errorMessage = err.response?.data?.message || 'Failed to add category';
       } finally {

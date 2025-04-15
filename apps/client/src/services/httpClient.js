@@ -49,7 +49,7 @@ const patchRequest = async (endpoint, formData) => {
         for (let [key, value] of formData.entries()) {
             console.log(key, value);
         }
-        const response = await http.patch(endpoint, formData);
+        const response = await http.post(endpoint, formData);
         return response.data;
     } catch (error) {
         const errorDetails = {
