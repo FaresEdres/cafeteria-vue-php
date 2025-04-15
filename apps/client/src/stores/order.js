@@ -15,6 +15,7 @@ export const useOrderStore = defineStore('order', {
       },
       addOrder(order) {
         // console.log(order);
+        this.order.id = order.order_id;
         this.order.comment = order.comment;
         this.order['user-id'] = order['user-id'];
         this.order.status = order.status;

@@ -49,41 +49,17 @@ class OrderModel
             return ["error" => $e->getMessage()];
         }
     }
-    //   public function addCategory($data)
-    //   {
-    //     try {
-    //       $insertedId = $this->db->insert("categories", $data);
-
-    //       if ($insertedId) {
-    //         return ["id" => $insertedId];
-    //       } else {
-    //         return ["error" => "Failed to insert category"];
-    //       }
-    //     } catch (Exception $e) {
-    //       return ["error" => $e->getMessage()];
-    //     }
-    //   }
-    //   public function deleteCategory($id)
-    //   {
-    //     try {
-    //       $deleted = $this->db->delete("categories", ["id" => $id]);
-    //       if ($deleted) {
-    //         return ["message" => "category deleted successfully"];
-    //       } else {
-    //         return ["error" => "category not found"];
-    //       }
-    //     } catch (Exception $e) {
-    //       return ["error" => $e->getMessage()];
-    //     }
-    //   }
-    //   public function displayAllOrder()
-    //   {
-    //     try {
-    //         $data= $this->db->select("orders", ["id, total_price, user_name , comment"]);
-    //       return $this->db->select("categories", "*");
-    //     } catch (Exception $e) {
-    //       return ["error" => $e->getMessage()];
-    //     }
-
-    //   }
+    public function deleteOrder($id)
+    {
+        try {
+            $deleted = $this->db->delete("orders", ["id" => $id]);
+            if ($deleted) {
+                return ["message" => "Order deleted successfully"];
+            } else {
+                return ["error" => "Order not found"];
+            }
+        } catch (Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
+    }
 }
