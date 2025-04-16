@@ -65,7 +65,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 import { useOrderStore } from '../stores/order.js';
-import { getRequest, postRequest } from '../services/httpClient.js';
+import { getRequest, postRequest,deleteRequest } from '../services/httpClient.js';
 
 const orderStore = useOrderStore();
 const order = ref({ ...orderStore.getOrder() });
@@ -132,7 +132,7 @@ const clearCart = () => {
 const submitOrder = async () => {
   try {
     const orderData = {
-      user_id: 1,
+      user_id: (await  postRequest('authenticated')).id,
       comment: order.value.comment,
       products: products.value.map((product) => ({
         id: product.id,
@@ -140,6 +140,10 @@ const submitOrder = async () => {
       })),
     };
     await postRequest("orders", orderData);
+    if (order.value.order_id) {
+      await axios.delete(`http://localhost:8000/order/${order.order_id}`);
+      console.log(`order/${order.order_id}`);
+    }
     clearCart();
     alert("Order submitted successfully!");
   } catch (error) {

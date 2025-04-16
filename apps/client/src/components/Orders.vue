@@ -67,6 +67,9 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { useOrderStore } from '../stores/order.js';
+import OrderEditModal from './OrderEditModal.vue';
+import { postRequest, getRequest, deleteRequest } from "../services/httpClient.js";
+
 
 export default {
   name: 'Orders',
@@ -79,7 +82,9 @@ export default {
     const fetchOrders = async () => {
       try {
         isLoading.value = true;
-        const userId = 1; // Replace with actual user ID
+        const user = await  postRequest('authenticated');
+        console.log(user);
+        const userId = user.id; // Replace with actual user ID
         const response = await axios.get(`http://localhost:8000/orders/${userId}`);
         orders.value = response.data;
       } catch (error) {
@@ -95,6 +100,22 @@ export default {
         selectedOrder.value = order;
       } else {
         alert('Only processing orders can be edited.');
+      }
+    };
+
+    const closeEditModal = () => {
+      selectedOrder.value = null;
+    };
+
+    const updateOrder = async (updatedOrder) => {
+      try {
+        await axios.patch(`http://localhost:8000/orders/${updatedOrder.order_id}`, updatedOrder);
+        console.log(updatedOrder.order_id)
+        await deleteRequest(`orders/${updatedOrder.order_id}`);
+        await fetchOrders();
+        closeEditModal();
+      } catch (error) {
+        console.error('Failed to update order:', error.message);
       }
     };
 

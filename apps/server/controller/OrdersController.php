@@ -11,6 +11,7 @@ require_once __DIR__ . '/../model/orderModel.php';
 require_once __DIR__ . '/../model/orderProuductsModel.php';
 require_once __DIR__ . '/../validation/productValidation.php';
 require_once __DIR__ . '/../helper/CRUD.php';
+require_once __DIR__ . '/authenticateController.php';
 
 class OrdersController
 {
@@ -18,25 +19,31 @@ class OrdersController
     private $orderProductsModel;
     private $db;
 
+    private $authenticateController;
+
+
     public function __construct()
     {
         $this->ordersModel = new OrderModel();
         $this->orderProductsModel = new orderProductsModel(); // Remove duplicate line
         $this->db = new CRUD();
+        $this->authenticateController = new AuthenticateController(); // Initialize the authenticateController
     }
 
     public function addOrder()
-    {
-        $inputData = json_decode(file_get_contents("php://input"), true);
-        if (!$inputData) {
-            echo json_encode(["error" => "Invalid JSON input"]);
-            return;
-        }
+{
+    $user = $this->authenticateController->authenticated();
+    if ($user){
+    $inputData = json_decode(file_get_contents("php://input"), true);
+    if (!$inputData) {
+        echo json_encode(["error" => "Invalid JSON input"]);
+        return;
+    }
 
-        $orderData = [
-            "user_id" => $inputData['user_id'],
-            "comment" => $inputData['comment']
-        ];
+    $orderData = [
+        "user_id" => $user['id'],
+        "comment" => $inputData['comment']
+    ];  
 
         $result = $this->ordersModel->addOrder($orderData);
 
@@ -69,8 +76,12 @@ class OrdersController
             return;
         }
 
-        echo json_encode(["success" => true, "order_id" => $orderId]);
+    echo json_encode(["success" => true, "order_id" => $orderId]);
     }
+    else {
+        echo json_encode(["error" => "Unauthorized"]);
+    }
+}
 
     public function editOrder($id)
     {
@@ -146,6 +157,7 @@ class OrdersController
     }
     public function getAllOrders($userId)
     {
+        
         $result = $this->db->select("order_details_view", "*", [
             "user_id" => $userId
         ]);
@@ -218,6 +230,8 @@ class OrdersController
                 $orders[$orderId] = [
                     'user_name' => $row['user_name'],
                     'order_id' => $orderId,
+                    'status' => $row['status'],
+                    'created_at' => $row['created_at'],
                     'total_price' => $row['total_price'],
                     'created_at' => $row['created_at'],
                     'status' => $row['status'],
@@ -248,6 +262,29 @@ class OrdersController
         }
 
         echo json_encode(array_values($orders), JSON_PRETTY_PRINT);
+        exit;
+    }
+    public function deleteOrder($id)
+    {
+        $result = $this->orderProductsModel->deleteOrderProducts($id);
+        if (isset($result["error"])) {
+            header('Content-Type: application/json');
+            echo json_encode($result);
+            return;
+        }
+        $result = $this->ordersModel->deleteOrder($id);
+
+        if (isset($result["error"])) {
+            header('Content-Type: application/json');
+            echo json_encode($result);
+            return;
+        }
+
+        header('Content-Type: application/json');
+        echo json_encode([
+            "success" => true,
+            "message" => "Order deleted successfully"
+        ]);
         exit;
     }
 }
