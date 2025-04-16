@@ -37,7 +37,7 @@ $routes = [
     "PATCH /orders/{id}" => "OrdersController@editOrder",
     "GET /orders" => "OrdersController@getAllOrdersForAdmin",
     "DELETE /order/{id}" => "OrdersController@deleteOrder",
-
+    "GET /LastOrder/{id}" => "OrdersController@getLastOrder", // Fixed route
 ];
 
 return $routes;

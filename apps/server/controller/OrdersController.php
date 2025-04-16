@@ -154,6 +154,72 @@ class OrdersController
         ]);
         exit;
     }
+
+    public function getLastOrder($userId)
+{
+    // Fetch the last order for the user with status "done"
+    $result = $this->db->select(
+        "order_details_view",
+        "*",
+        ["user_id" => $userId, "status" => "done"],
+        "created_at DESC", 
+        1 
+    );
+
+    // Check if the query returned any results
+    if (!$result || !is_array($result) || count($result) === 0) {
+        header('Content-Type: application/json');
+        echo json_encode(["error" => "No orders found"]);
+        exit;
+    }
+
+    // Initialize the orders array
+    $orders = [];
+    $row = $result[0]; // Get the first (and only) row from the result
+
+    $orderId = $row['order_id'];
+    $productId = $row['product_id'];
+
+    // Initialize the order if it doesn't exist in the array
+    if (!isset($orders[$orderId])) {
+        $orders[$orderId] = [
+            'user_name' => $row['user_name'],
+            'user_id' => $row['user_id'],
+            'status' => $row['status'],
+            'order_id' => $orderId,
+            'total_price' => $row['total_price'],
+            'created_at' => $row['created_at'],
+            'products' => []
+        ];
+    }
+
+    // Check if the product already exists in the order
+    $productExists = false;
+    foreach ($orders[$orderId]['products'] as &$product) {
+        if ($product['product_id'] === $productId) {
+            $product['quantity'] += $row['quantity']; // Sum quantity
+            $productExists = true;
+            break;
+        }
+    }
+
+    // Add the product if it doesn't already exist in the order
+    if (!$productExists) {
+        $orders[$orderId]['products'][] = [
+            'product_id' => $productId,
+            'name' => $row['product_name'],
+            'image' => $row['image'],
+            'description' => $row['description'],
+            'price' => $row['price'],
+            'quantity' => $row['quantity']
+        ];
+    }
+
+    // Return the last order as JSON
+    header('Content-Type: application/json');
+    echo json_encode(array_values($orders), JSON_PRETTY_PRINT);
+    exit;
+}
     public function getAllOrders($userId)
     {
 
