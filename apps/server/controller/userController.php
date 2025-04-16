@@ -18,12 +18,13 @@ class UserController
     public function getAllUsers()
     {
         $user = $this->authenticateController->authenticated();
-        if(! ($user && $user['role'] == 'admin')) {
+        if (! ($user && $user['role'] == 'admin')) {
             return ["error" => $user];
         }
 
         $users = $this->userModel->displayAllUsers();
         if (isset($users["error"])) {
+            // return json_encode(["error" => $users["error"]]);
             return ["error" => $users["error"]];
         } else {
             return ($users);
@@ -33,13 +34,13 @@ class UserController
     public function getUserById($id)
     {
         $user = $this->authenticateController->authenticated();
-        if(! ($user && $user['role'] == 'admin')) {
+        if (! ($user && $user['role'] == 'admin')) {
             return ["error" => $user];
         }
-        
+
         $user = $this->userModel->displayUserById($id);
         if (isset($user["error"])) {
-            return ["error" => $user["error"]] ;
+            return ["error" => $user["error"]];
         } else {
             return $user;
         }
@@ -48,7 +49,7 @@ class UserController
     public function addUser()
     {
         $user = $this->authenticateController->authenticated();
-        if(! ($user && $user['role'] == 'admin')) {
+        if (! ($user && $user['role'] == 'admin')) {
             return ["error" => "Unauthorized"];
         }
 
@@ -62,11 +63,11 @@ class UserController
             "ext" => $_POST['ext'],
         ];
 
-        
+
         $validationErrors = validateUserData($data);
         $img = validIMG($_FILES['image'], $validationErrors);
-        if(emailExistence($data['email'])) $validationErrors['email'] = "Email already exists";
-        
+        if (emailExistence($data['email'])) $validationErrors['email'] = "Email already exists";
+
         if (!empty($validationErrors)) {
             return ["errors" => $validationErrors];
         }
@@ -80,7 +81,7 @@ class UserController
     public function updateUser($id)
     {
         $user = $this->authenticateController->authenticated();
-        if(! ($user && $user['role'] == 'admin')) {
+        if (! ($user && $user['role'] == 'admin')) {
             return ["error" => $user];
         }
         $user = $this->userModel->displayUserById($id);
@@ -88,7 +89,7 @@ class UserController
         if (isset($user["error"])) {
             return ["error" => $user["error"]];
         }
-        
+
 
         $data = [
             "firstname" => $_POST['firstname'],
@@ -98,26 +99,26 @@ class UserController
             "ext" => $_POST['ext'],
         ];
 
-        
+
         $validationErrors = validateUserData($data);
         $imageName = $_FILES['image']['name'];
         $imageTmp = $_FILES['image']['tmp_name'];
-        
-        if($user['email'] != $data['email'] and emailExistence($data['email'])) {
+
+        if ($user['email'] != $data['email'] and emailExistence($data['email'])) {
             $validationErrors['email'] = "Email already exists";
         }
-        if(!(empty($imageName) and empty($imageTmp))) {
+        if (!(empty($imageName) and empty($imageTmp))) {
             $img = validIMG($_FILES['image'], $validationErrors);
-            
-            if($img) {
+
+            if ($img) {
                 $oldimg = $user['image'];
-                if (file_exists(__DIR__."/../public/uploads/users/".$oldimg)) {
-                    unlink(__DIR__."/../public/uploads/users/".$oldimg);
+                if (file_exists(__DIR__ . "/../public/uploads/users/" . $oldimg)) {
+                    unlink(__DIR__ . "/../public/uploads/users/" . $oldimg);
                 }
                 $data['image'] = $img;
             }
         }
-        
+
         if (!empty($validationErrors)) {
             return ["errors" => $validationErrors];
         }
@@ -129,19 +130,18 @@ class UserController
     public function deleteUser($id)
     {
         $user = $this->authenticateController->authenticated();
-        if($user && $user['role'] == 'admin') {
+        if ($user && $user['role'] == 'admin') {
             $user = $this->userModel->displayUserById($id);
             if (isset($user["error"])) {
                 return ["error" => $user["error"]];
             }
             $oldimg = $user['image'];
-            if (file_exists(__DIR__."/../public/uploads/users/".$oldimg)) {
-                unlink(__DIR__."/../public/uploads/users/".$oldimg);
+            if (file_exists(__DIR__ . "/../public/uploads/users/" . $oldimg)) {
+                unlink(__DIR__ . "/../public/uploads/users/" . $oldimg);
             }
             $result = $this->userModel->deleteUser($id);
             return $result;
-        }
-        else{
+        } else {
             return ["error" => "Unauthorized"];
         }
     }

@@ -162,9 +162,6 @@ const main = ref([]);
     try {
       isLoading.value = true;
       let url = 'products';
-      if (categoryId !== null) {
-        url += `?category=${categoryId}`;
-      }
 
       const response = await getRequest(url);
       targetRef.value = response.data;

@@ -15,6 +15,8 @@ import ChecksPage from '../src/components/ChecksPage.vue';
 import AllProducts from '../src/components/AllProducts.vue';
 import AddUser from '../src/components/AddUser.vue';
 import Users from '../src/components/Users.vue';
+import AdminLayout from '../src/components/AdminLayout.vue';
+import OrdersDashboard from '../src/components/OrdersDashboard.vue'
 
 const routes = [
     { path: '/', component: Body },
@@ -27,11 +29,27 @@ const routes = [
     { path: '/footer', component: Footer },
     { path: '/add-product', component: AddProduct },
     { path: '/add-category', component: AddCategory },
+
+
+      {
+        path: '/admin',
+        component: AdminLayout,
+        children: [
+          { path: 'adduser', component: () => AddUser },
+          { path: 'users', component: () => Users },
+          { path: 'products', component: () => AllProducts },
+          { path: 'addproduct', component: () => AddProduct},
+          { path: 'checks', component: () => ChecksPage },
+          { path: 'orderdash', component: () => OrdersDashboard },
+        ],
+      },
+
     { path: '/checks', component: ChecksPage },
     { path: '/all-products', component: AllProducts },
     { path: '/users', component: Users },
     { path: '/adduser', component: AddUser },
     { path: '/login', component: Login },
+    { path: '/orderdashboard', component: OrdersDashboard },
     { path: '/:catchAll(.*)', component: NotFound }
 
 ];

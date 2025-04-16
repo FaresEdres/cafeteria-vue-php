@@ -1,29 +1,7 @@
 <template>
   <section id="product-management" style="padding: 60px 0; background-color: #f9f5f2;">
-    <div class="super_container" style="max-width: 800px; margin: auto;">
-
-      <!-- Add Product Button (opens modal) -->
-<div style="text-align: right; margin-bottom: 20px;">
-  <router-link
-    to="/add-product"
-    class="btn btn-primary"
-    style="background-color: #c4ab9f; color: white; padding: 10px 20px; border: none; border-radius: 4px; text-decoration: none;"
-  >
-    Add Product
-  </router-link>
-</div>
-
     <div class="super_container" style="max-width: 1200px; margin: auto;">
-
-      <!-- Add Product Button -->
-      <div style="text-align: right; margin-bottom: 20px;">
-        <router-link
-          to="/add-product"
-          style="background-color: #5D4037; color: white; padding: 10px 20px; border: none; border-radius: 4px; text-decoration: none; font-weight: 500;"
-        >
-          Add Product
-        </router-link>
-      </div>
+      
 
       <!-- Loading Section -->
       <div v-if="isLoading" style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center;">
@@ -45,23 +23,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="product in paginatedProducts" :key="product.id">
-              <td>{{ product.id }}</td>
-              <td>
-
-                <img
-                 v-if="product.image"
-                 width="50px"
-                :src="`http://localhost:8000/public/uploads/` + product.image" :alt="product.name">
-
-                <div v-else style="width: 50px; height: 50px; background: #f5f5f5; display: flex; align-items: center; justify-content: center;">
             <tr v-for="product in paginatedProducts" :key="product.id" style="border-bottom: 1px solid #ddd;">
               <td style="padding: 12px;">{{ product.id }}</td>
               <td style="padding: 12px;">
-                <img
+                <img 
                   v-if="product.image"
                   width="50px"
-                  :src="`http://localhost:8000/public/uploads/` + product.image"
+                  :src="`http://localhost:8000/public/uploads/` + product.image" 
                   :alt="product.name"
                   style="border-radius: 4px;"
                 >
@@ -72,14 +40,14 @@
               <td style="padding: 12px;">{{ product.name }}</td>
               <td style="padding: 12px;">${{ product.price }}</td>
               <td style="padding: 12px;">
-                <button
-                  @click="openEditModal(product)"
+                <button 
+                  @click="openEditModal(product)" 
                   style="background-color: #c4ab9f; color: white; padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px;"
                 >
                   Edit
                 </button>
-                <button
-                  @click="confirmDelete(product.id)"
+                <button 
+                  @click="confirmDelete(product.id)" 
                   style="background-color: #e74c3c; color: white; padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer;"
                 >
                   Delete
@@ -114,8 +82,6 @@
         <p style="color: #5D4037;">No products found</p>
       </div>
 
-
-
       <!-- Edit Product Modal -->
       <div v-if="showEditModal" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
         <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 600px; max-width: 90%; max-height: 90vh; overflow-y: auto;">
@@ -126,66 +92,42 @@
           <form @submit.prevent="handleUpdateProduct">
             <div style="margin-bottom: 20px;">
               <label style="display:block; margin-bottom: 8px; color: #232323; font-weight: 500;">Product Name</label>
-              <input
-                v-model="editProductData.name"
-                type="text"
+              <input 
+                v-model="editProductData.name" 
+                type="text" 
                 style="width:100%; padding:12px; border: 1px solid #D7CCC8; border-radius: 4px;"
               />
             </div>
             <div style="margin-bottom: 20px;">
               <label style="display:block; margin-bottom: 8px; color: #232323; font-weight: 500;">Image</label>
-              <input
-                type="file"
-                @change="onEditFileChange"
+              <input 
+                type="file" 
+                @change="onEditFileChange" 
                 style="width:100%; padding:12px; border: 1px solid #D7CCC8; border-radius: 4px;"
               />
               <small style="color: #8D6E63;">Leave empty to keep current image</small>
             </div>
             <div style="margin-bottom: 20px;">
               <label style="display:block; margin-bottom: 8px; color: #232323; font-weight: 500;">Description</label>
-              <textarea
-                v-model="editProductData.description"
+              <textarea 
+                v-model="editProductData.description" 
                 rows="3"
                 style="width:100%; padding:12px; border: 1px solid #D7CCC8; border-radius: 4px;"
               ></textarea>
             </div>
             <div style="margin-bottom: 20px;">
               <label style="display:block; margin-bottom: 8px; color: #232323; font-weight: 500;">Price</label>
-              <input
-                v-model="editProductData.price"
-                type="number"
+              <input 
+                v-model="editProductData.price" 
+                type="number" 
                 style="width:100%; padding:12px; border: 1px solid #D7CCC8; border-radius: 4px;"
               />
             </div>
-            <div class="form-group">
-    <select
-      v-model="productData.category_id"
-      id="category_id"
-      class="form-control"
-      style="flex: 1; padding:10px; border: 1px solid #c4ab9f;"
-    >
-      <option disabled value="">Please select a category</option>
-      <option v-for="category in categories" :key="category.id" :value="category.id">
-        {{ category.name }}
-      </option>
-    </select>
-     <button
-      @click="$router.push('/add-category')"
-      type="button"
-      title="Add Category"
-      style="padding: 10px 14px; background-color: #c4ab9f; border: none; border-radius: 4px; color: white; font-size: 18px; cursor: pointer;"
-    >
-      +
-    </button>
-    </div>
-            <div class="modal-actions">
-              <button type="button" @click="closeEditModal" class="btn btn-secondary">Cancel</button>
-              <button type="submit" :disabled="isLoading" class="btn btn-primary">
             <div style="margin-bottom: 20px;">
               <label style="display:block; margin-bottom: 8px; color: #232323; font-weight: 500;">Category</label>
               <div style="display: flex; align-items: center; gap: 10px;">
-                <select
-                  v-model="editProductData.category_id"
+                <select 
+                  v-model="editProductData.category_id" 
                   style="flex: 1; padding:12px; border: 1px solid #D7CCC8; border-radius: 4px;"
                 >
                   <option disabled value="">Please select a category</option>
@@ -193,8 +135,8 @@
                     {{ category.name }}
                   </option>
                 </select>
-                <button
-                  @click="$router.push('/add-category')"
+                <button 
+                  @click="$router.push('/add-category')" 
                   type="button"
                   title="Add Category"
                   style="padding: 12px 14px; background-color: #5D4037; border: none; border-radius: 4px; color: white; font-size: 16px; cursor: pointer;"
@@ -204,15 +146,15 @@
               </div>
             </div>
             <div style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 30px;">
-              <button
-                type="button"
-                @click="closeEditModal"
+              <button 
+                type="button" 
+                @click="closeEditModal" 
                 style="background-color: #8D6E63; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer;"
               >
                 Cancel
               </button>
-              <button
-                type="submit"
+              <button 
+                type="submit" 
                 :disabled="isLoading"
                 style="background-color: #5D4037; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer;"
               >
@@ -229,14 +171,14 @@
           <h2 style="font-size: 24px; margin-bottom: 20px; color: #3E2723;">Confirm Delete</h2>
           <p style="margin-bottom: 30px; color: #5D4037;">Are you sure you want to delete this product?</p>
           <div style="display: flex; justify-content: flex-end; gap: 10px;">
-            <button
+            <button 
               @click="closeDeleteModal"
               style="background-color: #8D6E63; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;"
             >
               Cancel
             </button>
-            <button
-              @click="handleDeleteProduct"
+            <button 
+              @click="handleDeleteProduct" 
               :disabled="isLoading"
               style="background-color: #e74c3c; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;"
             >
@@ -256,15 +198,15 @@ export default {
   data() {
     return {
       isLoading: false,
-      products: [],
+      products: [],          
       currentPage: 1,
       itemsPerPage: 5,
       totalPages: 1,
-
+      
       // Modal states
       showEditModal: false,
       showDeleteModal: false,
-
+      
       // Form data
       productData: {
         name: '',
@@ -287,7 +229,6 @@ export default {
   },
   computed: {
     paginatedProducts() {
-
       return this.products;
     }
   },
@@ -309,9 +250,8 @@ export default {
         this.isLoading = false;
       }
     },
-
+    
     // Modal handlers
-
     openEditModal(product) {
       this.showEditModal = true;
       this.editProductData = {
@@ -323,37 +263,35 @@ export default {
         imageFile: null
       };
     },
-
+    
     closeEditModal() {
       this.showEditModal = false;
     },
-
+    
     confirmDelete(id) {
       this.showDeleteModal = true;
       this.deleteProductId = id;
     },
-
+    
     closeDeleteModal() {
       this.showDeleteModal = false;
       this.deleteProductId = null;
     },
-
+    
     // File handlers
     onFileChange(event) {
       this.productData.imageFile = event.target.files[0];
     },
-
+    
     onEditFileChange(event) {
       this.editProductData.imageFile = event.target.files[0];
     },
-
+    
     // CRUD operations
-
-
     async handleUpdateProduct() {
       try {
         this.isLoading = true;
-
+        
         const formData = new FormData();
         formData.append('id', this.editProductData.id);
         formData.append('name', this.editProductData.name);
@@ -363,23 +301,15 @@ export default {
         if (this.editProductData.imageFile) {
           formData.append('image', this.editProductData.imageFile);
         }
-
-         const response = await patchRequest(
-      `products/${this.editProductData.id}`,
-formData);
-console.log(response)
-          this.closeEditModal();
-          this.fetchProducts(); // Refresh the list
-
-
+        
         const response = await patchRequest(
-          `products/${this.editProductData.id}`,
+          `products/${this.editProductData.id}`, 
           formData
         );
         console.log(response);
         this.closeEditModal();
         this.fetchProducts(); // Refresh the list
-
+             
         return response;
       } catch (error) {
         alert(error.message || 'Failed to update product');
@@ -387,17 +317,12 @@ console.log(response)
         this.isLoading = false;
       }
     },
-
+    
     async handleDeleteProduct() {
       try {
         this.isLoading = true;
-       await deleteRequest('products', this.deleteProductId);
-
-
         await deleteRequest('products', this.deleteProductId);
         this.products = this.products.filter(p => p.id !== this.deleteProductId); // update UI
-
-    this.closeDeleteModal();
         this.closeDeleteModal();
       } catch (error) {
         alert(error.message || 'Failed to delete product');
@@ -405,7 +330,7 @@ console.log(response)
         this.isLoading = false;
       }
     },
-
+    
     goToPage(page) {
       if (page >= 1 && page <= this.totalPages) {
         this.currentPage = page;
@@ -413,10 +338,7 @@ console.log(response)
       }
     }
   },
-
-
-
-
+  
   mounted() {
     this.fetchProducts();
   }
@@ -513,6 +435,4 @@ tr:hover {
   background-color: #e74c3c;
   color: white;
 }
-</style>
-
-</style>
+</style>     
