@@ -1,32 +1,25 @@
 <template>
   <div>
-      <Header />
-      <div>
-        <div>
-          <router-view />
-        </div>
-      </div>
-      <Footer />
+    <Header v-if="!isAdminRoute" />
 
+    <div>
+      <router-view />
+    </div>
 
+    <Footer v-if="!isAdminRoute" />
   </div>
 </template>
 
-<script>
-import Footer from './components/Footer.vue';
-import Header from './components/Header.vue';
-import Body from './components/Body.vue'
+<script setup>
+import Footer from './components/Footer.vue'
+import Header from './components/Header.vue'
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
 
-export default {
-  name: 'Wrapper',
-  components: {
-    Header,
-    Body,
-    Footer
-  }
-};
+const route = useRoute()
+
+const isAdminRoute = computed(() => route.path.startsWith('/admin'))
 </script>
 
 <style>
-
 </style>
