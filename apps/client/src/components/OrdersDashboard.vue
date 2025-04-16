@@ -102,13 +102,12 @@
 </div>
     </div>
       </div>
-    </div>
      <div class="pagination">
      <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1">Prev</button>
       <span>Page {{ currentPage }} of {{ totalPages }}</span>
      <button @click="goToPage(currentPage + 1)" :disabled="currentPage === totalPages">Next</button>
     </div>
-
+    </div>
   </template>
   
   <script setup>

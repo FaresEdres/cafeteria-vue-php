@@ -2,15 +2,6 @@
   <section id="product-management" style="padding: 60px 0; background-color: #f9f5f2;">
     <div class="super_container" style="max-width: 1200px; margin: auto;">
       
-      <!-- Add Product Button -->
-      <div style="text-align: right; margin-bottom: 20px;">
-        <router-link 
-          to="/add-product"
-          style="background-color: #5D4037; color: white; padding: 10px 20px; border: none; border-radius: 4px; text-decoration: none; font-weight: 500;"
-        >
-          Add Product
-        </router-link>
-      </div>
 
       <!-- Loading Section -->
       <div v-if="isLoading" style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center;">
