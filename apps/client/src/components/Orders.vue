@@ -10,14 +10,14 @@
 
     <!-- Empty State -->
     <div v-else-if="orders.length === 0" class="text-center py-16 bg-white rounded-xl shadow-md border border-coffee-100">
-      <div class="w-40 h-40 mx-auto mb-6 rounded-full bg-coffee-50 flex items-center justify-center">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-coffee-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div class="w-40 h-40 mx-auto mb-6 rounded-full empty-icon flex items-center justify-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       </div>
       <h3 class="text-xl font-medium text-coffee-800 mb-2">No orders yet</h3>
       <p class="text-coffee-500 mb-6 max-w-md mx-auto">Your coffee adventures await! Browse our menu to place your first order.</p>
-      <router-link to="/menu" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-coffee-600 to-coffee-800 text-white rounded-lg hover:shadow-md transition-all duration-300">
+      <router-link to="/menu" class="router-link">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
         </svg>
@@ -33,11 +33,10 @@
           <div class="flex justify-between items-center">
             <div>
               <h2 class="text-xl font-semibold text-coffee-900">Order #{{ order.order_id }}</h2>
-              <!-- <p class="text-sm text-coffee-500">{{ formatDate(order.created_at) }}</p> -->
             </div>
             <div class="flex items-center space-x-4">
               <span :class="{
-                'px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide': true,
+                'status-badge': true,
                 'bg-amber-100 text-amber-800': order.status === 'processing',
                 'bg-emerald-100 text-emerald-800': order.status === 'completed',
                 'bg-rose-100 text-rose-800': order.status === 'cancelled',
@@ -52,24 +51,15 @@
 
         <!-- Order Footer -->
         <div class="px-6 py-4 bg-coffee-50 border-t border-coffee-200 flex justify-end gap-3">
-          <button 
-            v-if="order.status === 'Processing'" 
-            @click="selectOrder(order)" 
-            class="px-4 py-2 bg-coffee-600 text-white rounded-lg hover:bg-coffee-700 transition-colors">
+          <button
+            v-if="order.status === 'processing'"
+            @click="selectOrder(order)"
+            class="edit-order-btn">
             Edit Order
           </button>
         </div>
       </div>
     </div>
-
-    <!-- Order Edit Modal -->
-    <!-- <OrderEditModal 
-  v-if="selectedOrder" 
-  :show="true" 
-  :order="selectedOrder" 
-  @close="closeEditModal" 
-  @update="updateOrder"
-/> -->
   </div>
 </template>
 
@@ -77,11 +67,9 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { useOrderStore } from '../stores/order.js';
-import OrderEditModal from './OrderEditModal.vue';
 
 export default {
   name: 'Orders',
-  components: { OrderEditModal },
   setup() {
     const orders = ref([]);
     const isLoading = ref(false);
@@ -94,8 +82,6 @@ export default {
         const userId = 1; // Replace with actual user ID
         const response = await axios.get(`http://localhost:8000/orders/${userId}`);
         orders.value = response.data;
-        console.log(orders.value);
-
       } catch (error) {
         console.error('Failed to fetch orders:', error.message);
       } finally {
@@ -104,28 +90,11 @@ export default {
     };
 
     const selectOrder = (order) => {
-      console.log(order);
-      if (order.status === 'Processing') {
+      if (order.status === 'processing') {
         orderStore.addOrder(order);
-        // console.log(orderStore.getOrder());
-        
         selectedOrder.value = order;
       } else {
         alert('Only processing orders can be edited.');
-      }
-    };
-
-    const closeEditModal = () => {
-      selectedOrder.value = null;
-    };
-
-    const updateOrder = async (updatedOrder) => {
-      try {
-        await axios.patch(`http://localhost:8000/orders/${updatedOrder.order_id}`, updatedOrder);
-        await fetchOrders();
-        closeEditModal();
-      } catch (error) {
-        console.error('Failed to update order:', error.message);
       }
     };
 
@@ -136,13 +105,93 @@ export default {
       isLoading,
       selectedOrder,
       selectOrder,
-      closeEditModal,
-      updateOrder,
     };
   },
 };
 </script>
 
 <style scoped>
-/* Add your styles here */
+.orders-container {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: #fdfcfb;
+}
+
+h1 {
+  color: #4b2e2e;
+}
+
+h2 {
+  font-family: 'Merriweather', serif;
+}
+
+.animate-spin {
+  border-color: #b49383 transparent #b49383 transparent;
+}
+
+.empty-icon {
+  background-color: #f6f1ee;
+}
+
+.empty-icon svg {
+  color: #d1b8aa;
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.order-card {
+  transition: box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.edit-order-btn {
+  background-color: #b49383;
+  color: #fff;
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.edit-order-btn:hover {
+  background-color: #a47e6d;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.edit-order-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.06);
+}
+
+.router-link {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(to right, #b49383, #8c675a);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.router-link:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
 </style>

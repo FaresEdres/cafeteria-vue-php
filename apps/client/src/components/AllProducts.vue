@@ -14,15 +14,25 @@
 
       <!-- Loading Section -->
       <div v-if="isLoading" style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center;">
+      <div v-if="isLoading" style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center;">
         <p>Loading products...</p>
       </div>
 
       <!-- Products List Section -->
       <div v-else-if="products && products.length > 0" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
         <h2 class="page_subtitle" style="text-align: center; font-size: 36px; margin-bottom: 30px; color: #3E2723;">All Products</h2>
+      <div v-else-if="products && products.length > 0" style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <h2 class="page_subtitle" style="text-align: center; font-size: 36px; margin-bottom: 30px; color: #3E2723;">All Products</h2>
 
         <table style="width: 100%; border-collapse: collapse;">
+        <table style="width: 100%; border-collapse: collapse;">
           <thead>
+            <tr style="background-color: #f5f5f5;">
+              <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">ID</th>
+              <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Image</th>
+              <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Product Name</th>
+              <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Price</th>
+              <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Actions</th>
             <tr style="background-color: #f5f5f5;">
               <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">ID</th>
               <th style="padding: 12px; text-align: left; border-bottom: 2px solid #ddd;">Image</th>
@@ -68,7 +78,9 @@
 
         <!-- Pagination Controls -->
         <div style="text-align: center; margin-top: 30px;">
+        <div style="text-align: center; margin-top: 30px;">
           <button
+            style="background-color: #5D4037; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; margin-right: 10px;"
             style="background-color: #5D4037; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; margin-right: 10px;"
             :disabled="currentPage === 1"
             @click="goToPage(currentPage - 1)"
@@ -76,7 +88,9 @@
             Previous
           </button>
           <span style="margin: 0 15px; color: #5D4037; font-weight: 500;">Page {{ currentPage }} of {{ totalPages }}</span>
+          <span style="margin: 0 15px; color: #5D4037; font-weight: 500;">Page {{ currentPage }} of {{ totalPages }}</span>
           <button
+            style="background-color: #5D4037; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;"
             style="background-color: #5D4037; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;"
             :disabled="currentPage === totalPages"
             @click="goToPage(currentPage + 1)"
@@ -89,9 +103,17 @@
       <!-- No Products Message -->
       <div v-else style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center;">
         <p style="color: #5D4037;">No products found</p>
+      <div v-else style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center;">
+        <p style="color: #5D4037;">No products found</p>
       </div>
 
       <!-- Edit Product Modal -->
+      <div v-if="showEditModal" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+        <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 600px; max-width: 90%; max-height: 90vh; overflow-y: auto;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2 style="font-size: 24px; color: #3E2723;">Edit Product</h2>
+            <button @click="closeEditModal" style="background: none; border: none; font-size: 20px; cursor: pointer; color: #5D4037;">&times;</button>
+          </div>
       <div v-if="showEditModal" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
         <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 600px; max-width: 90%; max-height: 90vh; overflow-y: auto;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -202,20 +224,21 @@
 
 <script>
 import { getRequest, postRequest, deleteRequest, patchRequest } from "../services/httpClient.js";
+import { getRequest, postRequest, deleteRequest, patchRequest } from "../services/httpClient.js";
 
 export default {
   data() {
     return {
       isLoading: false,
-      products: [],          
+      products: [],
       currentPage: 1,
       itemsPerPage: 5,
       totalPages: 1,
-      
+
       // Modal states
       showEditModal: false,
       showDeleteModal: false,
-      
+
       // Form data
       productData: {
         name: '',
@@ -247,6 +270,7 @@ export default {
         this.isLoading = true;
         const response = await getRequest(`/products?page=${this.currentPage}`);
         const categories = await getRequest('categories');
+        const categories = await getRequest('categories');
         this.categories = categories;
         if (response.success) {
           this.products = response.data;
@@ -259,7 +283,7 @@ export default {
         this.isLoading = false;
       }
     },
-    
+
     // Modal handlers
     openEditModal(product) {
       this.showEditModal = true;
@@ -272,36 +296,37 @@ export default {
         imageFile: null
       };
     },
-    
+
     closeEditModal() {
       this.showEditModal = false;
     },
-    
+
     confirmDelete(id) {
       this.showDeleteModal = true;
       this.deleteProductId = id;
     },
-    
+
     closeDeleteModal() {
       this.showDeleteModal = false;
       this.deleteProductId = null;
     },
-    
+
     // File handlers
     onFileChange(event) {
       this.productData.imageFile = event.target.files[0];
     },
-    
+
     onEditFileChange(event) {
       this.editProductData.imageFile = event.target.files[0];
     },
-    
+
     // CRUD operations
     async handleUpdateProduct() {
       try {
         this.isLoading = true;
-        
+
         const formData = new FormData();
+        formData.append('id', this.editProductData.id);
         formData.append('id', this.editProductData.id);
         formData.append('name', this.editProductData.name);
         formData.append('description', this.editProductData.description);
@@ -326,7 +351,7 @@ export default {
         this.isLoading = false;
       }
     },
-    
+
     async handleDeleteProduct() {
       try {
         this.isLoading = true;
@@ -339,7 +364,7 @@ export default {
         this.isLoading = false;
       }
     },
-    
+
     goToPage(page) {
       if (page >= 1 && page <= this.totalPages) {
         this.currentPage = page;
@@ -372,8 +397,36 @@ input:focus, textarea:focus, select:focus {
 
 button {
   transition: all 0.3s ease;
+/* Form control styling to match user management */
+input, textarea, select {
+  transition: border-color 0.3s ease;
+  border: 1px solid #D7CCC8;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
 }
 
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #8D6E63;
+  box-shadow: 0 0 0 2px rgba(141, 110, 99, 0.2);
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Table styling to match user management */
+table {
 button:hover:not(:disabled) {
   opacity: 0.9;
 }
@@ -390,6 +443,7 @@ table {
 }
 
 th, td {
+th, td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
@@ -398,12 +452,18 @@ th, td {
 th {
   background-color: #f5f5f5;
   font-weight: 600;
+th {
+  background-color: #f5f5f5;
+  font-weight: 600;
 }
 
 tr:hover {
   background-color: #f9f9f9;
+tr:hover {
+  background-color: #f9f9f9;
 }
 
+/* Modal styling to match user management */
 /* Modal styling to match user management */
 .modal-overlay {
   position: fixed;
@@ -411,6 +471,7 @@ tr:hover {
   left: 0;
   right: 0;
   bottom: 0;
+  background-color: rgba(0,0,0,0.5);
   background-color: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
@@ -420,8 +481,14 @@ tr:hover {
 
 .modal-content {
   background: white;
+  background: white;
   padding: 30px;
   border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 600px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   width: 600px;
   max-width: 90%;
@@ -433,13 +500,23 @@ tr:hover {
 .btn-primary {
   background-color: #5D4037;
   color: white;
+/* Button colors to match user management */
+.btn-primary {
+  background-color: #5D4037;
+  color: white;
 }
 
 .btn-secondary {
   background-color: #8D6E63;
   color: white;
+.btn-secondary {
+  background-color: #8D6E63;
+  color: white;
 }
 
+.btn-danger {
+  background-color: #e74c3c;
+  color: white;
 .btn-danger {
   background-color: #e74c3c;
   color: white;

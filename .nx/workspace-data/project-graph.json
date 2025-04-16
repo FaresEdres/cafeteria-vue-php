@@ -1206,6 +1206,15 @@
         "hash": "sha512-Y1EQdcfwMSeQN/ujR5VayLOJ1BHaK+ssyk0AEzPjC+t1lITgsnccPqFjb6V+LsTp/9Iov4ysfjxLaGJ9RPtkVg=="
       }
     },
+    "npm:@fortawesome/fontawesome-common-types": {
+      "type": "npm",
+      "name": "npm:@fortawesome/fontawesome-common-types",
+      "data": {
+        "version": "6.7.2",
+        "packageName": "@fortawesome/fontawesome-common-types",
+        "hash": "sha512-Zs+YeHUC5fkt7Mg1l6XTniei3k4bwG/yo3iFUtZWd/pMx9g3fdvkSK9E0FOC+++phXOka78uJcYb8JaFkW52Xg=="
+      }
+    },
     "npm:@fortawesome/fontawesome-free": {
       "type": "npm",
       "name": "npm:@fortawesome/fontawesome-free",
@@ -1213,6 +1222,33 @@
         "version": "6.7.2",
         "packageName": "@fortawesome/fontawesome-free",
         "hash": "sha512-JUOtgFW6k9u4Y+xeIaEiLr3+cjoUPiAuLXoyKOJSia6Duzb7pq+A76P9ZdPDoAoxHdHzq6gE9/jKBGXlZT8FbA=="
+      }
+    },
+    "npm:@fortawesome/fontawesome-svg-core": {
+      "type": "npm",
+      "name": "npm:@fortawesome/fontawesome-svg-core",
+      "data": {
+        "version": "6.7.2",
+        "packageName": "@fortawesome/fontawesome-svg-core",
+        "hash": "sha512-yxtOBWDrdi5DD5o1pmVdq3WMCvnobT0LU6R8RyyVXPvFRd2o79/0NCuQoCjNTeZz9EzA9xS3JxNWfv54RIHFEA=="
+      }
+    },
+    "npm:@fortawesome/free-solid-svg-icons": {
+      "type": "npm",
+      "name": "npm:@fortawesome/free-solid-svg-icons",
+      "data": {
+        "version": "6.7.2",
+        "packageName": "@fortawesome/free-solid-svg-icons",
+        "hash": "sha512-GsBrnOzU8uj0LECDfD5zomZJIjrPhIlWU82AHwa2s40FKH+kcxQaBvBo3Z4TxyZHIyX8XTDxsyA33/Vx9eFuQA=="
+      }
+    },
+    "npm:@fortawesome/vue-fontawesome": {
+      "type": "npm",
+      "name": "npm:@fortawesome/vue-fontawesome",
+      "data": {
+        "version": "3.0.8",
+        "packageName": "@fortawesome/vue-fontawesome",
+        "hash": "sha512-yyHHAj4G8pQIDfaIsMvQpwKMboIZtcHTUvPqXjOHyldh1O1vZfH4W03VDPv5RvI9P6DLTzJQlmVgj9wCf7c2Fw=="
       }
     },
     "npm:@jest/schemas": {
@@ -5964,6 +6000,32 @@
       {
         "source": "npm:@emnapi/wasi-threads",
         "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@fortawesome/fontawesome-svg-core": [
+      {
+        "source": "npm:@fortawesome/fontawesome-svg-core",
+        "target": "npm:@fortawesome/fontawesome-common-types",
+        "type": "static"
+      }
+    ],
+    "npm:@fortawesome/free-solid-svg-icons": [
+      {
+        "source": "npm:@fortawesome/free-solid-svg-icons",
+        "target": "npm:@fortawesome/fontawesome-common-types",
+        "type": "static"
+      }
+    ],
+    "npm:@fortawesome/vue-fontawesome": [
+      {
+        "source": "npm:@fortawesome/vue-fontawesome",
+        "target": "npm:@fortawesome/fontawesome-svg-core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@fortawesome/vue-fontawesome",
+        "target": "npm:vue",
         "type": "static"
       }
     ],
