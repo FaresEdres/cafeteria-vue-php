@@ -150,54 +150,24 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { watch } from 'vue';
 import { useOrderStore } from '../stores/order.js';
-import { getRequest } from "../services/httpClient.js";
+import { useCategoryProducts } from '../composables/useCategoryProducts.js';
+
 const orderStore = useOrderStore();
 
-const main = ref([]);
-  const isLoading = ref(false);
+const {
+  main,
+  isLoading,
+  addToOrderStore,
+  ifExisting
+} = useCategoryProducts();
 
-  const fetchCategoryProducts = async (categoryId, targetRef) => {
-    try {
-      isLoading.value = true;
-      let url = 'products';
-
-      const response = await getRequest(url);
-      targetRef.value = response.data;
-    } catch (error) {
-      alert(error.message || 'Failed to fetch products');
-    } finally {
-      isLoading.value = false;
-    }
-  };
-  onMounted(() => {
-    fetchCategoryProducts(10, main);
-  });
-
-
-const addToOrderStore = (productId) => {
-  orderStore.addOrderItem(productId, 1);
-};
-
-const ifExisting = (productId) => {
-  const existingProduct = orderStore.getOrder().products.find(
-    (product) => product["product-id"] === productId
-  );
-  return !!existingProduct;
-};
-
-// Watch for changes in the order store
-watch(() => orderStore.getOrder().products, () => {
-  // This will automatically update the UI when products are removed
-  // or when the cart is cleared
-}, { deep: true });
+watch(
+  () => orderStore.getOrder().products,
+  (newProducts) => {
+    console.log('Order updated:', newProducts);
+  },
+  { deep: true }
+);
 </script>
-
-<style scoped>
-.small-heart {
-  font-size: 18px;
-  color: rgba(255, 0, 0, 0.3);
-  margin-left: 5px;
-}
-</style>
