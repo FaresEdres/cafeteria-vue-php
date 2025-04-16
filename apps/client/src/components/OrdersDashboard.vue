@@ -290,15 +290,38 @@ const goToPage = (page) => {
 };
   
   //=================== Fetch all users for filter dropdown ==================================
+  // const fetchUsers = async () => {
+  //   try {
+  //     const response = await getRequest('users');
+  //     users.value = response.data || response;
+  //   } catch (err) {
+  //     console.error('Failed to fetch users:', err);
+  //   }
+  // };
+   
   const fetchUsers = async () => {
-    try {
-      const response = await getRequest('users');
-      users.value = response.data || response;
-    } catch (err) {
-      console.error('Failed to fetch users:', err);
+  try {
+    const response = await getRequest('users');
+    const data = response.data || response;
+
+   console.log("user responce ",response);
+    // ✅ Ensure we only assign if the response is actually an array
+    if (Array.isArray(data)) {
+      users.value = data;
+    } else {
+      console.warn('Invalid user response structure:', data);
+      users.value = []; // Set empty list to avoid crashing reduce()
     }
-  };
-  
+
+   } catch (error) {
+    console.error('Error fetching users:', error);
+    alert(error.message || 'Failed to fetch users');
+    users.value = [];
+   } 
+ };
+
+
+
   // Format date for display
   const formatDateTime = (dateString) => {
     if (!dateString) return '';
