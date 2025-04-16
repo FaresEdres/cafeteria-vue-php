@@ -31,57 +31,56 @@ class OrdersController
     }
 
     public function addOrder()
-{
-    $user = $this->authenticateController->authenticated();
-    if ($user){
-    $inputData = json_decode(file_get_contents("php://input"), true);
-    if (!$inputData) {
-        echo json_encode(["error" => "Invalid JSON input"]);
-        return;
-    }
+    {
+        $user = $this->authenticateController->authenticated();
+        if ($user) {
+            $inputData = json_decode(file_get_contents("php://input"), true);
+            if (!$inputData) {
+                echo json_encode(["error" => "Invalid JSON input"]);
+                return;
+            }
 
-    $orderData = [
-        "user_id" => $user['id'],
-        "comment" => $inputData['comment']
-    ];  
-
-        $result = $this->ordersModel->addOrder($orderData);
-
-        if (isset($result["error"])) {
-            echo json_encode($result);
-            return;
-        }
-
-        $orderId = $result["id"];
-        $errors = [];
-
-        foreach ($inputData['products'] as $product) {
-            $orderProductData = [
-                "order_id" => $orderId,
-                "product_id" => $product['id'],
-                "quantity" => $product['quantity']
+            $orderData = [
+                "user_id" => $user['id'],
+                "comment" => $inputData['comment']
             ];
 
-            error_log("Order Product Data: " . print_r($orderProductData, true)); // Log the data
+            $result = $this->ordersModel->addOrder($orderData);
 
-            $orderProductResult = $this->orderProductsModel->addOrderProduct($orderProductData);
-
-            if (isset($orderProductResult["error"])) {
-                $errors[] = $orderProductResult["error"];
+            if (isset($result["error"])) {
+                echo json_encode($result);
+                return;
             }
-        }
 
-        if (!empty($errors)) {
-            echo json_encode(["errors" => $errors]);
-            return;
-        }
+            $orderId = $result["id"];
+            $errors = [];
 
-    echo json_encode(["success" => true, "order_id" => $orderId]);
+            foreach ($inputData['products'] as $product) {
+                $orderProductData = [
+                    "order_id" => $orderId,
+                    "product_id" => $product['id'],
+                    "quantity" => $product['quantity']
+                ];
+
+                error_log("Order Product Data: " . print_r($orderProductData, true)); // Log the data
+
+                $orderProductResult = $this->orderProductsModel->addOrderProduct($orderProductData);
+
+                if (isset($orderProductResult["error"])) {
+                    $errors[] = $orderProductResult["error"];
+                }
+            }
+
+            if (!empty($errors)) {
+                echo json_encode(["errors" => $errors]);
+                return;
+            }
+
+            echo json_encode(["success" => true, "order_id" => $orderId]);
+        } else {
+            echo json_encode(["error" => "Unauthorized"]);
+        }
     }
-    else {
-        echo json_encode(["error" => "Unauthorized"]);
-    }
-}
 
     public function editOrder($id)
     {
@@ -157,7 +156,7 @@ class OrdersController
     }
     public function getAllOrders($userId)
     {
-        
+
         $result = $this->db->select("order_details_view", "*", [
             "user_id" => $userId
         ]);
@@ -181,6 +180,7 @@ class OrdersController
                     'status' => $row['status'],
                     'order_id' => $orderId,
                     'total_price' => $row['total_price'],
+                    'created_at' => $row['created_at'],
                     'products' => []
                 ];
             }
@@ -233,8 +233,7 @@ class OrdersController
                     'status' => $row['status'],
                     'created_at' => $row['created_at'],
                     'total_price' => $row['total_price'],
-                    'created_at' => $row['created_at'],
-                    'status' => $row['status'],
+
                     'products' => []
                 ];
             }
