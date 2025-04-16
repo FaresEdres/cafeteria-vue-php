@@ -5,246 +5,18 @@
   "nxJsonPlugins": [],
   "fileMap": {
     "projectFileMap": {
-      "cafeteria-client": [
-        {
-          "file": "apps/client/index.html",
-          "hash": "5205719994635567476"
-        },
-        {
-          "file": "apps/client/project.json",
-          "hash": "16789602054926663301"
-        },
-        {
-          "file": "apps/client/project.json.bak",
-          "hash": "11246426028925388513"
-        },
-        {
-          "file": "apps/client/public/Cappuccino.jpg",
-          "hash": "10712570208854246210"
-        },
-        {
-          "file": "apps/client/public/about_intro.jpg",
-          "hash": "16790597133877715684"
-        },
-        {
-          "file": "apps/client/public/ahmed.jpg",
-          "hash": "179666621027004870"
-        },
-        {
-          "file": "apps/client/public/chefs.jpg",
-          "hash": "821798898945922802"
-        },
-        {
-          "file": "apps/client/public/deserts.jpg",
-          "hash": "8531586968156930665"
-        },
-        {
-          "file": "apps/client/public/elements.jpg",
-          "hash": "1484598032829440790"
-        },
-        {
-          "file": "apps/client/public/error404.avif",
-          "hash": "18029385397244351534"
-        },
-        {
-          "file": "apps/client/public/fares.jpg",
-          "hash": "15945459043001517208"
-        },
-        {
-          "file": "apps/client/public/gohar.jpg",
-          "hash": "734185266622205126"
-        },
-        {
-          "file": "apps/client/public/home.jpg",
-          "hash": "8172476829162893500"
-        },
-        {
-          "file": "apps/client/public/intro_1.jpg",
-          "hash": "14958449266339831026"
-        },
-        {
-          "file": "apps/client/public/intro_2.jpg",
-          "hash": "7399598634390039320"
-        },
-        {
-          "file": "apps/client/public/logo.jpg",
-          "hash": "1518896293152529583"
-        },
-        {
-          "file": "apps/client/public/main.jpg",
-          "hash": "14214805896665703092"
-        },
-        {
-          "file": "apps/client/public/menu.jpg",
-          "hash": "10138692521471840644"
-        },
-        {
-          "file": "apps/client/public/mostafa.jpg",
-          "hash": "10580203403392184044"
-        },
-        {
-          "file": "apps/client/public/nouran.jpg",
-          "hash": "9536177410845257213"
-        },
-        {
-          "file": "apps/client/public/quote.png",
-          "hash": "11607042677004099418"
-        },
-        {
-          "file": "apps/client/public/rahma.jpg",
-          "hash": "16682367844425355966"
-        },
-        {
-          "file": "apps/client/public/reservations.jpg",
-          "hash": "17881491778380767086"
-        },
-        {
-          "file": "apps/client/public/style.css",
-          "hash": "9469636161613714883"
-        },
-        {
-          "file": "apps/client/public/testimonials.jpg",
-          "hash": "14434334098299047524"
-        },
-        {
-          "file": "apps/client/routes/index.js",
-          "hash": "9306733044515966932",
-          "deps": [
-            "npm:vue-router"
-          ]
-        },
-        {
-          "file": "apps/client/src/App.vue",
-          "hash": "17114196596018220574"
-        },
-        {
-          "file": "apps/client/src/Wrapper.vue",
-          "hash": "11663940570605691060"
-        },
-        {
-          "file": "apps/client/src/components/About.vue",
-          "hash": "4219707032029621613"
-        },
-        {
-          "file": "apps/client/src/components/AddCategory.vue",
-          "hash": "17346407128503666722"
-        },
-        {
-          "file": "apps/client/src/components/AddProduct.vue",
-          "hash": "1807668938402874856"
-        },
-        {
-          "file": "apps/client/src/components/AddProductPage.vue",
-          "hash": "164666273719772173"
-        },
-        {
-          "file": "apps/client/src/components/AllProducts.vue",
-          "hash": "7981278636943196550"
-        },
-        {
-          "file": "apps/client/src/components/Body.vue",
-          "hash": "6193704849714902653"
-        },
-        {
-          "file": "apps/client/src/components/ChecksPage.vue",
-          "hash": "1671952273062374199"
-        },
-        {
-          "file": "apps/client/src/components/Contact.vue",
-          "hash": "1168596404323512585"
-        },
-        {
-          "file": "apps/client/src/components/Footer.vue",
-          "hash": "4636912107358559993"
-        },
-        {
-          "file": "apps/client/src/components/Header.vue",
-          "hash": "12353467686337962218"
-        },
-        {
-          "file": "apps/client/src/components/LogIn.vue",
-          "hash": "17669745062835815518"
-        },
-        {
-          "file": "apps/client/src/components/Login.vue",
-          "hash": "4256818356237559891"
-        },
-        {
-          "file": "apps/client/src/components/Menu.vue",
-          "hash": "5576502399642422516"
-        },
-        {
-          "file": "apps/client/src/components/NavBar.vue",
-          "hash": "11572285686358629807"
-        },
-        {
-          "file": "apps/client/src/components/NotFound.vue",
-          "hash": "8743273884192383187"
-        },
-        {
-          "file": "apps/client/src/components/OrderEditModal.vue",
-          "hash": "16941048852865907381"
-        },
-        {
-          "file": "apps/client/src/components/OrderForm.vue",
-          "hash": "12254411173469240879"
-        },
-        {
-          "file": "apps/client/src/components/Orders.vue",
-          "hash": "15410861733026040984"
-        },
-        {
-          "file": "apps/client/src/composables/useCategoryProducts.js",
-          "hash": "9753885895006820769",
-          "deps": [
-            "npm:vue"
-          ]
-        },
-        {
-          "file": "apps/client/src/main.js",
-          "hash": "5899206495904472392",
-          "deps": [
-            "npm:bootstrap",
-            "npm:@fortawesome/fontawesome-free",
-            "npm:vue",
-            "npm:pinia"
-          ]
-        },
-        {
-          "file": "apps/client/src/services/httpClient.js",
-          "hash": "2221889668659837220",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "apps/client/src/stores/order.js",
-          "hash": "11402614832864304830",
-          "deps": [
-            "npm:pinia"
-          ]
-        },
-        {
-          "file": "apps/client/vite.config.js",
-          "hash": "14429273049037401599",
-          "deps": [
-            "npm:vite",
-            "npm:@vitejs/plugin-vue"
-          ]
-        }
-      ],
       "cafeteria-server": [
         {
           "file": "apps/server/composer.json",
-          "hash": "13839380369736828812"
+          "hash": "6715692382954347685"
         },
         {
           "file": "apps/server/composer.lock",
-          "hash": "9674028444457076677"
+          "hash": "3620208319100485534"
         },
         {
           "file": "apps/server/controller/OrdersController.php",
-          "hash": "15688036729207552098"
+          "hash": "10911500920715472513"
         },
         {
           "file": "apps/server/controller/authenticateController.php",
@@ -260,7 +32,7 @@
         },
         {
           "file": "apps/server/controller/userController.php",
-          "hash": "10084777104538396712"
+          "hash": "16749086572242728952"
         },
         {
           "file": "apps/server/db/connector.php",
@@ -272,11 +44,11 @@
         },
         {
           "file": "apps/server/helper/CRUD.php",
-          "hash": "9336884247532277319"
+          "hash": "8868371125100419404"
         },
         {
           "file": "apps/server/helper/createTables.php",
-          "hash": "14037448889933113357"
+          "hash": "2357291851059798512"
         },
         {
           "file": "apps/server/helper/errors.php",
@@ -296,11 +68,11 @@
         },
         {
           "file": "apps/server/model/orderModel.php",
-          "hash": "4373718435425222687"
+          "hash": "17426347948732231772"
         },
         {
           "file": "apps/server/model/orderProuductsModel.php",
-          "hash": "3797518411465021545"
+          "hash": "1315398974644494802"
         },
         {
           "file": "apps/server/model/productModel.php",
@@ -451,12 +223,44 @@
           "hash": "15675725522233241046"
         },
         {
+          "file": "apps/server/public/uploads/product_67fe9ebed8c03.png",
+          "hash": "2523743049915779130"
+        },
+        {
+          "file": "apps/server/public/uploads/product_67feb3bb1ecb2.jpeg",
+          "hash": "8020922199691624941"
+        },
+        {
+          "file": "apps/server/public/uploads/product_67feb3ecdc137.jpeg",
+          "hash": "3959566670709004718"
+        },
+        {
+          "file": "apps/server/public/uploads/product_67feb40f3dd6e.jpeg",
+          "hash": "2684990344735988210"
+        },
+        {
+          "file": "apps/server/public/uploads/product_67feb456f411e.jpeg",
+          "hash": "10547516488806343061"
+        },
+        {
+          "file": "apps/server/public/uploads/product_67febba5b0755.jpeg",
+          "hash": "9935271792509624162"
+        },
+        {
+          "file": "apps/server/public/uploads/product_67febbc652bea.jpeg",
+          "hash": "4327718039951899588"
+        },
+        {
+          "file": "apps/server/public/uploads/product_67ff063eb00f2.jpeg",
+          "hash": "16451191308141607921"
+        },
+        {
           "file": "apps/server/router.php",
           "hash": "1089252809010127037"
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "10958918567592560247"
+          "hash": "1173041003318793290"
         },
         {
           "file": "apps/server/utils.php",
@@ -468,11 +272,243 @@
         },
         {
           "file": "apps/server/validation/productValidation.php",
-          "hash": "16411904855517832217"
+          "hash": "4804309965816728565"
         },
         {
           "file": "apps/server/validation/userValidation.php",
           "hash": "15688269226650591287"
+        }
+      ],
+      "cafeteria-client": [
+        {
+          "file": "apps/client/index.html",
+          "hash": "13933921192441493627"
+        },
+        {
+          "file": "apps/client/project.json",
+          "hash": "16789602054926663301"
+        },
+        {
+          "file": "apps/client/project.json.bak",
+          "hash": "11246426028925388513"
+        },
+        {
+          "file": "apps/client/public/Cappuccino.jpg",
+          "hash": "10712570208854246210"
+        },
+        {
+          "file": "apps/client/public/about_intro.jpg",
+          "hash": "16790597133877715684"
+        },
+        {
+          "file": "apps/client/public/ahmed.jpg",
+          "hash": "179666621027004870"
+        },
+        {
+          "file": "apps/client/public/chefs.jpg",
+          "hash": "821798898945922802"
+        },
+        {
+          "file": "apps/client/public/deserts.jpg",
+          "hash": "8531586968156930665"
+        },
+        {
+          "file": "apps/client/public/elements.jpg",
+          "hash": "1484598032829440790"
+        },
+        {
+          "file": "apps/client/public/error404.avif",
+          "hash": "18029385397244351534"
+        },
+        {
+          "file": "apps/client/public/fares.jpg",
+          "hash": "15945459043001517208"
+        },
+        {
+          "file": "apps/client/public/gohar.jpg",
+          "hash": "734185266622205126"
+        },
+        {
+          "file": "apps/client/public/home.jpg",
+          "hash": "8172476829162893500"
+        },
+        {
+          "file": "apps/client/public/intro_1.jpg",
+          "hash": "14958449266339831026"
+        },
+        {
+          "file": "apps/client/public/intro_2.jpg",
+          "hash": "7399598634390039320"
+        },
+        {
+          "file": "apps/client/public/logo.jpg",
+          "hash": "1518896293152529583"
+        },
+        {
+          "file": "apps/client/public/main.jpg",
+          "hash": "14214805896665703092"
+        },
+        {
+          "file": "apps/client/public/menu.jpg",
+          "hash": "10138692521471840644"
+        },
+        {
+          "file": "apps/client/public/mostafa.jpg",
+          "hash": "10580203403392184044"
+        },
+        {
+          "file": "apps/client/public/nouran.jpg",
+          "hash": "9536177410845257213"
+        },
+        {
+          "file": "apps/client/public/quote.png",
+          "hash": "11607042677004099418"
+        },
+        {
+          "file": "apps/client/public/rahma.jpg",
+          "hash": "16682367844425355966"
+        },
+        {
+          "file": "apps/client/public/reservations.jpg",
+          "hash": "17881491778380767086"
+        },
+        {
+          "file": "apps/client/public/style.css",
+          "hash": "9469636161613714883"
+        },
+        {
+          "file": "apps/client/public/testimonials.jpg",
+          "hash": "14434334098299047524"
+        },
+        {
+          "file": "apps/client/routes/index.js",
+          "hash": "7440427976278706182",
+          "deps": [
+            "npm:vue-router"
+          ]
+        },
+        {
+          "file": "apps/client/src/Wrapper.vue",
+          "hash": "11663940570605691060"
+        },
+        {
+          "file": "apps/client/src/components/About.vue",
+          "hash": "4219707032029621613"
+        },
+        {
+          "file": "apps/client/src/components/AddCategory.vue",
+          "hash": "17346407128503666722"
+        },
+        {
+          "file": "apps/client/src/components/AddProduct.vue",
+          "hash": "18319003580698257315"
+        },
+        {
+          "file": "apps/client/src/components/AddUser.vue",
+          "hash": "593771687786123272"
+        },
+        {
+          "file": "apps/client/src/components/AdminLayout.vue",
+          "hash": "10252315725119301278"
+        },
+        {
+          "file": "apps/client/src/components/AllProducts.vue",
+          "hash": "2488711307179818406"
+        },
+        {
+          "file": "apps/client/src/components/Body.vue",
+          "hash": "9352170568330820933"
+        },
+        {
+          "file": "apps/client/src/components/ChecksPage.vue",
+          "hash": "17328147941492298019"
+        },
+        {
+          "file": "apps/client/src/components/Contact.vue",
+          "hash": "1168596404323512585"
+        },
+        {
+          "file": "apps/client/src/components/Footer.vue",
+          "hash": "4636912107358559993"
+        },
+        {
+          "file": "apps/client/src/components/Header.vue",
+          "hash": "4161832158918039940"
+        },
+        {
+          "file": "apps/client/src/components/Login.vue",
+          "hash": "2367266445635274707"
+        },
+        {
+          "file": "apps/client/src/components/Menu.vue",
+          "hash": "6485004733611045980"
+        },
+        {
+          "file": "apps/client/src/components/NavBar.vue",
+          "hash": "6132258568030874287"
+        },
+        {
+          "file": "apps/client/src/components/NotFound.vue",
+          "hash": "8743273884192383187"
+        },
+        {
+          "file": "apps/client/src/components/OrderEditModal.vue",
+          "hash": "16941048852865907381"
+        },
+        {
+          "file": "apps/client/src/components/OrderForm.vue",
+          "hash": "5884500622056357286"
+        },
+        {
+          "file": "apps/client/src/components/Orders.vue",
+          "hash": "12282619001414094612"
+        },
+        {
+          "file": "apps/client/src/components/OrdersDashboard.vue",
+          "hash": "2389279433157038237"
+        },
+        {
+          "file": "apps/client/src/components/Users.vue",
+          "hash": "7398955320150599194"
+        },
+        {
+          "file": "apps/client/src/composables/useCategoryProducts.js",
+          "hash": "9753885895006820769",
+          "deps": [
+            "npm:vue"
+          ]
+        },
+        {
+          "file": "apps/client/src/main.js",
+          "hash": "8749756838918055214",
+          "deps": [
+            "npm:bootstrap",
+            "npm:@fortawesome/fontawesome-free",
+            "npm:vue",
+            "npm:pinia"
+          ]
+        },
+        {
+          "file": "apps/client/src/services/httpClient.js",
+          "hash": "2221889668659837220",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/client/src/stores/order.js",
+          "hash": "12758744122624227948",
+          "deps": [
+            "npm:pinia"
+          ]
+        },
+        {
+          "file": "apps/client/vite.config.js",
+          "hash": "14429273049037401599",
+          "deps": [
+            "npm:vite",
+            "npm:@vitejs/plugin-vue"
+          ]
         }
       ]
     },
@@ -491,11 +527,11 @@
       },
       {
         "file": "composer.json",
-        "hash": "13839380369736828812"
+        "hash": "6715692382954347685"
       },
       {
         "file": "composer.lock",
-        "hash": "11349439856196813733"
+        "hash": "3620208319100485534"
       },
       {
         "file": "nx.json",
@@ -507,11 +543,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "15588971228598127153"
+        "hash": "8687404481626188597"
       },
       {
         "file": "package.json",
-        "hash": "10450147080176489101"
+        "hash": "12949039408223663464"
       }
     ]
   }

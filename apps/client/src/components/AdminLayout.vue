@@ -9,8 +9,9 @@
           <li><router-link to="/admin/addproduct">Add Product</router-link></li>
           <li><router-link to="/admin/checks">Checks</router-link></li>
           <li><router-link to="/admin/orderdash">Order Dashboard</router-link></li>
-          <li class="logout-btn"><form action="/api/logout" method="POST">
-          <input type="submit" value="Logout" /></form></li>
+          <li >
+          <button @click="logout" class="logout-btn">Logout</button>
+        </li>
 
         </ul>
       </aside>
@@ -23,6 +24,7 @@
   
 <script>
 import { postRequest } from '../services/httpClient';
+import { useAuthStore } from '../stores/auth'; // Import auth store
 
 export default {
   name: 'AdminLayout',
@@ -32,8 +34,16 @@ export default {
       alert('You are not authorized to access this page');
       window.location.href = '/';
     }
+  },
+  methods: {
+    async logout() {  // <-- New logout method
+      const authStore = useAuthStore();  // Get the auth store instance
+      await authStore.logout();         // Call the store logout action
+      window.location.href = '/';         // Redirect (or use this.$router.push('/') if using router)
+    }
   }
 };
+
 </script> 
 
   <style scoped>
@@ -113,5 +123,26 @@ export default {
   transform: translateY(-1px);
 }
 
+.logout-btn {
+  background-color: #d9534f;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 2rem;
+  display: inline-block;
+}
+
+.logout-btn:hover {
+  background-color: #c9302c;
+  transform: translateY(-2px);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+}
   </style>
   
