@@ -53,7 +53,9 @@
 </template>
 
 <script>
+import { useAuthStore } from '@/stores/auth';
 import { postRequest } from "../services/httpClient.js";
+
 export default {
   data() {
     return {
@@ -62,7 +64,15 @@ export default {
       errors: {
         email: '',
         password: ''
-      }
+      },
+      // Instantiate the auth store
+      authStore: useAuthStore()
+    };
+  },
+  created() {
+    // Check if the user is already logged in. If so, redirect them to another page.
+    if (this.authStore.isLoggedIn) {
+      this.$router.push('/menu');
     }
   },
   methods: {
@@ -95,22 +105,60 @@ export default {
       const validPassword = this.validatePassword();
       return validEmail && validPassword;
     },
-    async handleLogin() {
-      if (!this.validateForm()) return;
+
+    // async handleLogin() {
+    //   if (!this.validateForm()) return;
       
-      try {
-        const formData = new FormData();
-        formData.append('email', this.email);
-        formData.append('password', this.password);
-        const message = await postRequest('login', formData);
-        console.log(message);
-        this.$router.push('/menu');
-      } catch (error) {
-        console.error('Login failed:', error);
-      }
+    //   try {
+    //     const formData = new FormData();
+    //     formData.append('email', this.email);
+    //     formData.append('password', this.password);
+        
+    //     // Send the login request
+    //     const response = await postRequest('login', formData);
+    //     console.log('Login response:', response);
+        
+    //     // After a successful login attempt, call fetchUser() to update the auth state.
+    //     await this.authStore.fetchUser();
+        
+    //     // If the user is now logged in, redirect them.
+    //     if (this.authStore.isLoggedIn) {
+    //       this.$router.push('/menu');
+    //     } else {
+    //       console.error('Login failed: user still not authenticated');
+    //     }
+    //   } catch (error) {
+    //     console.error('Login failed:', error);
+    //   }
+    // }
+
+    async handleLogin() {
+  if (!this.validateForm()) return;
+  
+  try {
+    const formData = new FormData();
+    formData.append('email', this.email);
+    formData.append('password', this.password);
+    
+    const response = await postRequest('login', formData);
+    console.log('Login response:', response);
+    
+    // Update auth store with the latest user info
+    await this.authStore.fetchUser();
+    
+    // Check user's role and route accordingly
+    if (this.authStore.user && this.authStore.user.role === 'admin') {
+      this.$router.push('/admin');
+    } else if (this.authStore.isLoggedIn) {
+      this.$router.push('/menu');
+    } else {
+      console.error('Login failed: user still not authenticated');
     }
+  } catch (error) {
+    console.error('Login failed:', error);}
   }
-}
+  }
+};
 </script>
 
 <style scoped>
