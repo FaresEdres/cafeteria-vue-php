@@ -15,14 +15,11 @@
         </div>
         <div class="product-controls">
           <div class="quantity-controls">
-            <button @click="decreaseQuantity(index)" 
-                    :disabled="product.quantity <= 1" 
-                    class="quantity-btn">
+            <button @click="decreaseQuantity(index)" :disabled="product.quantity <= 1" class="quantity-btn">
               <i class="fas fa-minus"></i>
             </button>
             <span class="quantity-display">{{ product.quantity }}</span>
-            <button @click="increaseQuantity(index)" 
-                    class="quantity-btn">
+            <button @click="increaseQuantity(index)" class="quantity-btn">
               <i class="fas fa-plus"></i>
             </button>
           </div>
@@ -39,21 +36,15 @@
         </div>
         <div class="comment-section">
           <label for="comment">Special Instructions:</label>
-          <textarea 
-            id="comment" 
-            v-model="order.comment" 
-            placeholder="Add any special instructions here..."
-            rows="3"
-          ></textarea>
+          <textarea id="comment" v-model="order.comment" placeholder="Add any special instructions here..."
+            rows="3"></textarea>
         </div>
+        <p v-if="errors" class="error-message">{{ errors }}</p>
         <div class="actions">
           <button @click="clearCart" class="clear-btn">
             Clear Cart
           </button>
-          <button 
-            @click="submitOrder" 
-            :disabled="products.length === 0"
-            class="submit-btn">
+          <button @click="submitOrder" :disabled="products.length === 0" class="submit-btn">
             Place Order
           </button>
         </div>
@@ -65,11 +56,18 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 import { useOrderStore } from '../stores/order.js';
-import { getRequest, postRequest,deleteRequest } from '../services/httpClient.js';
+import { getRequest, postRequest, deleteRequest } from '../services/httpClient.js';
+import { useAuthStore } from '../stores/auth';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+const authStore = useAuthStore();
+
 
 const orderStore = useOrderStore();
 const order = ref({ ...orderStore.getOrder() });
 const products = ref([]);
+const errors = ref(null);
 console.log(order.value.products);
 
 const calculateTotal = () => {
@@ -96,7 +94,6 @@ const fetchProducts = async () => {
   }
 };
 
-// Watch for changes in the order store
 watch(
   () => orderStore.getOrder().products,
   () => {
@@ -104,6 +101,16 @@ watch(
   },
   { deep: true }
 );
+
+watch(
+  () => authStore.user,
+  (newUser) => {
+    if (newUser) {
+      errors.value = null;
+    }
+  }
+);
+
 
 onMounted(fetchProducts);
 
@@ -132,7 +139,7 @@ const clearCart = () => {
 const submitOrder = async () => {
   try {
     const orderData = {
-      user_id: (await  postRequest('authenticated')).id,
+      user_id: (await postRequest('authenticated')).id,
       comment: order.value.comment,
       products: products.value.map((product) => ({
         id: product.id,
@@ -145,9 +152,12 @@ const submitOrder = async () => {
       console.log(`order/${order.order_id}`);
     }
     clearCart();
-    alert("Order submitted successfully!");
+    //alert("Order submitted successfully!");
+    router.push('/orders');
   } catch (error) {
-    alert("Failed to submit order: " + error.message);
+    //alert("Failed to submit order: " + "please login");
+    errors.value = "You must log in to place an order.";
+    router.push('/login');
   }
 };
 </script>
@@ -159,7 +169,7 @@ const submitOrder = async () => {
   padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .empty-cart {
@@ -183,7 +193,7 @@ const submitOrder = async () => {
 
 .product-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .product-details {
@@ -215,7 +225,7 @@ const submitOrder = async () => {
   background: #fff;
   padding: 0.25rem;
   border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .quantity-btn {
@@ -311,7 +321,8 @@ const submitOrder = async () => {
   margin-top: 1.5rem;
 }
 
-.clear-btn, .submit-btn {
+.clear-btn,
+.submit-btn {
   flex: 1;
   padding: 0.75rem;
   border: none;
@@ -342,5 +353,10 @@ const submitOrder = async () => {
 .submit-btn:disabled {
   background: #ccc;
   cursor: not-allowed;
+}
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
 }
 </style>

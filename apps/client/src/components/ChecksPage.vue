@@ -43,9 +43,9 @@
           <td>{{ order.total_price }} EGP</td>
           <td>{{ order.created_at }} </td>
           <td class="action-buttons">
-           <button @click="showOrderDetails(order)" class="view-btn">View</button>
-           <button @click="() => cancelOrder(order)" class="cancel-btn">Cancel</button>
-           <button @click="() => doneOrder(order)" class="edit-btn">Done</button>
+            <button @click="showOrderDetails(order)" class="view-btn">View</button>
+            <button @click="() => cancelOrder(order)" class="cancel-btn">Cancel</button>
+            <button @click="() => doneOrder(order)" class="edit-btn">Done</button>
           </td>
         </tr>
       </tbody>
@@ -93,8 +93,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';  // Fixed: Added computed import
-import { getRequest, patchRequest ,patchOrderRequest} from '@/services/httpClient';
+import { ref, onMounted, computed } from 'vue';
+import { getRequest, patchRequest, patchOrderRequest } from '@/services/httpClient';
 
 const dateFrom = ref('');
 const dateTo = ref('');
@@ -113,7 +113,7 @@ const usersMap = computed(() => {
   }, {});
 });
 
-//=================== User Fetching====================  
+//=================== User Fetching====================
 // const fetchUsers = async () => {
 //   try {
 //     isLoading.value = true;
@@ -153,8 +153,8 @@ const fetchUsers = async () => {
   }
 };
 
- 
-//=================== Orders Fetching====================  
+
+//=================== Orders Fetching====================
 const fetchOrders = async () => {
   try {
     isLoading.value = true;
@@ -169,28 +169,28 @@ const fetchOrders = async () => {
     if (dateTo.value) params.dateTo = dateTo.value;
 
 
-      // Don't send date filters to backend since it doesn't support them
-       const response = await getRequest(endpoint);
+    // Don't send date filters to backend since it doesn't support them
+    const response = await getRequest(endpoint);
 
-       console.log(" my Orders  Debug", response);
+    console.log(" my Orders  Debug", response);
 
-        // Get raw orders list
-        const rawOrders = response.data || response;
+    // Get raw orders list
+    const rawOrders = response.data || response;
 
-         // Apply frontend filtering based on selected dates
-         orders.value = rawOrders.filter(order => {
-          const orderDate = new Date(order.created_at);
-         const from = dateFrom.value ? new Date(dateFrom.value) : null;
-          const to = dateTo.value ? new Date(dateTo.value) : null;
+    // Apply frontend filtering based on selected dates
+    orders.value = rawOrders.filter(order => {
+      const orderDate = new Date(order.created_at);
+      const from = dateFrom.value ? new Date(dateFrom.value) : null;
+      const to = dateTo.value ? new Date(dateTo.value) : null;
 
-          console.log(" my orders.value  Debug", orders.value);
+      console.log(" my orders.value  Debug", orders.value);
 
-         // Filtering logic
-          if (from && orderDate < from) return false;
-          if (to && orderDate > to) return false;
+      // Filtering logic
+      if (from && orderDate < from) return false;
+      if (to && orderDate > to) return false;
 
-          return true; // Show this order
-   });
+      return true; // Show this order
+    });
     //======================================================
   } catch (error) {
     console.error('Error fetching orders:', error);
@@ -201,7 +201,7 @@ const fetchOrders = async () => {
   }
 };
 
-//==================== Cancel Order ====================  
+//==================== Cancel Order ====================
 const cancelOrder = async (order) => {
   if (!order?.order_id) {
     console.error('Invalid order object:', order);
@@ -212,9 +212,9 @@ const cancelOrder = async (order) => {
   if (confirm(`Are you sure you want to cancel order #${order.order_id}?`)) {
     try {
       isLoading.value = true;
-      
-      await patchOrderRequest(`orders/${order.order_id}`, { 
-        status: 'cancel' 
+
+      await patchOrderRequest(`orders/${order.order_id}`, {
+        status: 'cancel'
       });
       await fetchOrders(); // Refresh the orders list
       alert(`Order #${order.order_id} has been cancelled successfully`);
@@ -227,7 +227,7 @@ const cancelOrder = async (order) => {
   }
 };
 
-//==================== Complete Order ====================  
+//==================== Complete Order ====================
 const doneOrder = async (order) => {
   if (!order?.order_id) {
     console.error('Invalid order object:', order);
@@ -238,8 +238,8 @@ const doneOrder = async (order) => {
   if (confirm(`Mark order #${order.order_id} as completed?`)) {
     try {
       isLoading.value = true;
-      await patchOrderRequest(`orders/${order.order_id}`, { 
-        status: 'done' 
+      await patchOrderRequest(`orders/${order.order_id}`, {
+        status: 'done'
       });
       await fetchOrders(); // Refresh the orders list
       alert(`Order #${order.order_id} has been marked as completed`);

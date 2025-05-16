@@ -7,22 +7,14 @@
         <form @submit.prevent="handleAddCategory">
           <div style="margin-bottom: 20px;">
             <label for="name" style="display: block; margin-bottom: 5px; color: #232323;">Category Name</label>
-            <input
-              v-model="categoryData.name"
-              type="text"
-              id="name"
-              class="form-control"
-              placeholder="Enter category name"
-              style="width: 100%; padding: 10px; border: 1px solid #c4ab9f;"
-            />
+            <input v-model="categoryData.name" type="text" id="name" class="form-control"
+              placeholder="Enter category name" style="width: 100%; padding: 10px; border: 1px solid #c4ab9f;" />
           </div>
 
           <div style="text-align: center;">
-            <button
-              type="submit"
+            <button type="submit"
               style="background-color: #c4ab9f; color: white; padding: 12px 30px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;"
-              :disabled="isLoading"
-            >
+              :disabled="isLoading">
               {{ isLoading ? "Adding..." : "Add Category" }}
             </button>
           </div>
@@ -63,12 +55,12 @@ export default {
 
         const formData = new FormData();
         formData.append('name', this.categoryData.name);
-        
-         await postRequest('categories', formData);
+
+        await postRequest('categories', formData);
 
         this.successMessage = 'Category added successfully!';
         this.categoryData.name = '';
-         this.$router.push('/add-product');
+        this.$router.push('/add-product');
       } catch (err) {
         this.errorMessage = err.response?.data?.message || 'Failed to add category';
       } finally {

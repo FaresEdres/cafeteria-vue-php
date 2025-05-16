@@ -39,7 +39,8 @@
               <div class="themenu_col_title">Drinks</div>
               <div class="dish_list">
                 <div v-for="product in drinks" :key="product.id" class="dish">
-                  <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                  <div
+                    class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
                     <div class="dish_title">{{ product.name }}</div>
                     <div class="dish_price">${{ product.price }}</div>
                   </div>
@@ -49,22 +50,15 @@
                     </div>
                   </div>
                   <div class="dish_image mt-2 mb-2">
-                    <img :src="'http://localhost:8000/public/uploads/' + product.image" :alt="product.name" class="img-fluid"
-                      style="max-width: 50%; border-radius: 8px;" />
+                    <img :src="'http://localhost:8000/public/uploads/' + product.image" :alt="product.name"
+                      class="img-fluid" style="max-width: 50%; border-radius: 8px;" />
                   </div>
                   <div class="dish_order">
-                    <button
-                      v-if="!ifExisting(product.id)"
-                      @click="addToOrderStore(product.id)"
-                      class="button sig_button trans_200"
-                    >
+                    <button v-if="!ifExisting(product.id)" @click="addToOrderStore(product.id)"
+                      class="button sig_button trans_200">
                       Order Now
                     </button>
-                    <button
-                      v-else
-                      disabled
-                      class="button sig_button trans_200"
-                    >
+                    <button v-else disabled class="button sig_button trans_200">
                       Already in Order
                     </button>
                   </div>
@@ -80,7 +74,8 @@
               <div class="themenu_col_title">Main</div>
               <div class="dish_list">
                 <div v-for="product in food" :key="product.id" class="dish">
-                  <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                  <div
+                    class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
                     <div class="dish_title">{{ product.name }}</div>
                     <div class="dish_price">${{ product.price }}</div>
                   </div>
@@ -90,22 +85,15 @@
                     </div>
                   </div>
                   <div class="dish_image mt-2 mb-2">
-                    <img :src="'http://localhost:8000/public/uploads/' + product.image" :alt="product.name" class="img-fluid"
-                      style="max-width: 50%; border-radius: 8px;" />
+                    <img :src="'http://localhost:8000/public/uploads/' + product.image" :alt="product.name"
+                      class="img-fluid" style="max-width: 50%; border-radius: 8px;" />
                   </div>
                   <div class="dish_order">
-                    <button
-                      v-if="!ifExisting(product.id)"
-                      @click="addToOrderStore(product.id)"
-                      class="button sig_button trans_200"
-                    >
+                    <button v-if="!ifExisting(product.id)" @click="addToOrderStore(product.id)"
+                      class="button sig_button trans_200">
                       Order Now
                     </button>
-                    <button
-                      v-else
-                      disabled
-                      class="button sig_button trans_200"
-                    >
+                    <button v-else disabled class="button sig_button trans_200">
                       Already in Order
                     </button>
                   </div>
@@ -121,7 +109,8 @@
               <div class="themenu_col_title">Desserts</div>
               <div class="dish_list">
                 <div v-for="product in desserts" :key="product.id" class="dish">
-                  <div class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+                  <div
+                    class="dish_title_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
                     <div class="dish_title">{{ product.name }}</div>
                     <div class="dish_price">${{ product.price }}</div>
                   </div>
@@ -131,22 +120,15 @@
                     </div>
                   </div>
                   <div class="dish_image mt-2 mb-2">
-                    <img :src="'http://localhost:8000/public/uploads/' + product.image" :alt="product.name" class="img-fluid"
-                      style="max-width: 50%; border-radius: 8px;" />
+                    <img :src="'http://localhost:8000/public/uploads/' + product.image" :alt="product.name"
+                      class="img-fluid" style="max-width: 50%; border-radius: 8px;" />
                   </div>
                   <div class="dish_order">
-                    <button
-                      v-if="!ifExisting(product.id)"
-                      @click="addToOrderStore(product.id)"
-                      class="button sig_button trans_200"
-                    >
+                    <button v-if="!ifExisting(product.id)" @click="addToOrderStore(product.id)"
+                      class="button sig_button trans_200">
                       Order Now
                     </button>
-                    <button
-                      v-else
-                      disabled
-                      class="button sig_button trans_200"
-                    >
+                    <button v-else disabled class="button sig_button trans_200">
                       Already in Order
                     </button>
                   </div>

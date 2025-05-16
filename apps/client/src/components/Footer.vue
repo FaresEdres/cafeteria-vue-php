@@ -18,7 +18,9 @@
           <!-- Footer About -->
           <div class="col-lg-6 footer_col">
             <div class="footer_about">
-              <p>At Armene Café, we pride ourselves on providing an exceptional experience. From the first sip of our handcrafted coffee to the last bite of our artisanal pastries, everything is made with care and passion. Welcome to the heart of flavor and warmth, where every moment is a little bit sweeter.</p>
+              <p>At Armene Café, we pride ourselves on providing an exceptional experience. From the first sip of our
+                handcrafted coffee to the last bite of our artisanal pastries, everything is made with care and passion.
+                Welcome to the heart of flavor and warmth, where every moment is a little bit sweeter.</p>
             </div>
           </div>
 
@@ -27,15 +29,21 @@
             <div class="footer_contact">
               <ul>
                 <li class="d-flex flex-row align-items-start justify-content-start">
-                  <div><div class="footer_contact_title">Address:</div></div>
+                  <div>
+                    <div class="footer_contact_title">Address:</div>
+                  </div>
                   <div class="footer_contact_text">481 Main Street CA 93424</div>
                 </li>
                 <li class="d-flex flex-row align-items-start justify-content-start">
-                  <div><div class="footer_contact_title">Phone:</div></div>
+                  <div>
+                    <div class="footer_contact_title">Phone:</div>
+                  </div>
                   <div class="footer_contact_text">+53 345 7953 32453</div>
                 </li>
                 <li class="d-flex flex-row align-items-start justify-content-start">
-                  <div><div class="footer_contact_title">Email:</div></div>
+                  <div>
+                    <div class="footer_contact_title">Email:</div>
+                  </div>
                   <div class="footer_contact_text">ArmanéCafé@gmail</div>
                 </li>
               </ul>
@@ -62,6 +70,4 @@ export default {
 </script>
 
 
-<style scoped>
-
-</style>
+<style scoped></style>

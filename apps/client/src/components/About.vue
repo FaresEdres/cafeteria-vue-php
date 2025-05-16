@@ -23,7 +23,7 @@
             </div>
             <div class="row">
               <div class="col-xl-4 col-md-6 intro_col">
-                <div class="about_intro_image"><img src="/chefs.jpg" alt="https://unsplash.com/@quanle2819"></div>
+                <div class="about_intro_image"><img src="/chefs1.jpg" alt="https://unsplash.com/@quanle2819"></div>
               </div>
             </div>
           </div>

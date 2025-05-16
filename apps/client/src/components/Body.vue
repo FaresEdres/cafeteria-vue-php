@@ -13,8 +13,10 @@
                 <p>
                   Welcome to <span class="heart">Armané Café</span>
                   <span class="small-heart">&#10084;</span>, where every moment is an experience of warmth and flavor.
-                  Our café is a sanctuary for coffee lovers, food enthusiasts, and anyone seeking a cozy escape. From expertly
-                  brewed coffee to handcrafted pastries, every dish is made with passion and care. Whether you're enjoying
+                  Our café is a sanctuary for coffee lovers, food enthusiasts, and anyone seeking a cozy escape. From
+                  expertly
+                  brewed coffee to handcrafted pastries, every dish is made with passion and care. Whether you're
+                  enjoying
                   a morning cup or relaxing in the evening, you'll find that every detail at Armene Café is designed for
                   your comfort and enjoyment. Join us for a truly memorable experience!
                 </p>
@@ -123,9 +125,9 @@
               <div class="row">
                 <div class="col-lg-7">
                   <div class="sig_content">
-                    <div class="sig_subtitle page_subtitle">Something new</div>
+                    <div class="sig_subtitle page_subtitle">Main Section</div>
                     <div class="sig_title">
-                      <h1>Our Signature Drink</h1>
+                      <h1>Taste the difference </h1>
                     </div>
                     <div class="rating_r sig_rating rating_r_5"><i></i><i></i><i></i><i></i><i></i></div>
                     <div class="sig_name_container d-flex flex-column align-items-start">
@@ -134,7 +136,8 @@
                       <div class="sig_price ml-auto">${{ product.price }}</div>
                     </div>
                     <div v-if="!ifExisting(product.id)">
-                      <button @click="addToOrderStore(product.id)" class="button sig_button trans_200">Order Now</button>
+                      <button @click="addToOrderStore(product.id)" class="button sig_button trans_200">Order
+                        Now</button>
                     </div>
                     <div v-else>
                       <button disabled class="button sig_button trans_200">Already in Order</button>

@@ -4,47 +4,34 @@
       <div class="armane">The Armané</div>
       <div class="cafe">Café</div>
     </div>
-    
+
     <div class="login-form-container">
       <div class="login-form">
         <h3>Welcome Back</h3>
         <p>Sign in to access your account and order history</p>
-        
+
         <form @submit.prevent="handleLogin">
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input 
-              type="email" 
-              id="email" 
-              v-model="email" 
-              placeholder="your@email.com"
-              required
-              @blur="validateEmail"
-            >
+            <input type="email" id="email" v-model="email" placeholder="your@email.com" required @blur="validateEmail">
             <span class="error-message" v-if="errors.email">{{ errors.email }}</span>
           </div>
-          
+
           <div class="form-group">
             <label for="password">Password</label>
-            <input 
-              type="password" 
-              id="password" 
-              v-model="password" 
-              placeholder="••••••••"
-              required
-              @input="validatePassword"
-            >
+            <input type="password" id="password" v-model="password" placeholder="••••••••" required
+              @input="validatePassword">
             <span class="error-message" v-if="errors.password">{{ errors.password }}</span>
           </div>
-          
+
           <button type="submit" class="login-button">Sign In</button>
         </form>
-        
+
         <div class="divider">or</div>
-        
+
         <p class="signup-text">Don't have an account? <router-link to="/contact">Contact Us!</router-link></p>
       </div>
-      
+
       <div class="login-image">
         <img src="/intro_1.jpg" alt="The Armand Cafe Interior">
       </div>
@@ -106,71 +93,48 @@ export default {
       return validEmail && validPassword;
     },
 
-    // async handleLogin() {
-    //   if (!this.validateForm()) return;
-      
-    //   try {
-    //     const formData = new FormData();
-    //     formData.append('email', this.email);
-    //     formData.append('password', this.password);
-        
-    //     // Send the login request
-    //     const response = await postRequest('login', formData);
-    //     console.log('Login response:', response);
-        
-    //     // After a successful login attempt, call fetchUser() to update the auth state.
-    //     await this.authStore.fetchUser();
-        
-    //     // If the user is now logged in, redirect them.
-    //     if (this.authStore.isLoggedIn) {
-    //       this.$router.push('/menu');
-    //     } else {
-    //       console.error('Login failed: user still not authenticated');
-    //     }
-    //   } catch (error) {
-    //     console.error('Login failed:', error);
-    //   }
-    // }
-
     async handleLogin() {
-  if (!this.validateForm()) return;
-  
-  try {
-    const formData = new FormData();
-    formData.append('email', this.email);
-    formData.append('password', this.password);
-    
-    const response = await postRequest('login', formData);
-    console.log('Login response:', response);
-    
-    // Update auth store with the latest user info
-    await this.authStore.fetchUser();
-    
-    // Check user's role and route accordingly
-    if (this.authStore.user && this.authStore.user.role === 'admin') {
-      this.$router.push('/admin');
-    } else if (this.authStore.isLoggedIn) {
-      this.$router.push('/menu');
-    } else {
-      console.error('Login failed: user still not authenticated');
+      if (!this.validateForm()) return;
+
+      try {
+        const formData = new FormData();
+        formData.append('email', this.email);
+        formData.append('password', this.password);
+
+        const response = await postRequest('login', formData);
+        console.log('Login response:', response);
+
+        // Update auth store with the latest user info
+        await this.authStore.fetchUser();
+
+        // Check user's role and route accordingly
+        if (this.authStore.user && this.authStore.user.role === 'admin') {
+          this.$router.push('/admin/users');
+        } else if (this.authStore.isLoggedIn) {
+          this.$router.push('/menu');
+        } else {
+          console.error('Login failed: user still not authenticated');
+        }
+      } catch (error) {
+        this.errors.password = 'Invalid email or password';
+      }
     }
-  } catch (error) {
-    console.error('Login failed:', error);}
-  }
   }
 };
 </script>
 
 <style scoped>
-.armane{
+.armane {
   font-family: 'Dancing Script', cursive;
   font-size: 50px;
 }
-.cafe{
+
+.cafe {
   margin-left: 0px !important;
   font-family: 'Dancing Script', cursive;
   font-size: 50px;
 }
+
 .login-container {
   font-family: 'Playfair Display', serif;
   color: #3E2723;
@@ -263,7 +227,8 @@ export default {
   color: #A1887F;
 }
 
-.divider::before, .divider::after {
+.divider::before,
+.divider::after {
   content: "";
   flex: 1;
   border-bottom: 1px solid #D7CCC8;
@@ -304,10 +269,9 @@ export default {
   .login-form-container {
     flex-direction: column;
   }
-  
+
   .login-image {
     display: none;
   }
 }
-
 </style>

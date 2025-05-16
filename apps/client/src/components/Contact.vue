@@ -6,7 +6,9 @@
           <div class="col-lg-6">
             <div class="contact_title">Contact info</div>
             <div class="contact_text">
-              <p>Welcome to Armané Café — your cozy corner for handcrafted coffee, artisan pastries, and warm conversations. Whether you're here for a quick espresso or to unwind with friends, our doors are always open. Stop by and taste the difference passion makes.</p>
+              <p>Welcome to Armané Café — your cozy corner for handcrafted coffee, artisan pastries, and warm
+                conversations. Whether you're here for a quick espresso or to unwind with friends, our doors are always
+                open. Stop by and taste the difference passion makes.</p>
             </div>
             <div class="contact_logo_container">
               <div class="contact_logo_title">The Armané</div>
@@ -38,7 +40,8 @@
                 </ul>
                 <div class="contact_social">
                   <ul class="d-flex flex-row align-items-center justify-content-start">
-                    <li><a href="https://www.pinterest.com/"><i class="fab fa-pinterest" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.pinterest.com/"><i class="fab fa-pinterest" aria-hidden="true"></i></a>
+                    </li>
                     <li><a href="https://www.facebook.com/"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                     <li><a href="https://www.twitter.com/"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
                     <li><a href="https://www.dribbble.com/"><i class="fab fa-dribbble" aria-hidden="true"></i></a></li>

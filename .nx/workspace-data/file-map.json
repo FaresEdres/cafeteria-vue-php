@@ -16,7 +16,7 @@
         },
         {
           "file": "apps/server/controller/OrdersController.php",
-          "hash": "10911500920715472513"
+          "hash": "10260710099064703742"
         },
         {
           "file": "apps/server/controller/authenticateController.php",
@@ -28,7 +28,7 @@
         },
         {
           "file": "apps/server/controller/productController.php",
-          "hash": "16965279601550432317"
+          "hash": "177496245009252645"
         },
         {
           "file": "apps/server/controller/userController.php",
@@ -40,7 +40,7 @@
         },
         {
           "file": "apps/server/db/credentials.php",
-          "hash": "5399247191918772222"
+          "hash": "17385972433202449924"
         },
         {
           "file": "apps/server/helper/CRUD.php",
@@ -68,19 +68,19 @@
         },
         {
           "file": "apps/server/model/orderModel.php",
-          "hash": "17426347948732231772"
+          "hash": "13580017215535742285"
         },
         {
           "file": "apps/server/model/orderProuductsModel.php",
-          "hash": "1315398974644494802"
+          "hash": "5371215946076348620"
         },
         {
           "file": "apps/server/model/productModel.php",
-          "hash": "14713017826910958936"
+          "hash": "4660763052264754852"
         },
         {
           "file": "apps/server/model/userModel.php",
-          "hash": "3474493524827554451"
+          "hash": "8858210019450615432"
         },
         {
           "file": "apps/server/project.json",
@@ -255,12 +255,20 @@
           "hash": "16451191308141607921"
         },
         {
+          "file": "apps/server/public/uploads/product_67ffe8aa085e9.png",
+          "hash": "3677838186307673320"
+        },
+        {
+          "file": "apps/server/public/uploads/users/6815de33ebedd.jpeg",
+          "hash": "9253802436987836376"
+        },
+        {
           "file": "apps/server/router.php",
           "hash": "1089252809010127037"
         },
         {
           "file": "apps/server/routes.php",
-          "hash": "1173041003318793290"
+          "hash": "445365917823017866"
         },
         {
           "file": "apps/server/utils.php",
@@ -307,6 +315,14 @@
         {
           "file": "apps/client/public/chefs.jpg",
           "hash": "821798898945922802"
+        },
+        {
+          "file": "apps/client/public/chefs1.jpg",
+          "hash": "4680354731889958712"
+        },
+        {
+          "file": "apps/client/public/chefs2.jpg",
+          "hash": "3134055564544964850"
         },
         {
           "file": "apps/client/public/deserts.jpg",
@@ -389,27 +405,27 @@
         },
         {
           "file": "apps/client/src/Wrapper.vue",
-          "hash": "11663940570605691060"
+          "hash": "2068155264500378052"
         },
         {
           "file": "apps/client/src/components/About.vue",
-          "hash": "4219707032029621613"
+          "hash": "6838820709936317058"
         },
         {
           "file": "apps/client/src/components/AddCategory.vue",
-          "hash": "17346407128503666722"
+          "hash": "8461680841061151702"
         },
         {
           "file": "apps/client/src/components/AddProduct.vue",
-          "hash": "18319003580698257315"
+          "hash": "18276920868215740645"
         },
         {
           "file": "apps/client/src/components/AddUser.vue",
-          "hash": "593771687786123272"
+          "hash": "10727504723988681360"
         },
         {
           "file": "apps/client/src/components/AdminLayout.vue",
-          "hash": "10252315725119301278"
+          "hash": "6969213469866214037"
         },
         {
           "file": "apps/client/src/components/AllProducts.vue",
@@ -417,19 +433,19 @@
         },
         {
           "file": "apps/client/src/components/Body.vue",
-          "hash": "9352170568330820933"
+          "hash": "178787154471304942"
         },
         {
           "file": "apps/client/src/components/ChecksPage.vue",
-          "hash": "17328147941492298019"
+          "hash": "16583186515037867432"
         },
         {
           "file": "apps/client/src/components/Contact.vue",
-          "hash": "1168596404323512585"
+          "hash": "6446891591876727617"
         },
         {
           "file": "apps/client/src/components/Footer.vue",
-          "hash": "4636912107358559993"
+          "hash": "7798461122067087181"
         },
         {
           "file": "apps/client/src/components/Header.vue",
@@ -437,15 +453,15 @@
         },
         {
           "file": "apps/client/src/components/Login.vue",
-          "hash": "2367266445635274707"
+          "hash": "10718266393234633017"
         },
         {
           "file": "apps/client/src/components/Menu.vue",
-          "hash": "6485004733611045980"
+          "hash": "12385020190754348298"
         },
         {
           "file": "apps/client/src/components/NavBar.vue",
-          "hash": "6132258568030874287"
+          "hash": "2986680904666259129"
         },
         {
           "file": "apps/client/src/components/NotFound.vue",
@@ -457,11 +473,11 @@
         },
         {
           "file": "apps/client/src/components/OrderForm.vue",
-          "hash": "5884500622056357286"
+          "hash": "6450078337351202314"
         },
         {
           "file": "apps/client/src/components/Orders.vue",
-          "hash": "12282619001414094612"
+          "hash": "10706168601924600702"
         },
         {
           "file": "apps/client/src/components/OrdersDashboard.vue",
@@ -469,7 +485,11 @@
         },
         {
           "file": "apps/client/src/components/Users.vue",
-          "hash": "7398955320150599194"
+          "hash": "12898245712693057796"
+        },
+        {
+          "file": "apps/client/src/components/side_bar.vue",
+          "hash": "15247998969241919216"
         },
         {
           "file": "apps/client/src/composables/useCategoryProducts.js",
@@ -493,6 +513,13 @@
           "hash": "2221889668659837220",
           "deps": [
             "npm:axios"
+          ]
+        },
+        {
+          "file": "apps/client/src/stores/auth.js",
+          "hash": "3937048794561509058",
+          "deps": [
+            "npm:pinia"
           ]
         },
         {
@@ -523,7 +550,7 @@
       },
       {
         "file": "README.md",
-        "hash": "13454385417909392150"
+        "hash": "13086197164671399225"
       },
       {
         "file": "composer.json",
@@ -543,11 +570,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "8687404481626188597"
+        "hash": "8471911128950113439"
       },
       {
         "file": "package.json",
-        "hash": "12949039408223663464"
+        "hash": "14378815162002889205"
       }
     ]
   }
